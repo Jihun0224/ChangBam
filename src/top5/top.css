@@ -1,0 +1,43 @@
+.topbox{
+    border: 1px ;
+    width: 750px;
+    height: 200px;
+    position: absolute;
+    top:130px;
+    left: 880px;
+    transform: translate(-50%,-50%);
+    margin-left: 10px;
+    
+}
+.toptitle{
+    border: 1px solid rgb(136, 135, 135);
+    width: 150px;
+    height: 200px;
+    position: absolute;
+    background-color:white;
+}
+.toptitle p{
+    text-align: center;
+    font-size: 30px;
+    color: rgb(58, 57, 57);
+    margin-bottom: 0px;
+    margin-top: 30px;
+}
+.toptext{
+    border: 1px solid rgb(136, 135, 135);
+    background-color:white;
+    left: 150px;
+    width: 600px;
+    height: 200px;
+    position: absolute;
+}
+.toptext ol{
+    padding-left: 35px;
+}
+.toptext li{
+    padding-bottom: 8px;
+}
+.toptext a{
+    text-decoration: none;
+    color: rgb(58, 57, 57);
+}

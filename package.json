@@ -1,0 +1,64 @@
+{
+  "name": "changwon_night",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^4.10.0",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "^4.0.0-alpha.56",
+    "@material-ui/styles": "^4.10.0",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "@toast-ui/editor-plugin-color-syntax": "^1.0.0",
+    "@toast-ui/react-editor": "^2.0.1",
+    "aws-sdk": "^2.742.0",
+    "body-parser": "^1.19.0",
+    "http-proxy-middleware": "^1.0.5",
+    "jquery": "^3.5.1",
+    "kakaojs": "^1.2.0",
+    "multer": "^1.4.2",
+    "multer-s3": "^2.9.0",
+    "npm-run-all": "^4.1.5",
+    "react": "^16.13.1",
+    "react-alert": "^7.0.1",
+    "react-dom": "^16.13.1",
+    "react-emojipicker": "^1.1.1",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.1",
+    "react-scroll-to-bottom": "^2.0.0",
+    "react-toastify": "^6.0.5",
+    "serve-static": "^1.14.1",
+    "socket.io": "^2.3.0",
+    "socket.io-client": "^2.3.0",
+    "suneditor-react": "^2.13.2",
+    "toasted-notes": "^3.2.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "start:client": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "devDependencies": {},
+  "author": "",
+  "license": "ISC"
+}

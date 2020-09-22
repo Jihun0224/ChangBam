@@ -1,0 +1,91 @@
+.picture {
+  height: 250px;
+  width: 600px;
+}
+.picture input {
+  display: none;
+  position: center;
+}
+.picture img {
+  width: 200px;
+  height: 200px;
+}
+.picture #Icon {
+  bottom: 100px;
+}
+
+#paper {
+  width: 900px;
+  height: 700px;
+  background-color: white;
+  border-radius: 12px;
+}
+
+.productName #productName {
+  position: relative;
+  width: 300px;
+  height: 40px;
+  top: 20px;
+  margin-top: -20px;
+  margin-bottom: 5px;
+}
+
+.productName {
+  position: absolute;
+  top: 250px;
+  margin-left: 65px;
+}
+.locationText {
+  top: 10px;
+}
+
+#location {
+  width: 300px;
+  margin-bottom: 0px;
+}
+.location {
+  position: absolute;
+  top: 345px;
+  margin-left: 170px;
+}
+
+.price #price {
+  position: relative;
+  width: 350px;
+  height: 100px;
+
+  margin-top: 10px;
+}
+
+#price {
+  width: 400px;
+  margin-bottom: -40px;
+}
+
+.price {
+  position: absolute;
+  top: 365px;
+  margin-left: 135px;
+}
+
+.price #price_label {
+  position: absolute;
+  left: 215px;
+  top: 45px;
+  width: 150px;
+}
+
+.content #content {
+  width: 600px;
+  height: 80px;
+}
+
+.background {
+  position: relative;
+  top: 40px;
+  margin-left: 140px;
+}
+.background #writing_button {
+  top: 100px;
+  left: 600px;
+}

@@ -1,0 +1,94 @@
+.view_post .view_post_paper{
+
+    width: 1020px;
+    height: auto;
+    min-height: 600px;
+}
+
+.view_post .baord_title{
+    border: 1px solid red;
+    position: absolute;
+    width: 400px;
+    height: 100px;
+    left: 640px;
+    top: 80px;
+    text-align: center;
+}
+
+.view_post_paper .postage_title{
+    width: 1020px;
+    height: 40px;
+    padding: 0 2px;
+    margin-bottom: 9px;
+    margin: 16px 0 29px;
+    padding-bottom: 17px;
+    border-bottom: 1px solid #eee;
+
+}
+.view_post_paper .postage_title .MuiTypography-root.MuiTypography-h5{
+    padding-left: 10px;
+}
+.view_post_paper .MuiTypography-root.view_post_nickname{
+    padding-left: 10px;
+}
+.view_post_paper .MuiTypography-root.view_post_etc{
+    position: absolute;
+    right:20px;
+    top:44px;
+}
+.view_post_paper .postage_info{
+    padding-left: 10px;
+    height: auto;
+    padding-bottom: 100px;
+    min-height: 410px;
+}
+.view_post_paper .MuiSvgIcon-root{
+
+    width: 70px;
+    height: 70px;
+}
+.MuiPaper-root.view_post_paper.MuiPaper-elevation1.MuiPaper-rounded .love_button{
+
+    position: relative;
+    bottom: 0%;
+    left: 463px;
+    width: 94px;
+}
+
+.view_post .comment_window{
+    width: 1020px;
+    height: auto;
+    min-height: 500px;
+
+}
+.view_post .view_post_paper_d .comment_window_d{
+    position: relative;
+    top:100px;
+    margin-bottom: 100px;
+
+}
+.view_post .view_post_paper_d{
+    position: absolute;
+    top: 230px;
+    left: 350px;
+    height: auto;
+    width: auto;
+    margin-bottom: 100px;
+}
+.view_post_paper_d .pagination_d{
+    position: relative;
+    top:100px;
+   
+}
+
+.view_post_paper_d .view_post_button{
+    position: relative;
+    top: 30px;
+}
+
+.postage_info.figure{
+    padding-bottom: 0px;
+}
+figure{
+    margin: 0;
+}

@@ -1,0 +1,25 @@
+
+.MuiSvgIcon-root{
+    position: relative;
+    top: 5px;
+    padding-right: 5px;
+}
+.MuiSvgIcon-root.MuiSvgIcon-colorSecondary{
+    position: relative;
+    top: 5px;
+    padding-right: 5px;
+}
+
+.MuiTableCell-root.MuiTableCell-body.next_y {
+    border-top: 1px solid rgba(224, 224, 224, 1);
+}
+.MuiTableCell-root.MuiTableCell-body.next_y1.MuiTableCell-alignCenter{
+    padding-top: 8PX;
+    border-top: 1px solid rgba(224, 224, 224, 1);
+
+}
+.MuiTableCell-root.MuiTableCell-body.next_y2.MuiTableCell-alignCenter{
+    padding-top: 8PX;
+    border-top: 1px solid rgba(224, 224, 224, 1);
+
+}

@@ -1,0 +1,64 @@
+.cardd {
+  border: 1;
+}
+
+.bmbm2 {
+  background-color: white;
+  height: 110px;
+  border-radius: 20px;
+}
+.butto2n {
+  border: 1px solid rgb(204, 18, 18);
+
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.title1 {
+  position: absolute;
+  width: 700px;
+  height: 50px;
+  margin-left: 10px;
+  margin-top: 5px;
+}
+.apply1 {
+  xposition: absolute;
+  margin-left: 800px;
+}
+.date {
+  position: absolute;
+  margin-left: 600px;
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.MuiChip-root.MuiChip-colorPrimary.MuiChip-outlined.MuiChip-outlinedPrimary.MuiChip-sizeSmall {
+  margin-left: 5px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  font-size: 10px;
+}
+.MuiChip-root.MuiChip-colorPrimary.MuiChip-sizeSmall {
+  margin-left: 5px;
+}
+.meeting_date {
+  position: absolute;
+  left: 850px;
+  margin-top: 5px;
+  font-size: small;
+}
+
+.page {
+  position: absolute;
+  right: 400px;
+  top: 1000px;
+  height: 150px;
+}
+
+.grids .list_ul {
+  padding-left: 0px;
+  margin-bottom: 4px;
+  margin-top: 4px;
+  width: 915px;
+}
+.grids {
+  width: 1000px;
+}

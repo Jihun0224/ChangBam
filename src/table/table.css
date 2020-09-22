@@ -1,0 +1,26 @@
+.maintable{
+    border: 1px solid black;
+    width: 900px;
+    height: 700px;
+    margin-left: 200px;
+}
+.row {
+    border: 1px solid #e0d1d1;
+    width: 800px;
+    height: 60px;
+    margin-left: 50px;
+    margin-top: 10px;
+    border-radius: 24px;
+    background-color: white;
+}
+.row_title{
+    border: 1px solid black;
+    width: 500px;
+    height: 40px;
+    margin-top: 8px;
+    margin-left: 20px;
+    
+}
+.row_title span{
+    font-size: 18px;
+}

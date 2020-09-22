@@ -1,0 +1,25 @@
+.MuiPaper-root.MuiMenu-paper.MuiPopover-paper.MuiPaper-elevation8.MuiPaper-rounded {
+    outline: 0;
+    max-width: calc(100% - 32px);
+    min-width: 16px;
+    max-height: calc(100% - 32px);
+    min-height: 16px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 160px;
+    height: 90px;
+    top: 450px;
+    left: 770px;
+    position: absolute;
+}
+ hr{
+    margin: 0;
+}
+.changwonmenu .MuiButton-label {
+    width: 100%;
+    display: inherit;
+    align-items: inherit;
+    justify-content: inherit;
+    font-size: 18px;
+    font-weight: bold;
+}

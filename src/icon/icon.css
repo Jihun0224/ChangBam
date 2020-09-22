@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Jua&display=swap");
+.aaa {
+  border: 1px solid blue;
+  height: 60px;
+  width: 500px;
+  position: absolute;
+  right: 200px;
+}
+.aaa button {
+  margin-left: 5px;
+}
+button p {
+  font-family: "Jua", sans-serif;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.ggg {
+  height: 60px;
+  width: 500px;
+  border: 1px solid black;
+}
+
+.cccc {
+  width: 48px;
+  float: right;
+}
+.MuiPaper-rounded {
+  border-radius: 4px;
+}
+.MuiPaper-root.MuiMenu-paper.MuiPopover-paper.MuiPaper-elevation8.MuiPaper-rounded {
+  outline: 0;
+  max-width: calc(100% - 32px);
+  min-width: 16px;
+  max-height: calc(100% - 32px);
+  min-height: 16px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 120px;
+  height: 88px;
+}
+
+.switchbar
+  li.MuiButtonBase-root.MuiListItem-root.MuiMenuItem-root.MuiMenuItem-gutters.MuiListItem-gutters.MuiListItem-button {
+  width: 400px;
+  overflow: hidden;
+  font-size: 1rem;
+  box-sizing: border-box;
+  min-height: 48px;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  padding-top: 6px;
+  white-space: nowrap;
+  letter-spacing: 0.00938em;
+  padding-bottom: 6px;
+  margin-left: 100px;
+}
+.MuiButtonBase-root.MuiIconButton-root.MuiIconButton-colorInherit.MuiIconButton-edgeEnd {
+  float: right;
+}
+#dialog .MuiDialog-paper {
+  margin: 32px;
+  position: relative;
+  height: 400px;
+}

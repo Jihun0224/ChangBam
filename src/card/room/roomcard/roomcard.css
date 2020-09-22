@@ -1,0 +1,164 @@
+.roomcardMain {
+    
+    width: 250px;
+    height: 342px;
+
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+
+}
+
+.cardMain.MuiPaper-elevation1 {
+    box-shadow: 0px 2px 2px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 4px 2px rgba(0,0,0,0.12);
+}
+
+
+.marcketimageArea{
+    margin-top:0px;
+    widows: 300px;
+    height:150px;  
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    
+}
+#tagoption{
+    position: relative;
+    border-radius: 2px;
+    
+    font-weight: bold;
+    width: 55px;
+    height:19px;
+    line-height: 19px;  /* 세로중앙정렬 height 값과 동일하게설정하면됨*/
+    font-size:10px;
+    text-align: center;/* 가로중앙정렬*/
+    box-shadow: 1px 1px 0px 0.2px rgb(187, 187, 187);
+  
+
+    color:#95968D;
+    margin-left:6px;
+    margin-top:6px;
+    margin-bottom:-4px;
+}
+
+.tagcontainer{
+   /* border:1px solid black;*/
+    display: flex;
+    flex-wrap: wrap;
+    margin-top:-60px;
+    height:70px;
+    width:248px;
+    padding-top:1px;
+    padding-bottom:2px;
+    margin-left:0px;
+    line-height: 45px;
+   /* align-items: center;*/
+}
+
+.roomlocation{ /*방 위치*/
+    position: relative;
+    top:-48px;
+    text-align: center;
+    font-weight: 600;
+    width: 248px;
+    height: 18px;
+   
+
+}
+
+#roommodepack{
+    text-align:center;
+    margin-bottom:43px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+#modeText{
+    font-size: 10px;
+    font-weight: bold;
+    color:orange;
+    height: 15px;
+    line-height: 15px;
+    width:26px;
+    text-align: center;
+    border:2px solid orange;
+   
+   /* margin-top:0px;*/
+}
+.roommode{  /*구조*/
+    font-size: 13px;
+    height: 17px;
+    text-align: left;
+
+    margin-top:12px;
+    margin-left:5px;
+}
+#mode{
+   color:#686867;
+font-weight: normal;
+}
+
+.roomprice{
+    position:relative;
+    
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    margin-left:1px;
+    margin-top:60px;
+    margin-bottom:-63px;
+    bottom:58px;
+    width:245px;
+}
+#roomprice{
+    color:orange;
+}
+
+.marketsale{   /*판매중 글씨*/
+    position:relative;
+    text-align: center;
+    width:130px;
+    height:28px;
+    left:30px;
+    bottom:-10px;
+    font-weight: bold;
+    font-size: 20px;
+   /* border:1px solid black;*/
+    
+}
+
+.marketheart{   /*하트 이모티콘*/
+
+    position: relative;
+    left:190px;
+    bottom:47px;
+    border:5px solid red;
+    width:20px;
+
+}
+
+.marketheartNum{
+    position:relative;
+    height:2px;
+    left:221px;
+    bottom:99px;
+
+}
+
+.bottompaper{
+
+    height:50px;
+    margin-top:-22px;
+}
+
+.bottompaper.MuiPaper-rounded {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+    
+.bottompaper.MuiPaper-elevation1 {
+    box-shadow: 1px 0px 0px -1px rgba(0, 0, 0, 1), 0px 0px 0px 1px rgba(0,0,0,0.1), 0px 1px 0px 0px rgba(0,0,0,0.12);
+}

@@ -1,0 +1,11 @@
+.post_delete_modify_button{
+
+    position: absolute;
+    left: 862px;
+    top:0px;
+}
+.post_delete_modify_button .MuiButtonBase-root.MuiButton-root.MuiButton-contained.MuiButton-containedSecondary{
+    
+    margin-left: 30px;
+
+}

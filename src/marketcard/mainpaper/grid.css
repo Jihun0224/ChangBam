@@ -1,0 +1,40 @@
+.card{
+    width: 700px;
+    border-color: white;
+    border-style: solid;
+}
+.card a{
+    text-decoration: none!important;
+    color: black;
+    font-size: 15px;
+}
+.card hr{
+    border: 0;
+    height: 1px;
+    background:rgb(236, 236, 236);
+    margin-top: 4px;
+    margin-bottom: 2px;
+}
+.box2 li{
+    margin-left: 10px;
+    margin-bottom: 5px;
+    margin-top: 6px;
+}
+.box2{
+    border-color: blue;
+}
+.card_main .MuiPaper-root.MuiCard-root.MuiPaper-elevation1.MuiPaper-rounded{
+    width: 280px;
+    height: 250px;
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-bottom: 0px;
+}
+.card_main .MuiTypography-root.MuiTypography-h4.MuiTypography-alignLeft{
+    font-size: 15px;
+    font-weight: bold;
+}
+.card_main .MuiCardHeader-root{
+    padding-bottom: 0px;
+    padding-top: 10px;
+}

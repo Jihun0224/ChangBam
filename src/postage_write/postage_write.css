@@ -1,0 +1,54 @@
+
+.write_wrap{
+    padding: 33px 68px 40px;
+    margin-top: 15px;
+    border: 2px solid #d5d5d5;
+    position: absolute;
+    top: 200px;
+    left: 250px;
+    width: 1020px;
+    height: auto;
+    min-height: 650px;
+    background-color: white;
+    margin-bottom: 100px;
+}
+.write_wrap .form{
+    width:1020px;
+    height: auto;
+}
+.write_wrap #title_area{
+    width: 702px;
+    height: 33px;
+    padding: 0 12px;
+    line-height: 35px;
+    border: 1px solid #cecdce;
+    color: #333;
+}
+.write_wrap .sunedidtor{
+    width:1020px;
+    height:auto;
+}
+.write_wrap .titleinput{
+    margin-bottom: 20px;
+
+}
+
+.form #cancel.MuiButtonBase-root.MuiButton-root.MuiButton-contained.cancel{
+    margin-left: 858px;
+    padding-left: 5px;
+    width: 70px;
+    padding-right: 5px;
+    padding-bottom: 1px;
+    padding-top: 1px;
+    height: 40px;
+    position: relative;
+
+    
+}
+.form #submit.MuiButtonBase-root.MuiButton-root.MuiButton-contained.commit{
+    margin-left: 20px;
+    position: relative;
+    bottom: 10px;
+    left: 800px;
+}
+

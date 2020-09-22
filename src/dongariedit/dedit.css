@@ -1,0 +1,103 @@
+
+.main{
+    height: 900px;
+    width: 900px;
+    border: 1px solid black;
+}
+.ex {
+    width: 800px;
+    height: 80px;
+    border: 1px solid red;
+    margin-left: 50px;
+    text-align: center;
+}
+.ex p{
+    font-size: 30px;
+    margin-top: 20px;
+}
+.kind {
+    width: 800px;
+    height: 80px;
+    border: 1px solid cornflowerblue;
+    margin-left: 50px;
+}
+.kind p{
+    margin-left: 50px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 16px;
+}
+.kind label{
+    margin-left: 50px;
+    margin-top: 3px;
+    font-size: 14px;
+    font-weight: bold;
+}
+.kind select{
+    margin-left: 20px;
+    height: 23px;
+}
+.dday{
+    width: 800px;
+    height: 100px;
+    border: 1px solid  yellow;
+    margin-left: 50px;
+}
+.dday pre{
+    margin-left: 50px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 16px;
+}
+.dday label{
+    margin-left: 50px;
+    margin-top: 3px;
+    font-size: 14px;
+    font-weight: bold;
+}
+.bb {
+    width: 800px;
+    height: 50px;
+    border: 1px solid  blue;
+    margin-left: 50px;
+    text-align: center;
+}
+.bb p{
+    font-weight: bold;
+    font-size: 25px;
+    margin-top: 7px;
+}
+.poster {
+    width: 800px;
+    height: 40px;
+    border: 1px solid  tomato;
+    margin-left: 50px;
+}
+.poster label{
+    margin-left: 50px;
+    margin-top: 3px;
+    font-size: 14px;
+    font-weight: bold;
+}
+.poster input{
+    border:1px solid thistle;
+}
+.edit{
+    width: 800px;
+    margin-left: 50px;
+}
+.top {
+    margin-left: 50px;
+    width: 800px;
+    height: 28px;
+    border: 1px solid chartreuse;
+}
+.top input{
+    width: 730px;
+}
+.top label{
+    font-weight: bold;
+    margin-left: 10px;
+    margin-top: 3px;
+    font-size: 14px;
+}

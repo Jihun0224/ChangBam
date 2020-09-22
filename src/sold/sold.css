@@ -1,0 +1,67 @@
+.body{
+    border: 1px solid black;
+    width: 285px;
+    height: 325px;
+    border-radius: 10px;
+    position: absolute;
+    left: 100px;
+    top: 80px;
+}
+a.link {
+    width: 40px;
+    height: 50px;
+    display: block;
+    text-decoration: none;
+
+}
+.title{
+    border: 1px solid red;
+    width: 285px;
+    height: 50px;
+}
+.picture{
+    margin-left: 10px;
+    border: 1px solid green;
+    width: 260px;
+    height: 180px;
+    margin-top: 10px;
+}
+.picture img{
+    
+    width: 260px;
+    height:180px;
+}
+.where {
+    border: 1px solid purple;
+    width: 285px;
+    height: 20px;
+}
+.where p{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 10px;
+    font-size: 15px;
+}
+.time{
+    text-align: center;
+}
+.time hr{
+    width: 240px;
+    margin-left: 20px;
+    margin-top: 10px;
+    color: blue;
+    border: 1.5px solid blue;
+}
+.time p{
+    margin-top: 0px;
+    margin-bottom: 2px;
+}
+.see{
+    margin-top: 10px;
+}
+.see p{
+    font-size: 10px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    margin-left: 160px;
+}
