@@ -1,7 +1,7 @@
 # Notice
 `_` 언더바 쓰지마세요!!!!!!!!!  
 warning 뜹니다. 대문자로 구분해 주세요  
-db에 mysql과 nodemailer 암호 지워둠
+**db에 mysql과 nodemailer 암호 지워둠**
 
 **2020.09.23**  
 모든 코드 통합완료  
