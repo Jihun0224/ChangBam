@@ -94,7 +94,7 @@ class Pre_and_next_post extends React.Component {
                   </TableCell>
                   <TableCell className="pre_y" align="center">
                     <VisibilityIcon />
-                    {pre_post.see}
+                    {pre_post.post_views}
                   </TableCell>
                 </TableRow>
               )}
@@ -144,7 +144,7 @@ class Pre_and_next_post extends React.Component {
                   </TableCell>
                   <TableCell align="center" className="next_y2">
                     <VisibilityIcon />
-                    {next_post.see}
+                    {next_post.post_views}
                   </TableCell>
                 </TableRow>
               )}

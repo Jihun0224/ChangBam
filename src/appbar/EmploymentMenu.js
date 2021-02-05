@@ -87,14 +87,14 @@ class EmploymentMenu extends Component {
                 id="menu-list-grow"
                 onKeyDown={handleListKeyDown}
               >
-                <MenuItem>
-                  <Link to="employ">취업공고</Link>
+               <MenuItem onClick={()=>window.location.reload()}>
+                  <Link to={`/EmploymentAnnouncement/list/board=10`}>취업공고</Link>
                 </MenuItem>
-                <MenuItem>
-                  <Link to="employ2">취업후기</Link>
-                </MenuItem>
-                <MenuItem>
-                  <Link to="old">꼰대게시판</Link>
+                <MenuItem onClick={()=>window.location.reload()}>
+                  <Link to={`/EmploymentReview/list/board=9`}>취업후기</Link>
+                  </MenuItem>
+                <MenuItem onClick={()=>window.location.reload()}>
+                  <Link to={`/old/list/board=8`}>꼰대게시판</Link>
                 </MenuItem>
               </MenuList>
             </ClickAwayListener>

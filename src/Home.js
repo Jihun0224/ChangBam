@@ -6,7 +6,7 @@ import "tui-color-picker/dist/tui-color-picker.css";
 import "./home.css";
 import Paper from "@material-ui/core/Paper";
 import { withStyles } from "@material-ui/core/styles";
-import Centergrid2 from "./marketcard/mainpaper/grid2";
+import MainTopPostage from "./maincenterpostage";
 import Baner2 from "./baner2.jpg";
 import Changwonmenu from "./changwonmenu/changwon";
 import Search from "./SearchBar/min";
@@ -40,7 +40,7 @@ class Home extends Component {
         </div>
         <div className="home_body">
           <div className="home_paper">
-            <Centergrid2 />
+            <MainTopPostage />
           </div>
         </div>
         <div className="baner2">

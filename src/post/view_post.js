@@ -59,7 +59,7 @@ class ViewPost extends Component {
       board_key: this.props.match.params.board_key,
       nickname: this.state.nickname,
     };
-    fetch("http://localhost:3001/api/viewpost", {
+    fetch("http://localhost:3001/api/view_post", {
       method: "post",
       headers: {
         "content-type": "application/json",
@@ -112,20 +112,41 @@ class ViewPost extends Component {
       case "5":
         this.setState({
           board_name: "창밤 공지사항",
-          board_name_eng: "공지사항",
+          board_name_eng: "changbam",
         });
         break;
       case "6":
         this.setState({
           board_name: "학교 공지사항",
-          board_name_eng: "학교공지사항",
+          board_name_eng: "changwon",
         });
         break;
-      // case "study":
-      //     this.setState({board_key:7});
-      //     break;
+      case '7':
+        this.setState({
+          board_name: "스터디 그룹",
+          board_name_eng:"study"
+          });
+          break;
+      case '8':
+        this.setState({
+          board_name: "꼰대 게시판",
+          board_name_eng:"old"
+          });
+          break;
+      case '9':
+        this.setState({
+          board_name: "취업 후기",
+          board_name_eng:"EmploymentReview"
+          });
+              break;
+      case '10':
+        this.setState({
+          board_name: "취업 공고",
+          board_name_eng:"EmploymentAnnouncement"
+          });
+              break;         
       default:
-        this.setState({ board_name: "스터디 그룹", board_name_eng: "study" });
+          break;
     }
   }
 
@@ -133,9 +154,9 @@ class ViewPost extends Component {
     const { data, board_name, love_state } = this.state;
     const { onClick } = this;
     return (
-      <div className="viewpost">
+      <div className="view_post">
         <TopAppBar />
-        <div className="baord_title">
+        <div className="board_title">
           <Typography variant="h2"> {board_name}</Typography>
         </div>
 
@@ -146,13 +167,18 @@ class ViewPost extends Component {
 
               <div className="view_post_info">
                 <Typography className="view_post_nickname" variant="body1">
-                  {data.user_nickname} <font color="#ccc"> | </font>
-                  {data.postage_date}
+                {this.props.match.params.board_key === "1"
+                ?<font>익명</font>
+                : <font>{data.user_nickname}</font>}    
+                <font color="#ccc"> | </font>
+                {data.postage_date}
                 </Typography>
                 <Typography className="view_post_etc" variant="body1">
-                  조회 {data.postage_views} <font color="#ccc"> | </font>좋아요{" "}
-                  {data.postage_love}
-                  <font color="#ccc"> | </font>댓글 {data.postage_comment}
+                  조회 {data.postage_views} 
+                  <font color="#ccc"> | </font>
+                  좋아요{" "}{data.postage_love}
+                  <font color="#ccc"> | </font>
+                  댓글 {data.postage_comment}
                 </Typography>
               </div>
             </div>

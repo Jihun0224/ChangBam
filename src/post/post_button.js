@@ -9,7 +9,6 @@ import { Typography } from "@material-ui/core";
 import "./post_button.css";
 
 function PostButtonCheck(props) {
-  console.log(props);
   if (props.own_post_state === true) {
     return (
       <div>
@@ -118,16 +117,25 @@ class Post_button extends Component {
         this.setState({ board_name: "politic" });
         break;
       case "5":
-        this.setState({ board_name: "창밤 공지사항" });
+        this.setState({ board_name: "night" });
         break;
       case "6":
-        this.setState({ board_name: "학교 공지사항" });
+        this.setState({ board_name: "changwon" });
         break;
-      // case "study":
-      //     this.setState({board_key:7});
-      //     break;
+      case '7':
+          this.setState({board_name: "study"});
+          break;
+      case '8':
+          this.setState({board_name: "old"});
+          break;   
+      case '9':
+          this.setState({board_name: "EmploymentReview"});
+          break;       
+      case '10':
+          this.setState({board_name: "EmploymentAnnouncement"});
+          break;     
       default:
-        this.setState({ board_name: "study" });
+          break;
     }
   }
   render() {

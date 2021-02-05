@@ -81,10 +81,10 @@
 }
 .pagination{
    
-    position: absolute;
-    left: 280px;
-    top: 980px;
-    
+    position: relative;
+    left: 35%;
+    top: 30px;
+    right: 20%;
     margin-bottom: 50px;
 
 }

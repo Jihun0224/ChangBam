@@ -129,17 +129,26 @@ class Postage_modify extends Component {
       case "politic":
         this.setState({ board_key: 4, board_name: "정치 게시판" });
         break;
-      case "night":
+      case "changbam":
         this.setState({ board_key: 5, board_name: "창밤 공지사항" });
         break;
       case "changwon":
         this.setState({ board_key: 6, board_name: "학교 공지사항" });
         break;
-      // case "study":
-      //     this.setState({board_key:7});
-      //     break;
+      case "study":
+        this.setState({board_key:7, board_name:"스터디 그룹"});
+        break;
+      case "old":
+        this.setState({board_key:8, board_name:"꼰대 게시판"})
+        break;
+      case "EmploymentReview":
+        this.setState({board_key:9, board_name:"취업 후기"})
+        break;
+      case "EmploymentAnnouncement":
+          this.setState({board_key:10, board_name:"취업 공고"})
+        break; 
       default:
-        this.setState({ board_key: 7, board_name: "스터디 그룹" });
+        break;
     }
   }
 

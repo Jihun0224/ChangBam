@@ -100,22 +100,30 @@ class Postbody extends Component {
         break;
       case 5:
       case "5":
-        this.setState({ board_name: "공지사항" });
+        this.setState({ board_name: "changbam" });
         break;
       case 6:
       case "6":
-        this.setState({ board_name: "학교공지사항" });
+        this.setState({ board_name: "changwon" });
         break;
-      // case "study":
-      //     this.setState({board_key:7});
-      //     break;
+        case 7: case '7':
+          this.setState({board_name: "study"});
+          break;
+      case 8: case '8':
+          this.setState({board_name: "old"});
+          break;   
+      case 9: case '9':
+          this.setState({board_name: "EmploymentReview"});
+          break;       
+      case 10: case '10':
+          this.setState({board_name: "EmploymentAnnouncement"});
+          break;     
       default:
-        this.setState({ board_name: "study" });
+          break;
     }
   }
 
   render() {
-    console.log(this.props.board_key);
     const { rows, rowsPerPage, rows_count } = this.state;
     const count = Math.ceil(rows_count / rowsPerPage);
     const { handleChangePage } = this;
@@ -134,7 +142,7 @@ class Postbody extends Component {
                     제목
                   </TableCell>
                   <TableCell align="center" className="third">
-                    이름
+                    닉네임
                   </TableCell>
                   <TableCell align="center" className="third">
                     좋아요
@@ -161,10 +169,18 @@ class Postbody extends Component {
                       to={`/${this.state.board_name}/view/id=${row.postage_key}&board=${this.state.board_key}`}
                     >
                       {row.postage_title}
+                      <font color="#999">   
+                      [{row.postage_comment}]
+                      </font>
                     </TableCell>
-                    <TableCell align="center" className="first">
-                      {row.nickname}
+                    {this.state.board_key === 1 
+                    ?<TableCell align="center" className="first" >
+                      익명 
                     </TableCell>
+                    :<TableCell align="center" className="first" >
+                      {row.user_nickname}
+                    </TableCell>
+                                }
                     <TableCell align="center" className="first">
                       {row.postage_love}
                     </TableCell>
@@ -172,7 +188,7 @@ class Postbody extends Component {
                       {row.time_diff}
                     </TableCell>
                     <TableCell align="center" className="first">
-                      {row.see}
+                      {row.postage_views}
                     </TableCell>
                   </TableRow>
                 ))}

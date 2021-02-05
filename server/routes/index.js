@@ -5,33 +5,33 @@ const nodemailer = require("nodemailer");
 
 var connection = mysql.createConnection({
   host: "localhost",
-  user: "",
-  password: "",
+  user: "root",
+  password: "dja1wkd2",
   database: "changwonnightdiagram",
 });
 connection.connect(); //mysql 연결
 
 //aws s3
-let multer = require("multer");
-let multerS3 = require("multer-s3");
-const AWS = require("aws-sdk");
-const path = require("path");
-AWS.config.loadFromPath(__dirname + "/../awsconfig.json");
-let s3 = new AWS.S3();
+// let multer = require("multer");
+// let multerS3 = require("multer-s3");
+// const AWS = require("aws-sdk");
+// const path = require("path");
+// AWS.config.loadFromPath(__dirname + "/../awsconfig.json");
+// let s3 = new AWS.S3();
 
-let upload = multer({
-  storage: multerS3({
-    s3: s3,
-    bucket: "cu-night",
-    key: function (req, file, cb) {
-      let extension = path.extname(file.originalname) + ".jpg";
-      cb(null, Date.now().toString() + extension);
-    },
-    acl: "public-read-write",
-  }),
-});
+// let upload = multer({
+//   storage: multerS3({
+//     s3: s3,
+//     bucket: "cu-night",
+//     key: function (req, file, cb) {
+//       let extension = path.extname(file.originalname) + ".jpg";
+//       cb(null, Date.now().toString() + extension);
+//     },
+//     acl: "public-read-write",
+//   }),
+// });
 
-var img_upload = upload.single("imageFile");
+// var img_upload = upload.single("imageFile");
 
 /*
 const storage = multer.diskStorage({
@@ -58,43 +58,43 @@ app.post('/profile', upload.single('imageFile'), function (req, res, next) {
     }
   })
 })*/
-router.post("/ImageUpload", upload.single("image"), function (req, res) {
-  const id = req.file.key;
-  res.json(id);
-});
+// router.post("/ImageUpload", upload.single("image"), function (req, res) {
+//   const id = req.file.key;
+//   res.json(id);
+// });
 
-router.post("/profile", upload.single("imageFile"), function (req, res) {
-  var id = req.body.id;
-  var nickname = req.body.nicknamecheck;
-  if (req.body.imageFile !== "null") {
-    if (req.body.img !== "default.jpg") {
-      s3.deleteObject(
-        {
-          Bucket: "cu-night",
-          Key: req.body.img,
-        },
-        (err, data) => {
-          if (err) {
-            throw err;
-          }
-        }
-      );
-    }
-    connection.query(
-      "UPDATE user_table SET user_profile_image =? WHERE user_ID=?",
-      [req.file.key, id],
-      function (err, rows, fields) {}
-    );
-  }
-  //파일 하나만 업로드 할 때. ex) { img: File }
-  if (nickname !== "") {
-    connection.query(
-      "UPDATE user_table SET user_nickname =? WHERE user_ID=?",
-      [nickname, id],
-      function (err, rows, fields) {}
-    );
-  }
-});
+// router.post("/profile", upload.single("imageFile"), function (req, res) {
+//   var id = req.body.id;
+//   var nickname = req.body.nicknamecheck;
+//   if (req.body.imageFile !== "null") {
+//     if (req.body.img !== "default.jpg") {
+//       s3.deleteObject(
+//         {
+//           Bucket: "cu-night",
+//           Key: req.body.img,
+//         },
+//         (err, data) => {
+//           if (err) {
+//             throw err;
+//           }
+//         }
+//       );
+//     }
+//     connection.query(
+//       "UPDATE user_table SET user_profile_image =? WHERE user_ID=?",
+//       [req.file.key, id],
+//       function (err, rows, fields) {}
+//     );
+//   }
+//   //파일 하나만 업로드 할 때. ex) { img: File }
+//   if (nickname !== "") {
+//     connection.query(
+//       "UPDATE user_table SET user_nickname =? WHERE user_ID=?",
+//       [nickname, id],
+//       function (err, rows, fields) {}
+//     );
+//   }
+// });
 
 router.post("/GetProfile", function (req, res) {
   var id = req.body.id;
@@ -852,5 +852,50 @@ router.post("/likechange", function (req, res) {
     );
   }
 });
+router.post("/MainPostCommunityRows", function (req, res) {
 
+  CommunityTop6sql =
+    "SELECT postage_key, postage_title, postage_comment, postage_love, postage_UN, CASE postage_UN WHEN '0' THEN 'free' WHEN '1' THEN 'anonymous' WHEN '2' THEN 'new' WHEN '3' THEN 'love' ELSE 'politic' END 'board_name' FROM postage_table WHERE postage_UN = 0 OR postage_UN = 1 OR postage_UN = 2 OR postage_UN = 3 OR postage_UN = 4  ORDER BY postage_love DESC, postage_comment DESC LIMIT 6";
+
+    connection.query(CommunityTop6sql,function (err,rows) {
+      if(err){
+        console.log(err);
+      }
+      else{
+        
+        res.json(rows);
+      }
+    });
+});
+router.post("/MainPostNoticeRows", function (req, res) {
+
+  NoticeTop6sql = 
+  "SELECT postage_key, postage_title, postage_comment, postage_love, postage_UN, CASE postage_UN WHEN '5' THEN 'changbam' ELSE'changwon' END 'board_name' FROM postage_table WHERE postage_UN = 5 OR postage_UN = 6 ORDER BY postage_love DESC, postage_comment DESC  LIMIT 6";
+  
+    connection.query(NoticeTop6sql,function (err,rows) {
+      if(err){
+        console.log(err);
+      }
+      else{
+        
+        res.json(rows);
+      }
+    });
+});
+router.post("/MainPostEmploymentRows", function (req, res) {
+
+
+  EmploymentTop6sql = 
+    "SELECT postage_key, postage_title, postage_comment, postage_love, postage_UN, CASE postage_UN WHEN '9' THEN 'EmploymentReview' WHEN '10' THEN 'EmploymentAnnouncement' ELSE 'old' END 'board_name' FROM postage_table WHERE postage_UN = 8 OR postage_UN = 9 OR postage_UN = 10 ORDER BY postage_love DESC, postage_comment DESC  LIMIT 6";
+
+    connection.query(EmploymentTop6sql,function (err,rows) {
+      if(err){
+        console.log(err);
+      }
+      else{
+        
+        res.json(rows);
+      }
+    });
+});
 module.exports = router;

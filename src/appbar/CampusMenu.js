@@ -89,8 +89,8 @@ class CampusMenu extends Component {
                   id="menu-list-grow"
                   onKeyDown={handleListKeyDown}
                 >
-                  <MenuItem>
-                    <Link to="/study">스터디그룹</Link>
+                   <MenuItem onClick={()=>window.location.reload()}>
+                    <Link to={`/study/list/board=7`}>스터디그룹</Link>
                   </MenuItem>
                   <MenuItem>
                     <Link to="/club">동아리홍보</Link>
