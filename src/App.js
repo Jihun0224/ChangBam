@@ -3,7 +3,6 @@ import { Route } from "react-router-dom";
 import "./app.css";
 import Home from "./Home";
 import Alba from "./alba";
-import Meeting_home2 from "./meeting/meeting_home2";
 import Meeting_home from "./meeting/meeting_home";
 import Changwon from "./changwon";
 
@@ -35,7 +34,6 @@ function App() {
         <Route exact path="/room" component={Room} />
         <Route exact path="/alba" component={Alba} />
         <Route exact path="/club" component={Club} />
-        <Route exact path="/study" component={Meeting_home2} />
         <Route exact path="/6" component={Home7} />
         <Route exact path="/7" component={Home8} />
         <Route exact path="/meeting" component={Meeting_home} />

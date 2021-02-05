@@ -82,7 +82,7 @@ export default function NestedList() {
             <ListItem button>
               <ListItemText primary="캠퍼스" />
             </ListItem>
-            <Button className="nested_btn" href="/study">
+            <Button className="nested_btn" href="/study/list/board=7">
               스터디그룹
             </Button>
             <Button className="nested_btn" href="/club">
@@ -111,14 +111,14 @@ export default function NestedList() {
             <ListItem button>
               <ListItemText primary="취업" />
             </ListItem>
-            <Button className="nested_btn" href="/empoly">
+            <Button className="nested_btn" href="/EmploymentAnnouncement/list/board=10">
               취업공고
             </Button>
-            <Button className="nested_btn" href="/politic">
+            <Button className="nested_btn" href="/EmploymentReview/list/board=9">
               취업후기
             </Button>
-            <Button className="nested_btn" href="/old">
-              졸업생게시판
+            <Button className="nested_btn" href="/old/list/board=8">
+              꼰대 게시판
             </Button>
             <Divider />
 
@@ -126,10 +126,10 @@ export default function NestedList() {
               <ListItemText primary="공지사항" className="nested_title" />
             </ListItem>
 
-            <Button className="nested_btn" href="/공지사항">
+            <Button className="nested_btn" href="/night/list/board=5">
               공지사항
             </Button>
-            <Button className="nested_btn" href="/학교공지사항">
+            <Button className="nested_btn" href="/changwon/list/board=6">
               학교 공지사항
             </Button>
             <Button className="nested_btn" href="/">
