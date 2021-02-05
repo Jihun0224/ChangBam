@@ -21,31 +21,40 @@ class Board extends React.Component {
 
     switch (params.board_name) {
       case "free":
-        this.setState({ board_name: "자유 게시판", board_key: 1 });
+        this.setState({ board_name: "자유 게시판", board_key: 0 });
         break;
       case "anonymous":
-        this.setState({ board_name: "익명 게시판", board_key: 2 });
+        this.setState({ board_name: "익명 게시판", board_key: 1 });
         break;
       case "new":
-        this.setState({ board_name: "새내기 게시판", board_key: 3 });
+        this.setState({ board_name: "새내기 게시판", board_key: 2 });
         break;
       case "love":
-        this.setState({ board_name: "연애 상담소", board_key: 4 });
+        this.setState({ board_name: "연애 상담소", board_key: 3 });
         break;
       case "politic":
-        this.setState({ board_name: "정치 게시판", board_key: 5 });
+        this.setState({ board_name: "정치 게시판", board_key: 4 });
         break;
       case "night":
-        this.setState({ board_name: "창밤 공지사항", board_key: 6 });
+        this.setState({ board_name: "창밤 공지사항", board_key:5 });
         break;
       case "changwon":
-        this.setState({ board_name: "학교 공지사항", board_key: 7 });
+        this.setState({ board_name: "학교 공지사항", board_key: 6 });
         break;
-      // case "study":
-      //     this.setState({board_key:7});
-      //     break;
-      default:
-        this.setState({ board_name: "스터디 그룹" });
+      case "study":
+          this.setState({board_name: "스터디 그룹", board_key:7});
+          break;
+          case "old":
+            this.setState({board_name:"꼰대 게시판", board_key:8})
+            break;
+          case "EmploymentReview":
+            this.setState({board_name:"취업 후기", board_key:9})
+            break;
+          case "EmploymentAnnouncement":
+              this.setState({board_name:"취업 공고", board_key:10})
+            break;
+          default:
+            break;
     }
   }
   render() {

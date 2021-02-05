@@ -10,7 +10,7 @@ import MainTopPostage from "./maincenterpostage";
 import Baner2 from "./baner2.jpg";
 import Changwonmenu from "./changwonmenu/changwon";
 import Search from "./SearchBar/min";
-
+import Weather from './weather';
 const style = {
   root: {
     height: 180,
@@ -41,6 +41,10 @@ class Home extends Component {
         <div className="home_body">
           <div className="home_paper">
             <MainTopPostage />
+          </div>
+          <div>
+          <Weather/>
+
           </div>
         </div>
         <div className="baner2">
