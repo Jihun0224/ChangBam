@@ -1,0 +1,11 @@
+.Weatherdiv{
+    
+    margin-left: 150px;
+}
+.Weatherdiv .WeatherTitle{
+    color: #000555;
+}
+.Weatherdiv .temperature{
+    margin-left: 40%;
+    margin-top: 0;
+}

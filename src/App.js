@@ -5,13 +5,11 @@ import Home from "./Home";
 import Alba from "./alba";
 import Meeting_home from "./meeting/meeting_home";
 import Changwon from "./changwon";
-
 import Postage_write from "./postage_write/postage_write";
 import Postage_modify from "./postage_write/postage_modify";
 import View_Post from "./post/view_post";
 import ScrollToTop from "./ScrollToTop";
 import Board from "./board";
-
 import Market from "./card/market/market";
 import Room from "./card/room/room";
 import Club from "./card/club/club";

@@ -10,7 +10,7 @@ import MainTopPostage from "./maincenterpostage";
 import Baner2 from "./baner2.jpg";
 import Changwonmenu from "./changwonmenu/changwon";
 import Search from "./SearchBar/min";
-import Weather from './weather';
+import Weather from './weather/weather';
 const style = {
   root: {
     height: 180,

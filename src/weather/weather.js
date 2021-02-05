@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import './weather.css'
 const API_KEY = 'bc8fcefdba6ca5610b2c0a1f9332fd6f';
 class Weather extends Component{
     constructor(props) {
@@ -7,7 +7,6 @@ class Weather extends Component{
         this.state = {
        
           temperature: 0,
-          name: '',
           icon: '',
         }
       }
@@ -20,7 +19,6 @@ class Weather extends Component{
         .then(json => {
           this.setState({
             temperature: Math.floor(json.main.temp - 273.15),
-            name: json.weather[0].main,
             icon: json.weather[0].icon,
           });
         });
@@ -29,16 +27,16 @@ class Weather extends Component{
         this.getWeather()
       }
     render(){
-        const { temperature, name, icon } = this.state;
+        const { temperature, icon } = this.state;
         const img_url = `http://openweathermap.org/img/w/${icon}.png`;
         return(
-            <>
-          <h1>의창구 날씨</h1>
+            <div className="Weatherdiv">
+          <h3 className="WeatherTitle">의창구 날씨</h3>
           <img width="100px"alt="weather_icon" src={img_url}/>
-          <h3>온도 : {temperature}°C</h3>
-          <h3>날씨 : {name}</h3>
+          <h3 className="temperature">{temperature}°C</h3>
+         
           
-            </>
+            </div>
         )
     }
 }
