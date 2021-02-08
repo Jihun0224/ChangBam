@@ -42,8 +42,9 @@ class Home extends Component {
           <div className="home_paper">
             <MainTopPostage />
           </div>
+             <Weather/>
           <div>
-          <Weather/>
+          
 
           </div>
         </div>
