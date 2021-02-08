@@ -1,0 +1,74 @@
+.BottomMenu{
+    width: 100%;
+    height: 250px;
+}
+.BottomMenu .BottomMenu_community{
+    position: absolute;
+    width: 110px;
+    height: 80%;
+}
+.BottomMenu .BottomMenu_campus{
+    position: absolute;
+    left: 110px;
+    width: 110px;
+    height: 80%;
+}
+.BottomMenu .BottomMenu_imformation{
+    position: absolute;
+    left: 220px;
+    width: 110px;
+    height: 80%;
+}
+.BottomMenu .BottomMenu_employment{
+    position: absolute;
+    left: 330px;
+    width: 110px;
+    height: 80%;
+}
+.BottomMenu .BottomMenu_notice{
+    position: absolute;
+    left: 440px;
+    width: 110px;
+    height: 80%;
+}
+.BottomMenu .BottomMenu_help{
+    position: absolute;
+    left: 550px;
+    width: 110px;
+    height: 80%;
+}
+.BottomMenu_box{
+    margin-left: 28%;
+    position: relative;
+    top: 20px;
+}
+
+.BottomMenu_box ul{
+   list-style: none;
+   padding-left:0px;
+
+   }
+.BottomMenu .BottomMenu_title{
+    color: rgb(124, 124, 124);
+    font-weight: bold;
+    font-size: 14px;
+}
+.BottomMenu .BottomMenu_content{
+    font-size: 13px;
+    text-decoration: none;
+    color: rgb(131, 131, 131);
+    margin: 0;
+}
+.BottomMenu .copyright{
+    position: relative;
+    top: 100%;
+    width: 100%;
+    height: 30px;
+    background-color: #000555;
+}
+.copyright_font{
+    color: white;
+    position: relative;
+    left: 40%;
+    font-size: 14px;
+}
