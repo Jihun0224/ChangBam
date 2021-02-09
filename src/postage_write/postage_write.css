@@ -12,6 +12,11 @@
     background-color: white;
     margin-bottom: 100px;
 }
+.postage_write_page .menubarbar{
+    position: relative;
+    top: 100px;
+    left: 100px;
+}
 .write_wrap .form{
     width:1020px;
     height: auto;
@@ -30,7 +35,6 @@
 }
 .write_wrap .titleinput{
     margin-bottom: 20px;
-
 }
 
 .form #cancel.MuiButtonBase-root.MuiButton-root.MuiButton-contained.cancel{
@@ -50,5 +54,9 @@
     position: relative;
     bottom: 10px;
     left: 800px;
+}
+.postage_write_bottommenu{
+    position: relative;
+    top: 100px;
 }
 

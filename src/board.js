@@ -6,12 +6,13 @@ import Search from "./SearchBar/min";
 import NestedList from "./menulist/Board_list";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
+import BottomMenu from './bottommenu/bottommenu';
 
 class Board extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      board_key: 2,
+      board_key: "",
       board_name: "",
     };
   }
@@ -59,7 +60,7 @@ class Board extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className="board">
         <TopAppBar />
         <div className="toptop">
           <div>
@@ -69,21 +70,28 @@ class Board extends React.Component {
         <div className="midmid">
           <Search />
         </div>
-        <div className="bmbm">
-          <Postbody board_key={this.state.board_key} />
-        </div>
-
         <div className="menubarbar">
           <NestedList />
         </div>
+        <div className="postbody">
+          <Postbody board_key={this.state.board_key} />
+
+        </div>
+
+      
         <div className="postage_write_button">
           <Button id="write" variant="contained" color="primary">
             <Link to={`/${this.props.match.params.board_name}/postage_write`}>
               <font color="white">글쓰기</font>
             </Link>
           </Button>
+        
+        </div>
+        <div className="boardBottomMenu">
+        <BottomMenu/>
         </div>
       </div>
+      
     );
   }
 }

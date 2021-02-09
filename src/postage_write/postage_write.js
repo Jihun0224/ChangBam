@@ -10,6 +10,7 @@ import NestedList from "../menulist/Board_list";
 import "react-toastify/dist/ReactToastify.css";
 import SunEditor from "suneditor-react";
 import "suneditor/dist/css/suneditor.min.css";
+import BottomMenu from '../bottommenu/bottommenu';
 
 function dataUrlToBlob(dataURL) {
   const BASE64_MARKER = ";base64,";
@@ -212,6 +213,9 @@ class Home2 extends Component {
       <div className="postage_write_page">
         <TopAppbar />
         <div className="toptop">
+        <div className="menubarbar">
+            <NestedList />
+          </div>
           <div>
             <p>{this.state.board_name}</p>
           </div>
@@ -304,10 +308,10 @@ class Home2 extends Component {
             </form>
             <ToastContainer />
           </div>
-
-          <div className="menubarbar">
-            <NestedList />
+          <div className="postage_write_bottommenu">
+          <BottomMenu/>
           </div>
+
         </div>
       </div>
     );

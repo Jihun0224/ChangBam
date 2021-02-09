@@ -9,6 +9,7 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Pagination from "@material-ui/lab/Pagination";
 import { Link } from "react-router-dom";
+
 class Postbody extends Component {
   editorRef = React.createRef();
 
@@ -129,7 +130,7 @@ class Postbody extends Component {
     const { handleChangePage } = this;
     const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length);
     return (
-      <div>
+      <div className="post">
         <div className="postbody">
           <TableContainer component={Paper}>
             <Table>
@@ -208,6 +209,7 @@ class Postbody extends Component {
             />
           </div>
         </div>
+       
       </div>
     );
   }

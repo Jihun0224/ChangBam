@@ -4,15 +4,19 @@
     height: auto;
     min-height: 600px;
 }
+.view_post{
+    width: 100%;
+    height: auto;
+}
 
 .view_post .board_title{
-    border: 1px solid red;
-    position: absolute;
+    position: relative;
     left: 640px;
     top: 80px;
     width: 400px;
     height: 100px;
     text-align: center;
+    margin-top: 2%;
 }
 
 .view_post_paper .postage_title{
@@ -32,9 +36,9 @@
     padding-left: 10px;
 }
 .view_post_paper .MuiTypography-root.view_post_etc{
-    position: absolute;
-    right:20px;
-    top:44px;
+    position: relative;
+    margin-left:820px;
+    top:-24px;
 }
 .view_post_paper .postage_info{
     padding-left: 10px;
@@ -61,19 +65,26 @@
     min-height: 500px;
 
 }
+.view_post .view_post_paper_d{
+    position: relative;
+    top: 100px;
+    height: auto;
+    width: 100%;
+    margin-bottom: 100px;
+}
+.view_post .view_post_paper_d .view_post_paper{
+    position: relative;
+    margin-left: 350px;
+}
+.view_post .view_post_paper_d .view_post_button{
+    position: relative;
+    margin-left: 350px;
+}
 .view_post .view_post_paper_d .comment_window_d{
     position: relative;
-    top:100px;
+    top:80px;
     margin-bottom: 100px;
-
-}
-.view_post .view_post_paper_d{
-    position: absolute;
-    top: 230px;
-    left: 350px;
-    height: auto;
-    width: auto;
-    margin-bottom: 100px;
+    margin-left: 350px;
 }
 .view_post_paper_d .pagination_d{
     position: relative;
@@ -91,4 +102,9 @@
 }
 figure{
     margin: 0;
+}
+.view_post .viewpost_bottommenu{
+    position: relative;
+    top: 100px;
+
 }

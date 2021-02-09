@@ -7,6 +7,7 @@ import "./view_post.css";
 import Lovebutton from "./love_button";
 import Postbutton from "./post_button";
 import PreandNextPost from "./pre_next_post";
+import BottomMenu from '../bottommenu/bottommenu';
 
 class ViewPost extends Component {
   editorRef = React.createRef();
@@ -165,7 +166,7 @@ class ViewPost extends Component {
             <div className="postage_title">
               <Typography variant="h5">{data.postage_title}</Typography>
 
-              <div className="view_post_info">
+              <span className="view_post_info">
                 <Typography className="view_post_nickname" variant="body1">
                 {this.props.match.params.board_key === "1"
                 ?<font>익명</font>
@@ -180,7 +181,7 @@ class ViewPost extends Component {
                   <font color="#ccc"> | </font>
                   댓글 {data.postage_comment}
                 </Typography>
-              </div>
+              </span>
             </div>
 
             <div
@@ -216,11 +217,15 @@ class ViewPost extends Component {
               />
             </Paper>
           </div>
+          <div className="viewpost_bottommenu">
+          <BottomMenu/>
+          </div>
         </div>
-
         <div className="menubarbar">
           <NestedList />
         </div>
+        
+        
       </div>
     );
   }
