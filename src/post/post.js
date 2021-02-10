@@ -36,8 +36,8 @@ class Postbody extends Component {
       rowsPerPage: this.state.rowsPerPage,
       board_key: this.state.board_key,
     };
-
-    fetch("api/get_rows", {
+    
+    fetch("http://localhost:3001/api/get_rows", {
       method: "post",
       headers: {
         "content-type": "application/json",
@@ -170,8 +170,8 @@ class Postbody extends Component {
                       to={`/${this.state.board_name}/view/id=${row.postage_key}&board=${this.state.board_key}`}
                     >
                       {row.postage_title}
-                      <font color="#999">   
-                      [{row.postage_comment}]
+                      <font color="#006CB7">   
+                      &ensp;[{row.postage_comment}]
                       </font>
                     </TableCell>
                     {this.state.board_key === 1 

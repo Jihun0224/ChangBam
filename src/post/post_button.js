@@ -89,7 +89,7 @@ class Post_button extends Component {
     const post = {
       postage_key: this.props.postage_key,
     };
-    fetch("api/post_delete", {
+    fetch("http://localhost:3001/api/post_delete", {
       method: "post",
       headers: {
         "content-type": "application/json",

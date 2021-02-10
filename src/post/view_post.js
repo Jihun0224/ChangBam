@@ -158,10 +158,13 @@ class ViewPost extends Component {
       <div className="view_post">
         <TopAppBar />
         <div className="board_title">
-          <Typography variant="h2"> {board_name}</Typography>
+          <Typography variant="h3"> {board_name}</Typography>
         </div>
 
         <div className="view_post_paper_d">
+        <div className="menubarbar">
+          <NestedList />
+        </div>
           <Paper className="view_post_paper">
             <div className="postage_title">
               <Typography variant="h5">{data.postage_title}</Typography>
@@ -221,11 +224,6 @@ class ViewPost extends Component {
           <BottomMenu/>
           </div>
         </div>
-        <div className="menubarbar">
-          <NestedList />
-        </div>
-        
-        
       </div>
     );
   }

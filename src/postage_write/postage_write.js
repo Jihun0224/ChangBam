@@ -6,11 +6,11 @@ import Button from "@material-ui/core/Button";
 import { ToastContainer, toast } from "react-toastify";
 import Error from "@material-ui/icons/Error";
 import Check from "@material-ui/icons/Check";
-import NestedList from "../menulist/Board_list";
 import "react-toastify/dist/ReactToastify.css";
 import SunEditor from "suneditor-react";
 import "suneditor/dist/css/suneditor.min.css";
 import BottomMenu from '../bottommenu/bottommenu';
+import { Typography } from "@material-ui/core";
 
 function dataUrlToBlob(dataURL) {
   const BASE64_MARKER = ";base64,";
@@ -212,13 +212,8 @@ class Home2 extends Component {
     return (
       <div className="postage_write_page">
         <TopAppbar />
-        <div className="toptop">
-        <div className="menubarbar">
-            <NestedList />
-          </div>
-          <div>
-            <p>{this.state.board_name}</p>
-          </div>
+          <div className="board_title">
+            <Typography variant="h3"> {this.state.board_name}</Typography>
         </div>
         <div className="write_wrap">
           <div className="form" noValidate autoComplete="off">
@@ -308,11 +303,12 @@ class Home2 extends Component {
             </form>
             <ToastContainer />
           </div>
-          <div className="postage_write_bottommenu">
+        
+        </div>
+        <div className="postage_write_bottommenu">
           <BottomMenu/>
           </div>
 
-        </div>
       </div>
     );
   }

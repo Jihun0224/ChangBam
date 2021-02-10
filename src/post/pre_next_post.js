@@ -80,7 +80,7 @@ class Pre_and_next_post extends React.Component {
                     >
                       {pre_post.postage_title}
                     </Link>
-                    <font color="#999"> [{pre_post.postage_comment}]</font>
+                    <font color="#006CB7"> [{pre_post.postage_comment}]</font>
                   </TableCell>
                   <TableCell className="pre_y" align="center" width="100px">
                     {pre_post.nickname}
@@ -94,7 +94,7 @@ class Pre_and_next_post extends React.Component {
                   </TableCell>
                   <TableCell className="pre_y" align="center">
                     <VisibilityIcon />
-                    {pre_post.post_views}
+                    {pre_post.postage_views}
                   </TableCell>
                 </TableRow>
               )}
@@ -130,7 +130,7 @@ class Pre_and_next_post extends React.Component {
                     >
                       {next_post.postage_title}
                     </Link>
-                    <font color="#999"> [{next_post.postage_comment}]</font>
+                    <font color="#006CB7"> [{next_post.postage_comment}]</font>
                   </TableCell>
                   <TableCell align="center" className="next_y" width="100px">
                     {next_post.nickname}
@@ -144,7 +144,7 @@ class Pre_and_next_post extends React.Component {
                   </TableCell>
                   <TableCell align="center" className="next_y2">
                     <VisibilityIcon />
-                    {next_post.post_views}
+                    {next_post.postage_views}
                   </TableCell>
                 </TableRow>
               )}

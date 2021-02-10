@@ -67,7 +67,7 @@
 }
 .view_post .view_post_paper_d{
     position: relative;
-    top: 100px;
+    top: 70px;
     height: auto;
     width: 100%;
     margin-bottom: 100px;
@@ -107,4 +107,11 @@ figure{
     position: relative;
     top: 100px;
 
+}
+.view_post .menubarbar{
+    position: absolute;
+    left: 100px;
+    top: 0px;
+    width: 200px;
+    height: 500px;
 }

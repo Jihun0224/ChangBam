@@ -107,8 +107,8 @@ class MainTopPostage extends React.Component {
         <Grid container spacing={3} justify="center">
           {posts.map((post) => (
             <Grid key={post.id}>
-              <div className="card_main">
-                <Card className="card">
+              <div className="maincenterpostage">
+                <Card className="maincentercard">
                   <CardHeader
                     title={
                       <Typography align="left" variant="h4">
@@ -125,7 +125,7 @@ class MainTopPostage extends React.Component {
                     }
                   ></CardHeader>
                   <hr />
-                  <div className="box2">
+                  <div className="maincentercardgrid">
 
                   {post.id === 2 && this.state.NoticeTop6.map((NoticeTop =>(
                       <Typography 

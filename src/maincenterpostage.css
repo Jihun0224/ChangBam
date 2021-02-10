@@ -1,40 +1,48 @@
-.card{
+.maincentercard{
     width: 700px;
     border-color: white;
     border-style: solid;
 }
-.card a{
+.maincentercard a{
     text-decoration: none!important;
     color: black;
     font-size: 15px;
 }
-.card hr{
+.maincentercard hr{
     border: 0;
     height: 1px;
     background:rgb(236, 236, 236);
     margin-top: 4px;
     margin-bottom: 2px;
 }
-.box2 li{
+.maincentercardgrid li{
     margin-left: 10px;
     margin-bottom: 5px;
     margin-top: 6px;
 }
-.box2{
+.maincentercardgrid{
     border-color: blue;
 }
-.card_main .MuiPaper-root.MuiCard-root.MuiPaper-elevation1.MuiPaper-rounded{
+.maincenterpostage .MuiPaper-root.MuiCard-root.MuiPaper-elevation1.MuiPaper-rounded{
     width: 280px;
     height: 250px;
     margin-top: 20px;
     margin-right: 20px;
     margin-bottom: 0px;
 }
-.card_main .MuiTypography-root.MuiTypography-h4.MuiTypography-alignLeft{
+.maincenterpostage .MuiTypography-root.MuiTypography-h4.MuiTypography-alignLeft{
     font-size: 15px;
     font-weight: bold;
 }
-.card_main .MuiCardHeader-root{
+.maincenterpostage .MuiCardHeader-root{
     padding-bottom: 0px;
     padding-top: 10px;
+}
+.MainPostageTitle{
+    
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    white-space: nowrap; 
+    width: 250px;
+  
 }

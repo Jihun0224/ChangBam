@@ -413,7 +413,6 @@ router.post("/get_rows", function (req, res) {
     if (err) {
       console.log(err);
     } else {
-      console.log(rows);
       console.log("페이지에 따른 데이터 전송");
       res.json(rows);
     }

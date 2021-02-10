@@ -1,23 +1,21 @@
 
-.write_wrap{
-    padding: 33px 68px 40px;
+.postage_write_page{
+    width: 100%;
+    height: auto;
+}
+.postage_write_page .write_wrap{
+    padding: 33px 68px 10px;
     margin-top: 15px;
     border: 2px solid #d5d5d5;
-    position: absolute;
-    top: 200px;
-    left: 250px;
+    position: relative;
+    top: 100px;
+    margin-left: 15%;
     width: 1020px;
     height: auto;
     min-height: 650px;
     background-color: white;
-    margin-bottom: 100px;
 }
-.postage_write_page .menubarbar{
-    position: relative;
-    top: 100px;
-    left: 100px;
-}
-.write_wrap .form{
+.postage_write_page .write_wrap .form{
     width:1020px;
     height: auto;
 }
@@ -46,7 +44,6 @@
     padding-top: 1px;
     height: 40px;
     position: relative;
-
     
 }
 .form #submit.MuiButtonBase-root.MuiButton-root.MuiButton-contained.commit{
@@ -55,8 +52,16 @@
     bottom: 10px;
     left: 800px;
 }
-.postage_write_bottommenu{
+.postage_write_page .postage_write_bottommenu{
     position: relative;
-    top: 100px;
+    top: 150px;
 }
 
+.postage_write_page .board_title{
+    position: relative;
+    width: 350px;
+    height: 100px;
+    left: 640px;
+    top: 110px;
+    text-align: center;
+}
