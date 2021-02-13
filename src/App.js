@@ -3,7 +3,6 @@ import { Route } from "react-router-dom";
 import Home from "./Home";
 import Alba from "./alba";
 import Meeting_home from "./meeting/meeting_home";
-import Changwon from "./changwon";
 import Postage_write from "./postage_write/postage_write";
 import Postage_modify from "./postage_write/postage_modify";
 import View_Post from "./post/view_post";
@@ -34,7 +33,6 @@ function App() {
         <Route exact path="/6" component={Home7} />
         <Route exact path="/7" component={Home8} />
         <Route exact path="/meeting" component={Meeting_home} />
-        <Route exact path="/학교공지사항" component={Changwon} />
         <Route exact path="/9" component={Home9} />
         <Route exact path="/roomwrite" component={RoomWrite} />
         <Route exact path="/roombody" component={RoomBody} />
