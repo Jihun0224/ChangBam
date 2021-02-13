@@ -456,7 +456,7 @@ router.post("/view_post", function (req, res) {
   var sql_up_see =
     "UPDATE postage_table SET postage_views = postage_views + 1 WHERE postage_UN = ? AND postage_key = ?";
   var sql =
-    'SELECT user_nickname, DATE_FORMAT(postage_date,"%Y.%m.%d  %H: %i: %S") AS postage_date, postage_views, postage_love, postage_body, postage_title FROM postage_table WHERE postage_UN = ? AND postage_key = ?';
+    'SELECT user_nickname, DATE_FORMAT(postage_date,"%Y.%m.%d  %H: %i: %S") AS postage_date, postage_views, postage_love, postage_body, postage_title, postage_comment FROM postage_table WHERE postage_UN = ? AND postage_key = ?';
   var params = [board_key, postage_key];
   connection.query(sql_up_see, params, function (err) {
     if (err) {
@@ -896,5 +896,25 @@ router.post("/MainPostEmploymentRows", function (req, res) {
         res.json(rows);
       }
     });
+});
+//존재하는 게시물인지 확인
+router.post("/PostageCheck", function (req, res) {
+  var postage_key = req.body.postage_key;
+  var board_key = req.body.board_key;
+  var params = [postage_key, board_key];
+var PostageChecksql = 
+      "SELECT * FROM postage_table WHERE postage_key = ? AND postage_UN = ?"
+  connection.query(PostageChecksql,params,function (err,rows) {
+    if(err){
+      console.log(err);
+    }
+    else{
+      if (rows[0] === undefined) {
+        res.send(false);
+      } else {
+        res.send(true);
+      }     
+    }
+  });
 });
 module.exports = router;

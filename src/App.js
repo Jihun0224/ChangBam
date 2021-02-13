@@ -1,6 +1,5 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import "./app.css";
 import Home from "./Home";
 import Alba from "./alba";
 import Meeting_home from "./meeting/meeting_home";
@@ -20,7 +19,7 @@ import Home8 from "./card/club/home8";
 import Home9 from "./card/room/home9";
 import RoomWrite from "./card/room/roomwrite/roomwritemain";
 import RoomBody from "./card/room/roombody";
-
+import NoneExist from './NoneExist/noneexist';
 function App() {
   return (
     <div>
@@ -39,6 +38,7 @@ function App() {
         <Route exact path="/9" component={Home9} />
         <Route exact path="/roomwrite" component={RoomWrite} />
         <Route exact path="/roombody" component={RoomBody} />
+        <Route exact path="/NoneExist" component={NoneExist} />
 
         <Route
           exact

@@ -1,0 +1,14 @@
+.NoneExist{
+    width: 650px;
+    height: auto;
+    position: absolute;
+    top: 40%;
+    left: 30%;
+    right: 25%;
+
+}
+.NoneExist.MuiButtonBase-root.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary{
+    position: relative;
+    top: 40px;
+    left: 40%;
+}

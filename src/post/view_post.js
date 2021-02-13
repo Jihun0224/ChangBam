@@ -55,102 +55,120 @@ class ViewPost extends Component {
   }
 
   componentWillMount() {
-    const post = {
+    const postage_key = {
       postage_key: this.props.match.params.postage_key,
       board_key: this.props.match.params.board_key,
-      nickname: this.state.nickname,
-    };
-    fetch("http://localhost:3001/api/view_post", {
-      method: "post",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(post),
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        this.setState({ data: res[0] });
-        if (this.state.data.user_nickname === this.state.nickname) {
-          this.setState({ own_post_state: true });
-        }
-      });
-
-    fetch("http://localhost:3001/api/view_post_love_state", {
-      method: "post",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(post),
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        if (res[0] === undefined) {
-          this.setState({ love_state: false });
-        } else {
-          this.setState({ love_state: true });
-        }
-      });
-
-    switch (this.props.match.params.board_key) {
-      case "0":
-        this.setState({ board_name: "자유 게시판", board_name_eng: "free" });
-        break;
-      case "1":
-        this.setState({
-          board_name: "익명 게시판",
-          board_name_eng: "anonymous",
-        });
-        break;
-      case "2":
-        this.setState({ board_name: "새내기 게시판", board_name_eng: "new" });
-        break;
-      case "3":
-        this.setState({ board_name: "연애 상담소", board_name_eng: "love" });
-        break;
-      case "4":
-        this.setState({ board_name: "정치 게시판", board_name_eng: "politic" });
-        break;
-      case "5":
-        this.setState({
-          board_name: "창밤 공지사항",
-          board_name_eng: "changbam",
-        });
-        break;
-      case "6":
-        this.setState({
-          board_name: "학교 공지사항",
-          board_name_eng: "changwon",
-        });
-        break;
-      case '7':
-        this.setState({
-          board_name: "스터디 그룹",
-          board_name_eng:"study"
-          });
-          break;
-      case '8':
-        this.setState({
-          board_name: "꼰대 게시판",
-          board_name_eng:"old"
-          });
-          break;
-      case '9':
-        this.setState({
-          board_name: "취업 후기",
-          board_name_eng:"EmploymentReview"
-          });
-              break;
-      case '10':
-        this.setState({
-          board_name: "취업 공고",
-          board_name_eng:"EmploymentAnnouncement"
-          });
-              break;         
-      default:
-          break;
     }
-  }
-
+    fetch("http://localhost:3001/api/PostageCheck", {
+      method: "post",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(postage_key),
+    })
+    .then((res) => res.json())
+    .then((res) =>{
+    
+    if(res == false){
+      this.props.history.replace('/NoneExist')    }
+    else{
+      const post = {
+        postage_key: this.props.match.params.postage_key,
+        board_key: this.props.match.params.board_key,
+        nickname: this.state.nickname,
+      };
+      fetch("http://localhost:3001/api/view_post", {
+        method: "post",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(post),
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          this.setState({ data: res[0] });
+          if (this.state.data.user_nickname === this.state.nickname) {
+            this.setState({ own_post_state: true });
+          }
+        });
+  
+      fetch("http://localhost:3001/api/view_post_love_state", {
+        method: "post",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(post),
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          if (res[0] === undefined) {
+            this.setState({ love_state: false });
+          } else {
+            this.setState({ love_state: true });
+          }
+        });
+  
+      switch (this.props.match.params.board_key) {
+        case "0":
+          this.setState({ board_name: "자유 게시판", board_name_eng: "free" });
+          break;
+        case "1":
+          this.setState({
+            board_name: "익명 게시판",
+            board_name_eng: "anonymous",
+          });
+          break;
+        case "2":
+          this.setState({ board_name: "새내기 게시판", board_name_eng: "new" });
+          break;
+        case "3":
+          this.setState({ board_name: "연애 상담소", board_name_eng: "love" });
+          break;
+        case "4":
+          this.setState({ board_name: "정치 게시판", board_name_eng: "politic" });
+          break;
+        case "5":
+          this.setState({
+            board_name: "창밤 공지사항",
+            board_name_eng: "changbam",
+          });
+          break;
+        case "6":
+          this.setState({
+            board_name: "학교 공지사항",
+            board_name_eng: "changwon",
+          });
+          break;
+        case '7':
+          this.setState({
+            board_name: "스터디 그룹",
+            board_name_eng:"study"
+            });
+            break;
+        case '8':
+          this.setState({
+            board_name: "꼰대 게시판",
+            board_name_eng:"old"
+            });
+            break;
+        case '9':
+          this.setState({
+            board_name: "취업 후기",
+            board_name_eng:"EmploymentReview"
+            });
+                break;
+        case '10':
+          this.setState({
+            board_name: "취업 공고",
+            board_name_eng:"EmploymentAnnouncement"
+            });
+                break;         
+        default:
+            break;
+      }
+    }
+    })
+}
   render() {
     const { data, board_name, love_state } = this.state;
     const { onClick } = this;
@@ -180,7 +198,7 @@ class ViewPost extends Component {
                 <Typography className="view_post_etc" variant="body1">
                   조회 {data.postage_views} 
                   <font color="#ccc"> | </font>
-                  좋아요{" "}{data.postage_love}
+                  좋아요{data.postage_love}
                   <font color="#ccc"> | </font>
                   댓글 {data.postage_comment}
                 </Typography>
