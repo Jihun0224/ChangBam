@@ -8,7 +8,7 @@ import Lovebutton from "./love_button";
 import Postbutton from "./post_button";
 import PreandNextPost from "./pre_next_post";
 import BottomMenu from '../bottommenu/bottommenu';
-
+import swal from 'sweetalert';
 class ViewPost extends Component {
   editorRef = React.createRef();
 
@@ -18,7 +18,6 @@ class ViewPost extends Component {
       data: [],
       board_name: "",
       love_state: false,
-      nickname: JSON.parse(localStorage.getItem("user")).nickname,
       own_post_state: false,
       board_name_eng: "",
     };
@@ -36,7 +35,7 @@ class ViewPost extends Component {
       love_state: this.state.love_state,
       postage_key: this.props.match.params.postage_key,
       board_key: this.props.match.params.board_key,
-      nickname: this.state.nickname,
+      nickname: JSON.parse(localStorage.getItem("user")).nickname,
     };
     fetch("http://localhost:3001/api/post_love_adjustment", {
       method: "post",
@@ -54,125 +53,145 @@ class ViewPost extends Component {
     });
   }
 
-  componentWillMount() {
-    const postage_key = {
-      postage_key: this.props.match.params.postage_key,
-      board_key: this.props.match.params.board_key,
+  componentDidMount() {
+
+    if(JSON.parse(localStorage.getItem("user")) == null){
+      swal({
+        title: "로그인해 주세요!",
+        icon: "warning",
+      })
+      this.props.history.goBack();
+      
     }
-    fetch("http://localhost:3001/api/PostageCheck", {
-      method: "post",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(postage_key),
-    })
-    .then((res) => res.json())
-    .then((res) =>{
-    
-    if(res == false){
-      this.props.history.replace('/NoneExist')    }
     else{
-      const post = {
+      const postage_key = {
         postage_key: this.props.match.params.postage_key,
         board_key: this.props.match.params.board_key,
-        nickname: this.state.nickname,
-      };
-      fetch("http://localhost:3001/api/view_post", {
-        method: "post",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(post),
-      })
-        .then((res) => res.json())
-        .then((res) => {
-          this.setState({ data: res[0] });
-          if (this.state.data.user_nickname === this.state.nickname) {
-            this.setState({ own_post_state: true });
-          }
-        });
-  
-      fetch("http://localhost:3001/api/view_post_love_state", {
-        method: "post",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(post),
-      })
-        .then((res) => res.json())
-        .then((res) => {
-          if (res[0] === undefined) {
-            this.setState({ love_state: false });
-          } else {
-            this.setState({ love_state: true });
-          }
-        });
-  
-      switch (this.props.match.params.board_key) {
-        case "0":
-          this.setState({ board_name: "자유 게시판", board_name_eng: "free" });
-          break;
-        case "1":
-          this.setState({
-            board_name: "익명 게시판",
-            board_name_eng: "anonymous",
-          });
-          break;
-        case "2":
-          this.setState({ board_name: "새내기 게시판", board_name_eng: "new" });
-          break;
-        case "3":
-          this.setState({ board_name: "연애 상담소", board_name_eng: "love" });
-          break;
-        case "4":
-          this.setState({ board_name: "정치 게시판", board_name_eng: "politic" });
-          break;
-        case "5":
-          this.setState({
-            board_name: "창밤 공지사항",
-            board_name_eng: "changbam",
-          });
-          break;
-        case "6":
-          this.setState({
-            board_name: "학교 공지사항",
-            board_name_eng: "changwon",
-          });
-          break;
-        case '7':
-          this.setState({
-            board_name: "스터디 그룹",
-            board_name_eng:"study"
-            });
-            break;
-        case '8':
-          this.setState({
-            board_name: "꼰대 게시판",
-            board_name_eng:"old"
-            });
-            break;
-        case '9':
-          this.setState({
-            board_name: "취업 후기",
-            board_name_eng:"EmploymentReview"
-            });
-                break;
-        case '10':
-          this.setState({
-            board_name: "취업 공고",
-            board_name_eng:"EmploymentAnnouncement"
-            });
-                break;         
-        default:
-            break;
       }
+      fetch("http://localhost:3001/api/PostageCheck", {
+        method: "post",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(postage_key),
+      })
+      .then((res) => res.json())
+      .then((res) =>{
+      
+      if(res == false){
+        this.props.history.replace('/NoneExist')    }
+      else{
+        const post = {
+          postage_key: this.props.match.params.postage_key,
+          board_key: this.props.match.params.board_key,
+          nickname: JSON.parse(localStorage.getItem("user")).nickname,
+        };
+        fetch("http://localhost:3001/api/view_post", {
+          method: "post",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(post),
+        })
+          .then((res) => res.json())
+          .then((res) => {
+            this.setState({ data: res[0] });
+            if (this.state.data.user_nickname === JSON.parse(localStorage.getItem("user")).nickname) {
+              this.setState({ own_post_state: true });
+            }
+          });
+    
+        fetch("http://localhost:3001/api/view_post_love_state", {
+          method: "post",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(post),
+        })
+          .then((res) => res.json())
+          .then((res) => {
+            if (res[0] === undefined) {
+              this.setState({ love_state: false });
+            } else {
+              this.setState({ love_state: true });
+            }
+          });
+    
+        switch (this.props.match.params.board_key) {
+          case "0":
+            this.setState({ board_name: "자유 게시판", board_name_eng: "free" });
+            break;
+          case "1":
+            this.setState({
+              board_name: "익명 게시판",
+              board_name_eng: "anonymous",
+            });
+            break;
+          case "2":
+            this.setState({ board_name: "새내기 게시판", board_name_eng: "new" });
+            break;
+          case "3":
+            this.setState({ board_name: "연애 상담소", board_name_eng: "love" });
+            break;
+          case "4":
+            this.setState({ board_name: "정치 게시판", board_name_eng: "politic" });
+            break;
+          case "5":
+            this.setState({
+              board_name: "창밤 공지사항",
+              board_name_eng: "changbam",
+            });
+            break;
+          case "6":
+            this.setState({
+              board_name: "학교 공지사항",
+              board_name_eng: "changwon",
+            });
+            break;
+          case '7':
+            this.setState({
+              board_name: "스터디 그룹",
+              board_name_eng:"study"
+              });
+              break;
+          case '8':
+            this.setState({
+              board_name: "꼰대 게시판",
+              board_name_eng:"old"
+              });
+              break;
+          case '9':
+            this.setState({
+              board_name: "취업 후기",
+              board_name_eng:"EmploymentReview"
+              });
+                  break;
+          case '10':
+            this.setState({
+              board_name: "취업 공고",
+              board_name_eng:"EmploymentAnnouncement"
+              });
+                  break;         
+          default:
+              break;
+        }
+      }
+      })
     }
-    })
+    
 }
   render() {
     const { data, board_name, love_state } = this.state;
     const { onClick } = this;
+    if(JSON.parse(localStorage.getItem("user")) == null){
+      return(
+        <>
+        </>
+      )
+  }
+  else{
     return (
+      
       <div className="view_post">
         <TopAppBar />
         <div className="board_title">
@@ -246,5 +265,5 @@ class ViewPost extends Component {
     );
   }
 }
-
+}
 export default ViewPost;

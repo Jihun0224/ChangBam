@@ -68,6 +68,10 @@ class Changwonmenu extends Component {
             <MenuItem onClick={this.gowaagle}>창원대 와글</MenuItem>
             <hr />
             <MenuItem onClick={this.goeclass}>창원대 이클래스</MenuItem>
+            <hr />
+            <MenuItem onClick={ () => {window.open("http://www.changwon.ac.kr/dorm/main.do")}}>창원대 기숙사</MenuItem>
+            <hr />
+            <MenuItem onClick={ () => {window.open("https://lib.changwon.ac.kr/index.ax")}}>창원대 도서관</MenuItem>
           </Menu>
         </div>
       </div>

@@ -4,7 +4,6 @@ import Paper from "@material-ui/core/Paper";
 import InputBase from "@material-ui/core/InputBase";
 import IconButton from "@material-ui/core/IconButton";
 import SearchIcon from "@material-ui/icons/Search";
-
 import FormControl from "@material-ui/core/FormControl";
 import StarIcon from "@material-ui/icons/Star";
 
@@ -12,8 +11,6 @@ class Search extends React.Component {
   render() {
     return (
       <div>
-        <Paper component="form" className="title"></Paper>
-
         <Paper component="form" className="root">
           <FormControl className="select">
             <select className="searchType">

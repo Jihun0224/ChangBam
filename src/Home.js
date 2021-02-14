@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import TopAppBar from "./appbar/appbar";
 import "./home.css";
-import Paper from "@material-ui/core/Paper";
-import MainTopPostage from "./maincenterpostage";
+import MainTopPostage from "./maintop6postage/maincenterpostage";
 import Changwonmenu from "./changwonmenu/changwon";
-import Search from "./SearchBar/min";
+import Search from "./SearchBar/searchbar";
 import Weather from './weather/weather';
 import BottomMenu from './bottommenu/bottommenu';
 class Home extends Component {

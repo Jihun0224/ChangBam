@@ -5,9 +5,9 @@
     max-height: calc(100% - 32px);
     min-height: 16px;
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: hidden;
     width: 160px;
-    height: 90px;
+    height: auto;
     top: 450px;
     left: 770px;
     position: absolute;

@@ -1,6 +1,6 @@
 import React from "react";
 import "./login.css";
-import Longin from "../signin/signin";
+import Signin from "../signin/signin";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
@@ -243,7 +243,7 @@ class Login extends React.Component {
                   </form>
                 </TabPanel>
                 <TabPanel value="1">
-                  <Longin handlesub={handlesub} />
+                  <Signin handlesub={handlesub} />
 
                   <Dialog
                     open={this.state.signin}

@@ -3,8 +3,6 @@ import './login.css';
 import { Link } from 'react-router-dom';
 
 
-
-
 class Adminbox extends Component{
     constructor(props){
         super(props);
@@ -15,8 +13,6 @@ class Adminbox extends Component{
         window.localStorage.setItem('id','');
         window.localStorage.setItem('admin',false);
         window.localStorage.setItem('nickname','');
-        
-       
     }
    
 

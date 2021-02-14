@@ -7,7 +7,7 @@ import Postage_write from "./postage_write/postage_write";
 import Postage_modify from "./postage_write/postage_modify";
 import View_Post from "./post/view_post";
 import ScrollToTop from "./ScrollToTop";
-import Board from "./board";
+import Board from "./board/board";
 import Market from "./card/market/market";
 import Room from "./card/room/room";
 import Club from "./card/club/club";
@@ -19,6 +19,7 @@ import Home9 from "./card/room/home9";
 import RoomWrite from "./card/room/roomwrite/roomwritemain";
 import RoomBody from "./card/room/roombody";
 import NoneExist from './NoneExist/noneexist';
+
 function App() {
   return (
     <div>
@@ -37,7 +38,6 @@ function App() {
         <Route exact path="/roomwrite" component={RoomWrite} />
         <Route exact path="/roombody" component={RoomBody} />
         <Route exact path="/NoneExist" component={NoneExist} />
-
         <Route
           exact
           path={`/:board_name/list/board=:board_key`}

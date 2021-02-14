@@ -10,6 +10,8 @@ import SunEditor from "suneditor-react";
 import "suneditor/dist/css/suneditor.min.css";
 import BottomMenu from '../bottommenu/bottommenu';
 import { Typography } from "@material-ui/core";
+import swal from 'sweetalert';
+
 class Postage_modify extends Component {
   constructor(props) {
     super(props);
@@ -93,6 +95,15 @@ class Postage_modify extends Component {
   }
 
   componentWillMount() {
+    if(JSON.parse(localStorage.getItem("user")) == null){
+      swal({
+        title: "로그인해 주세요!",
+        icon: "warning",
+      })
+      this.props.history.goBack();
+      
+    }
+    else{
     const post = {
       postage_key: this.props.match.params.postage_key,
     };
@@ -152,7 +163,7 @@ class Postage_modify extends Component {
         break;
     }
   }
-
+  }
   render() {
     const {
       onChange,
@@ -161,6 +172,13 @@ class Postage_modify extends Component {
       handleChange,
       handleVideoUpload,
     } = this;
+    if(JSON.parse(localStorage.getItem("user")) == null){
+      return(
+        <>
+        </>
+      )
+  }
+    else{
     return (
       <div className="postage_write_page">
         <TopAppbar />
@@ -263,5 +281,5 @@ class Postage_modify extends Component {
     );
   }
 }
-
+}
 export default Postage_modify;

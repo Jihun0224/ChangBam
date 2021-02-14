@@ -5,16 +5,14 @@ import Switch from "@material-ui/core/Switch";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
-import Login from "../main/main";
+import Login from "../main/login";
 import "./icon.css";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import Emailmodal from "./modal";
 import Notimodal from "./modal2";
 import Favormodal from "./modal3";
-
 import ProfileCheck from "./profile/profile_check";
-
 import AccountCircle from "@material-ui/icons/AccountCircle";
 
 class Switchbar extends React.Component {

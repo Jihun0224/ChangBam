@@ -1,7 +1,7 @@
 import React from "react";
 import TopAppBar from "../../appbar/appbar";
 import "../../home2.css";
-import Search from "../../SearchBar/min";
+import Search from "../../SearchBar/searchbar";
 import NestedList from "../../menulist/Board_list";
 import Gridmarket from "../gridcard/gridm";
 import Button from "@material-ui/core/Button";

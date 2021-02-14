@@ -11,6 +11,7 @@ import SunEditor from "suneditor-react";
 import "suneditor/dist/css/suneditor.min.css";
 import BottomMenu from '../bottommenu/bottommenu';
 import { Typography } from "@material-ui/core";
+import swal from 'sweetalert';
 
 function dataUrlToBlob(dataURL) {
   const BASE64_MARKER = ";base64,";
@@ -167,6 +168,15 @@ class Home2 extends Component {
   }
 
   componentWillMount() {
+    if(JSON.parse(localStorage.getItem("user")) == null){
+      swal({
+        title: "로그인해 주세요!",
+        icon: "warning",
+      })
+      this.props.history.goBack();
+      
+    }
+    else{
     const { params } = this.props.match;
 
     switch (params.board_name) {
@@ -207,9 +217,18 @@ class Home2 extends Component {
         break;
       }
   }
+}
   render() {
     const { onChange, onSubmit, goBack, handleChange } = this;
-    return (
+    
+    if(JSON.parse(localStorage.getItem("user")) == null){
+      return(
+        <>
+        </>
+      )
+  }
+    else{
+      return (
       <div className="postage_write_page">
         <TopAppbar />
           <div className="board_title">
@@ -308,10 +327,9 @@ class Home2 extends Component {
         <div className="postage_write_bottommenu">
           <BottomMenu/>
           </div>
-
       </div>
     );
   }
 }
-
+}
 export default Home2;

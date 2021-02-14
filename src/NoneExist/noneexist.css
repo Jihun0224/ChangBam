@@ -7,7 +7,7 @@
     right: 25%;
 
 }
-.NoneExist.MuiButtonBase-root.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary{
+.NoneExist .MuiButtonBase-root.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary{
     position: relative;
     top: 40px;
     left: 40%;

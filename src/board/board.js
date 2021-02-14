@@ -1,12 +1,13 @@
 import React from "react";
-import TopAppBar from "./appbar/appbar";
-import Postbody from "./post/post";
+import TopAppBar from "../appbar/appbar";
+import Postbody from "../post/post";
 import "./board.css";
-import Search from "./SearchBar/min";
-import NestedList from "./menulist/Board_list";
+import Search from "../SearchBar/searchbar";
+import NestedList from "../menulist/Board_list";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
-import BottomMenu from './bottommenu/bottommenu';
+import BottomMenu from '../bottommenu/bottommenu';
+import { Typography } from "@material-ui/core";
 
 class Board extends React.Component {
   constructor(props) {
@@ -62,10 +63,8 @@ class Board extends React.Component {
     return (
       <div className="board">
         <TopAppBar />
-        <div className="toptop">
-          <div>
-            <p>{this.state.board_name}</p>
-          </div>
+        <div className="board_title">
+          <Typography variant="h3"> {this.state.board_name}</Typography>
         </div>
         <div className="midmid">
           <Search />
