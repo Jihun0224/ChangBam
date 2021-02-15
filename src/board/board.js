@@ -50,10 +50,10 @@ class Board extends React.Component {
             this.setState({board_name:"꼰대 게시판", board_key:8})
             break;
           case "EmploymentReview":
-            this.setState({board_name:"취업 후기", board_key:9})
+            this.setState({board_name:"취업게시판", board_key:9})
             break;
           case "EmploymentAnnouncement":
-              this.setState({board_name:"취업 공고", board_key:10})
+              this.setState({board_name:"채용공고", board_key:10})
             break;
           default:
             break;

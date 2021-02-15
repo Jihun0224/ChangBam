@@ -19,6 +19,10 @@
     margin-left: 10px;
     margin-bottom: 5px;
     margin-top: 6px;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    white-space: nowrap; 
+    width: 250px;
 }
 .maincentercardgrid{
     border-color: blue;
@@ -38,11 +42,11 @@
     padding-bottom: 0px;
     padding-top: 10px;
 }
-.MainPostageTitle{
-    
-    overflow: hidden; 
-    text-overflow: ellipsis;
-    white-space: nowrap; 
-    width: 250px;
-  
+.maincenterpostage .MuiButtonBase-root.MuiIconButton-root{
+    position: relative;
+    top: -2px;
+}
+.maincenterpostage .MuiButtonBase-root.MuiIconButton-root:hover{
+    background-color: unset !important;
+    color: unset !important;
 }

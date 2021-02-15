@@ -112,10 +112,10 @@ export default function NestedList() {
               <ListItemText primary="취업" />
             </ListItem>
             <Button className="nested_btn" href="/EmploymentAnnouncement/list/board=10">
-              취업공고
+              채용공고
             </Button>
             <Button className="nested_btn" href="/EmploymentReview/list/board=9">
-              취업후기
+              취업게시판
             </Button>
             <Button className="nested_btn" href="/old/list/board=8">
               꼰대 게시판

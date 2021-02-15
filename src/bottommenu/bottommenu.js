@@ -38,8 +38,8 @@ class BottomMenu extends Component {
           <Paper className="BottomMenu_employment" elevation={0}>
             <font className="BottomMenu_title">취업</font>
             <ul>
-              <li onClick={()=>window.location.reload()}><Link to={`/EmploymentAnnouncement/list/board=10`}><font className="BottomMenu_content">취업공고</font></Link></li>
-              <li onClick={()=>window.location.reload()}><Link to={`/EmploymentReview/list/board=9`}><font className="BottomMenu_content">취업후기</font></Link></li>
+              <li onClick={()=>window.location.reload()}><Link to={`/EmploymentAnnouncement/list/board=10`}><font className="BottomMenu_content">채용공고</font></Link></li>
+              <li onClick={()=>window.location.reload()}><Link to={`/EmploymentReview/list/board=9`}><font className="BottomMenu_content">취업게시판</font></Link></li>
               <li onClick={()=>window.location.reload()}><Link to={`/old/list/board=8`}><font className="BottomMenu_content">꼰대게시판</font></Link></li>
             </ul>
           </Paper>

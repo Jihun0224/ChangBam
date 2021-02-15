@@ -162,13 +162,13 @@ class ViewPost extends Component {
               break;
           case '9':
             this.setState({
-              board_name: "취업 후기",
+              board_name: "취업게시판",
               board_name_eng:"EmploymentReview"
               });
                   break;
           case '10':
             this.setState({
-              board_name: "취업 공고",
+              board_name: "채용공고",
               board_name_eng:"EmploymentAnnouncement"
               });
                   break;         

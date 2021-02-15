@@ -317,7 +317,7 @@ router.post("/meeting_writes", function (req, res) {
   }
 
   var sql =
-    'SELECT group_size,group_sex, DATE_FORMAT(group_deadline,"%Y-%c-%d") AS deadline ,group_body, CASE WHEN TIMESTAMPDIFF(MINUTE ,group_date , NOW()) < 60 THEN CONCAT(TIMESTAMPDIFF(MINUTE ,group_date , NOW()),"분 전") WHEN TIMESTAMPDIFF(MINUTE ,group_date , NOW()) BETWEEN 60 AND 1440 THEN CONCAT(TIMESTAMPDIFF(HOUR ,group_date , NOW()),"시간 전") ELSE CONCAT(TIMESTAMPDIFF(DAY ,group_date , NOW()),"일 전") END AS time_diff  FROM group_table ORDER BY group_key DESC LIMIT ?,8';
+    'SELECT group_size,group_sex, DATE_FORMAT(group_deadline,"%Y-%c-%d") AS deadline ,group_body, CASE WHEN TIMESTAMPDIFF(MINUTE ,group_date , NOW()) < 60 THEN CONCAT(TIMESTAMPDIFF(MINUTE ,group_date , NOW()),"분 전") WHEN TIMESTAMPDIFF(MINUTE ,group_date , NOW()) BETWEEN 60 AND 1440 THEN CONCAT(TIMESTAMPDIFF(HOUR ,group_date , NOW()),"시간 전") ELSE DATE_FORMAT(group_date,"%y.%m.%d") END AS time_diff  FROM group_table ORDER BY group_key DESC LIMIT ?,8';
   var params = [row_start];
 
   connection.query(sql, params, function (err, rows) {
@@ -406,7 +406,7 @@ router.post("/get_rows", function (req, res) {
   }
 
   var sql =
-    'SELECT v.* from (SELECT @rownum:= @rownum+1 as rownum, postage_key, user_nickname, postage_title, postage_love, CASE WHEN TIMESTAMPDIFF(MINUTE ,postage_date , NOW()) < 60 THEN CONCAT(TIMESTAMPDIFF(MINUTE ,postage_date , NOW()),"분 전") WHEN TIMESTAMPDIFF(MINUTE ,postage_date , NOW()) BETWEEN 60 AND 1440 THEN CONCAT(TIMESTAMPDIFF(HOUR ,postage_date , NOW()),"시간 전") ELSE CONCAT(TIMESTAMPDIFF(DAY ,postage_date , NOW()),"일 전") END AS time_diff, postage_views, postage_comment FROM postage_table, (SELECT @rownum:=0) TMP WHERE postage_UN= ? ORDER BY postage_key DESC,rownum DESC LIMIT ?,18) v';
+    'SELECT v.* from (SELECT @rownum:= @rownum+1 as rownum, postage_key, user_nickname, postage_title, postage_love, CASE WHEN TIMESTAMPDIFF(MINUTE ,postage_date , NOW()) < 60 THEN CONCAT(TIMESTAMPDIFF(MINUTE ,postage_date , NOW()),"분 전") WHEN TIMESTAMPDIFF(MINUTE ,postage_date , NOW()) BETWEEN 60 AND 1440 THEN CONCAT(TIMESTAMPDIFF(HOUR ,postage_date , NOW()),"시간 전") ELSE DATE_FORMAT(postage_date,"%y.%m.%d") END AS time_diff, postage_views, postage_comment FROM postage_table, (SELECT @rownum:=0) TMP WHERE postage_UN= ? ORDER BY postage_key DESC,rownum DESC LIMIT ?,18) v';
   var params = [board_key, row_start];
 
   connection.query(sql, params, function (err, rows) {
@@ -634,7 +634,7 @@ router.post("/getclubpost", function (req, res) {
 router.post("/getsixpostmarkettable", function (req, res) {
   var startPostNum = req.body.startPostNum;
   connection.query(
-    'SELECT card_key,card_title,card_price,CASE WHEN TIMESTAMPDIFF(MINUTE ,card_date , NOW()) < 60 THEN CONCAT(TIMESTAMPDIFF(MINUTE ,card_date , NOW()),"분 전") WHEN TIMESTAMPDIFF(MINUTE ,card_date , NOW()) BETWEEN 60 AND 1440 THEN CONCAT(TIMESTAMPDIFF(HOUR ,card_date , NOW()),"시간 전") ELSE CONCAT(TIMESTAMPDIFF(DAY ,card_date , NOW()),"일 전") END AS card_date, card_body,card_likes, card_location, card_sale_check from card_table where card_UN=0 order by card_key desc limit ?,6;',
+    'SELECT card_key,card_title,card_price,CASE WHEN TIMESTAMPDIFF(MINUTE ,card_date , NOW()) < 60 THEN CONCAT(TIMESTAMPDIFF(MINUTE ,card_date , NOW()),"분 전") WHEN TIMESTAMPDIFF(MINUTE ,card_date , NOW()) BETWEEN 60 AND 1440 THEN CONCAT(TIMESTAMPDIFF(HOUR ,card_date , NOW()),"시간 전") ELSE DATE_FORMAT(card_date,"%y.%m.%d") END AS card_date, card_body,card_likes, card_location, card_sale_check from card_table where card_UN=0 order by card_key desc limit ?,6;',
     [startPostNum],
     function (err, rows) {
       res.send(rows);
@@ -716,7 +716,7 @@ router.post("/totalpostnum", function (req, res) {
 router.post("/getsixpostroom", function (req, res) {
   var startPostNum = req.body.startPostNum;
   connection.query(
-    'SELECT card_key,card_subtitle,card_price,card_body,card_location,card_options, CASE WHEN TIMESTAMPDIFF(MINUTE ,card_date , NOW()) < 60 THEN CONCAT(TIMESTAMPDIFF(MINUTE ,card_date , NOW()),"분 전") WHEN TIMESTAMPDIFF(MINUTE ,card_date , NOW()) BETWEEN 60 AND 1440 THEN CONCAT(TIMESTAMPDIFF(HOUR ,card_date , NOW()),"시간 전") ELSE CONCAT(TIMESTAMPDIFF(DAY ,card_date , NOW()),"일 전") END AS card_date, card_likes,card_sale_check from card_table where card_UN=1 order by card_key desc limit ?,6;',
+    'SELECT card_key,card_subtitle,card_price,card_body,card_location,card_options, CASE WHEN TIMESTAMPDIFF(MINUTE ,card_date , NOW()) < 60 THEN CONCAT(TIMESTAMPDIFF(MINUTE ,card_date , NOW()),"분 전") WHEN TIMESTAMPDIFF(MINUTE ,card_date , NOW()) BETWEEN 60 AND 1440 THEN CONCAT(TIMESTAMPDIFF(HOUR ,card_date , NOW()),"시간 전") ELSE DATE_FORMAT(card_date,"%y.%m.%d") END AS card_date, card_likes,card_sale_check from card_table where card_UN=1 order by card_key desc limit ?,6;',
     [startPostNum],
     function (err, rows) {
       res.send(rows);
@@ -851,12 +851,13 @@ router.post("/likechange", function (req, res) {
     );
   }
 });
-router.post("/MainPostCommunityRows", function (req, res) {
+//Home 화면 TOP6 게시글
+router.post("/TodayTop6Postage", function (req, res) {
 
-  CommunityTop6sql =
-    "SELECT postage_key, postage_title, postage_comment, postage_love, postage_UN, CASE postage_UN WHEN '0' THEN 'free' WHEN '1' THEN 'anonymous' WHEN '2' THEN 'new' WHEN '3' THEN 'love' ELSE 'politic' END 'board_name' FROM postage_table WHERE postage_UN = 0 OR postage_UN = 1 OR postage_UN = 2 OR postage_UN = 3 OR postage_UN = 4  ORDER BY postage_love DESC, postage_comment DESC LIMIT 6";
+  TodayTop6Postagesql =
+    "SELECT postage_key, postage_title, postage_comment, postage_love, postage_UN, CASE postage_UN WHEN '0' THEN 'free' WHEN '1' THEN 'anonymous' WHEN '2' THEN 'new' WHEN '3' THEN 'love' WHEN '4' THEN 'politic' WHEN '5' THEN 'changbam' WHEN '6' THEN 'changwon' WHEN '7' THEN 'study' WHEN '8' THEN 'old' WHEN '9' THEN 'EmploymentReview' ELSE 'EmploymentAnnouncement' END 'board_name' FROM postage_table WHERE date_format(postage_date, '%y%m%d') = date_format(now(),'%y%m%d') ORDER BY postage_love DESC, postage_comment DESC LIMIT 6";
 
-    connection.query(CommunityTop6sql,function (err,rows) {
+    connection.query(TodayTop6Postagesql,function (err,rows) {
       if(err){
         console.log(err);
       }
@@ -866,33 +867,44 @@ router.post("/MainPostCommunityRows", function (req, res) {
       }
     });
 });
-router.post("/MainPostNoticeRows", function (req, res) {
+router.post("/FreeTop6Postage", function (req, res) {
 
-  NoticeTop6sql = 
-  "SELECT postage_key, postage_title, postage_comment, postage_love, postage_UN, CASE postage_UN WHEN '5' THEN 'changbam' ELSE'changwon' END 'board_name' FROM postage_table WHERE postage_UN = 5 OR postage_UN = 6 ORDER BY postage_love DESC, postage_comment DESC  LIMIT 6";
+  FreeTop6sql =
+    "SELECT postage_key, postage_title, postage_comment, postage_love FROM postage_table WHERE postage_UN = 0 ORDER BY postage_date DESC LIMIT 6";
+
+    connection.query(FreeTop6sql,function (err,rows) {
+      if(err){
+        console.log(err);
+      }
+      else{
+        res.json(rows);
+      }
+    });
+});
+router.post("/AnonymousTop6Postage", function (req, res) {
+
+  AnonymousTop6sql = 
+  "SELECT postage_key, postage_title, postage_comment, postage_love FROM postage_table WHERE postage_UN = 1 ORDER BY postage_date DESC LIMIT 6";
   
-    connection.query(NoticeTop6sql,function (err,rows) {
+    connection.query(AnonymousTop6sql,function (err,rows) {
       if(err){
         console.log(err);
       }
       else{
-        
         res.json(rows);
       }
     });
 });
-router.post("/MainPostEmploymentRows", function (req, res) {
-
+router.post("/EmploymentTop6Postage", function (req, res) {
 
   EmploymentTop6sql = 
-    "SELECT postage_key, postage_title, postage_comment, postage_love, postage_UN, CASE postage_UN WHEN '9' THEN 'EmploymentReview' WHEN '10' THEN 'EmploymentAnnouncement' ELSE 'old' END 'board_name' FROM postage_table WHERE postage_UN = 8 OR postage_UN = 9 OR postage_UN = 10 ORDER BY postage_love DESC, postage_comment DESC  LIMIT 6";
-
+  "SELECT postage_key, postage_title, postage_comment, postage_love FROM postage_table WHERE postage_UN = 9 ORDER BY postage_date DESC LIMIT 6";
+  
     connection.query(EmploymentTop6sql,function (err,rows) {
       if(err){
         console.log(err);
       }
       else{
-        
         res.json(rows);
       }
     });

@@ -154,10 +154,10 @@ class Postage_modify extends Component {
         this.setState({board_key:8, board_name:"꼰대 게시판"})
         break;
       case "EmploymentReview":
-        this.setState({board_key:9, board_name:"취업 후기"})
+        this.setState({board_key:9, board_name:"취업게시판"})
         break;
       case "EmploymentAnnouncement":
-          this.setState({board_key:10, board_name:"취업 공고"})
+          this.setState({board_key:10, board_name:"채용공고"})
         break; 
       default:
         break;

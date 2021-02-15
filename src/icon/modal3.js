@@ -117,7 +117,7 @@ class Favormodal extends React.Component {
                 <img alt="" src={Like5} height="30px" width="30px" />
                 <div className="ready">
                   <div className="user_name">
-                    <span>진로취업게시판</span>
+                    <span>진로채용공고</span>
                   </div>
                   <div className="user_talk">
                     <span>컴공과졸업한 아재다 열...</span>

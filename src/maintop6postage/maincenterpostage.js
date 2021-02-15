@@ -5,7 +5,7 @@ import Card from "@material-ui/core/Card";
 import { makeStyles } from "@material-ui/core";
 import CardHeader from "@material-ui/core/CardHeader";
 import IconButton from "@material-ui/core/IconButton";
-import StarIcon from "@material-ui/icons/Star";
+import AddIcon from '@material-ui/icons/Add';
 import { yellow } from "@material-ui/core/colors";
 import { Link } from "react-router-dom";
 
@@ -30,16 +30,16 @@ class MainTopPostage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      CommunityTop6: [],
-      EmploymentTop6:[],
-      NoticeTop6:[],
-
+      TodayTop6:[],
+      FreeTop6: [],
+      AnonymousTop6:[],
+      EmploymentTop6: [],
     };
   }
 
   componentWillMount(){
 
-    fetch("http://localhost:3001/api/MainPostNoticeRows", {
+    fetch("http://localhost:3001/api/TodayTop6Postage", {
       method: "post",
       headers: {
         "content-type": "application/json",
@@ -47,10 +47,10 @@ class MainTopPostage extends React.Component {
     })
     .then((res) => res.json())
     .then((res) => {
-      this.setState({ NoticeTop6: res});
+      this.setState({ TodayTop6: res});
     });
 
-    fetch("http://localhost:3001/api/MainPostCommunityRows", {
+    fetch("http://localhost:3001/api/FreeTop6Postage", {
       method: "post",
       headers: {
         "content-type": "application/json",
@@ -58,10 +58,19 @@ class MainTopPostage extends React.Component {
     })
     .then((res) => res.json())
     .then((res) => {
-      this.setState({ CommunityTop6: res});
+      this.setState({ FreeTop6: res});
     });
-
-    fetch("http://localhost:3001/api/MainPostEmploymentRows", {
+    fetch("http://localhost:3001/api/AnonymousTop6Postage", {
+      method: "post",
+      headers: {
+        "content-type": "application/json",
+      },
+    })
+    .then((res) => res.json())
+    .then((res) => {
+      this.setState({ AnonymousTop6: res});
+    });
+    fetch("http://localhost:3001/api/EmploymentTop6Postage", {
       method: "post",
       headers: {
         "content-type": "application/json",
@@ -71,34 +80,39 @@ class MainTopPostage extends React.Component {
     .then((res) => {
       this.setState({ EmploymentTop6: res});
     });
-
+    
   }
   render() {
     const posts = [
       {
         id: 1,
-        title: "오늘의인기글",
-        Toppostages:this.CommunityTop6,
+        title: "오늘의 인기글",
+        url:"/"
       },
       {
         id: 2,
-        title: "공지사항",
+        title: "자유게시판",
+        url:"/free/list/board=0"
       },
       {
         id: 3,
-        title: "캠퍼스",
+        title: "익명게시판",
+        url:"/anonymous/list/board=1"
       },
       {
         id: 4,
-        title: "취업",
+        title: "취업게시판",
+        url:"/EmploymentReview/list/board=9"
       },
       {
         id: 5,
-        title: "생활정보",
+        title: "창밤 마켓",
+        url:"/",
       },
       {
         id: 6,
-        title: "커뮤니티",
+        title: "자유홍보",
+        url:"/",
       },
     ];
     
@@ -116,38 +130,71 @@ class MainTopPostage extends React.Component {
                       </Typography>
                     }
                     action={
-                      <IconButton aria-label="star">
-                        <StarIcon
-                          style={{ color: yellow[500] }}
-                          fontSize="small"
-                        />
+                      <IconButton  focusRipple="false" 
+                      component={Link}
+                      to={`${post.url}`} align="left" >
+                        <AddIcon/>
                       </IconButton>
                     }
                   ></CardHeader>
                   <hr />
                   <div className="maincentercardgrid">
-
-                  {post.id === 2 && this.state.NoticeTop6.map((NoticeTop =>(
+                 
+                  {post.id === 1 && this.state.TodayTop6.map((TodayTop =>(
                       <Typography 
                       component={Link}
-                      to={`/${NoticeTop.board_name}/view/id=${NoticeTop.postage_key}&board=${NoticeTop.postage_UN}`} align="left" 
+                      to={`/${TodayTop.board_name}/view/id=${TodayTop.postage_key}&board=${TodayTop.postage_UN}`} align="left" 
                       >
                       <li>
                         <font className="MainPostageTitle"size = "3px">
-                        {NoticeTop.postage_title}
+                        {TodayTop.postage_title}
                         </font>
                         &nbsp;&nbsp;
                         <font color="#006cb7">
-                        [{NoticeTop.postage_comment}]
+                        [{TodayTop.postage_comment}]
                         </font>
                       </li>
                       </Typography> 
                     )
                    ))}
-                  {post.id === 4 && this.state.EmploymentTop6.map((EmploymentTop =>(
+                  {post.id === 2 && this.state.FreeTop6.map((FreeTop =>(
                       <Typography 
                       component={Link}
-                      to={`/${EmploymentTop.board_name}/view/id=${EmploymentTop.postage_key}&board=${EmploymentTop.postage_UN}`} align="left" 
+                      to={`/free/view/id=${FreeTop.postage_key}&board=0`} align="left" 
+                      >
+                      <li>
+                        <font className="MainPostageTitle"size = "3px">
+                        {FreeTop.postage_title}
+                        </font>
+                        &nbsp;&nbsp;
+                        <font color="#006cb7">
+                        [{FreeTop.postage_comment}]
+                        </font>
+                      </li>
+                      </Typography> 
+                    )
+                   ))}
+                    {post.id === 3 && this.state.AnonymousTop6.map((AnonymousTop =>(
+                      <Typography 
+                      component={Link}
+                      to={`/anonymous/view/id=${AnonymousTop.postage_key}&board=1`} align="left" 
+                      >
+                      <li>
+                        <font className="MainPostageTitle"size = "3px">
+                        {AnonymousTop.postage_title}
+                        </font>
+                        &nbsp;&nbsp;
+                        <font color="#006cb7">
+                        [{AnonymousTop.postage_comment}]
+                        </font>
+                      </li>
+                      </Typography> 
+                    )
+                   ))}
+                   {post.id === 4 && this.state.EmploymentTop6.map((EmploymentTop =>(
+                      <Typography 
+                      component={Link}
+                      to={`/EmploymentReview/view/id=${EmploymentTop.postage_key}&board=9`} align="left" 
                       >
                       <li>
                         <font className="MainPostageTitle"size = "3px">
@@ -162,26 +209,6 @@ class MainTopPostage extends React.Component {
                     )
                    ))}
 
-                    {post.id === 6 && this.state.CommunityTop6.map((CommunityTop =>(
-                      <Typography 
-                      component={Link}
-                      to={`/${CommunityTop.board_name}/view/id=${CommunityTop.postage_key}&board=${CommunityTop.postage_UN}`} align="left" 
-                      >
-                      <li className="MainPostageTitle">
-                      
-                        <font  size = "3px">
-                        {CommunityTop.postage_title}
-                        </font>
-                        &nbsp;&nbsp;
-                        <font color="#006cb7">
-                        [{CommunityTop.postage_comment}]
-                        </font>
-                      </li>
-                      </Typography> 
-                    )
-                   ))}
-                
-                    
                   </div>
                 </Card>
               </div>

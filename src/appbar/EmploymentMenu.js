@@ -88,10 +88,10 @@ class EmploymentMenu extends Component {
                 onKeyDown={handleListKeyDown}
               >
                <MenuItem onClick={()=>window.location.reload()}>
-                  <Link to={`/EmploymentAnnouncement/list/board=10`}>취업공고</Link>
+                  <Link to={`/EmploymentAnnouncement/list/board=10`}>채용공고</Link>
                 </MenuItem>
                 <MenuItem onClick={()=>window.location.reload()}>
-                  <Link to={`/EmploymentReview/list/board=9`}>취업후기</Link>
+                  <Link to={`/EmploymentReview/list/board=9`}>취업게시판</Link>
                   </MenuItem>
                 <MenuItem onClick={()=>window.location.reload()}>
                   <Link to={`/old/list/board=8`}>꼰대게시판</Link>
