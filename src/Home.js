@@ -12,6 +12,9 @@ class Home extends Component {
     return (
       <div className="Home">
         <TopAppBar />
+        <div>
+        
+        </div>
         <div className="searchbox">
           <Search />
         </div>
@@ -20,14 +23,17 @@ class Home extends Component {
         </span>
 
         <div className="home_body">
-        <div className="Shortcuts">
+          <div className="Shortcuts">
             <Changwonmenu />
           </div>
+
           <div className="home_paper">
             <MainTopPostage />           
           </div>
           
+          <div className="home_bottomemenu">
           <BottomMenu/>
+          </div>
           
         </div>
         

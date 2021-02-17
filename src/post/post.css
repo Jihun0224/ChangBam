@@ -88,3 +88,8 @@
     position: relative;
     top: 15px;
 }
+
+.MuiTableRow-root.emptyrows:hover{
+    background-color: unset !important;
+    color: unset !important;
+}

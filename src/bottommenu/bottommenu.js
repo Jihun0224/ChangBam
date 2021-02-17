@@ -15,6 +15,7 @@ class BottomMenu extends Component {
               <li onClick={()=>window.location.reload()}><Link to={`/free/list/board=0`}><font className="BottomMenu_content">자유게시판</font></Link></li>
               <li onClick={()=>window.location.reload()}><Link to={`/anonymous/list/board=1`}><font className="BottomMenu_content">익명게시판</font></Link></li>
               <li onClick={()=>window.location.reload()}><Link to={`/new/list/board=2`}><font className="BottomMenu_content">새내기게시판</font></Link></li>
+              <li onClick={()=>window.location.reload()}><Link to={`/old/list/board=8`}><font className="BottomMenu_content">졸업생게시판</font></Link></li>
               <li onClick={()=>window.location.reload()}><Link to={`/love/list/board=3`}><font className="BottomMenu_content">연애게시판</font></Link></li>
               <li onClick={()=>window.location.reload()}><Link to={`/politic/list/board=4`}><font className="BottomMenu_content">정치게시판</font></Link></li>
             </ul>
@@ -40,7 +41,6 @@ class BottomMenu extends Component {
             <ul>
               <li onClick={()=>window.location.reload()}><Link to={`/EmploymentAnnouncement/list/board=10`}><font className="BottomMenu_content">채용공고</font></Link></li>
               <li onClick={()=>window.location.reload()}><Link to={`/EmploymentReview/list/board=9`}><font className="BottomMenu_content">취업게시판</font></Link></li>
-              <li onClick={()=>window.location.reload()}><Link to={`/old/list/board=8`}><font className="BottomMenu_content">꼰대게시판</font></Link></li>
             </ul>
           </Paper>
           <Paper className="BottomMenu_notice" elevation={0}>

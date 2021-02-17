@@ -119,22 +119,22 @@ class ViewPost extends Component {
     
         switch (this.props.match.params.board_key) {
           case "0":
-            this.setState({ board_name: "자유 게시판", board_name_eng: "free" });
+            this.setState({ board_name: "자유게시판", board_name_eng: "free" });
             break;
           case "1":
             this.setState({
-              board_name: "익명 게시판",
+              board_name: "익명게시판",
               board_name_eng: "anonymous",
             });
             break;
           case "2":
-            this.setState({ board_name: "새내기 게시판", board_name_eng: "new" });
+            this.setState({ board_name: "새내기게시판", board_name_eng: "new" });
             break;
           case "3":
-            this.setState({ board_name: "연애 상담소", board_name_eng: "love" });
+            this.setState({ board_name: "연애게시판", board_name_eng: "love" });
             break;
           case "4":
-            this.setState({ board_name: "정치 게시판", board_name_eng: "politic" });
+            this.setState({ board_name: "정치게시판", board_name_eng: "politic" });
             break;
           case "5":
             this.setState({
@@ -150,13 +150,13 @@ class ViewPost extends Component {
             break;
           case '7':
             this.setState({
-              board_name: "스터디 그룹",
+              board_name: "스터디그룹",
               board_name_eng:"study"
               });
               break;
           case '8':
             this.setState({
-              board_name: "꼰대 게시판",
+              board_name: "졸업생게시판",
               board_name_eng:"old"
               });
               break;

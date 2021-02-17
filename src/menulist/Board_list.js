@@ -67,9 +67,11 @@ export default function NestedList() {
             <Button className="nested_btn" href="/anonymous/list/board=1">
               익명게시판
             </Button>
-
             <Button className="nested_btn" href="/new/list/board=2">
-              새내기 게시판
+              새내기게시판
+            </Button>
+            <Button className="nested_btn" href="/old/list/board=8">
+              졸업생게시판
             </Button>
             <Button className="nested_btn" href="/love/list/board=3">
               연애게시판
@@ -116,9 +118,6 @@ export default function NestedList() {
             </Button>
             <Button className="nested_btn" href="/EmploymentReview/list/board=9">
               취업게시판
-            </Button>
-            <Button className="nested_btn" href="/old/list/board=8">
-              꼰대 게시판
             </Button>
             <Divider />
 

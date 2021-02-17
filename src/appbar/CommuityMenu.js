@@ -96,6 +96,9 @@ class CommuityMenu extends Component {
                 <MenuItem onClick={() => window.location.reload()}>
                   <Link to={`/new/list/board=2`}>새내기게시판</Link>
                 </MenuItem>
+                <MenuItem onClick={()=>window.location.reload()}>
+                  <Link to={`/old/list/board=8`}>졸업생게시판</Link>
+                </MenuItem>
                 <MenuItem onClick={() => window.location.reload()}>
                   <Link to={`/love/list/board=3`}>연애상담소</Link>
                 </MenuItem>

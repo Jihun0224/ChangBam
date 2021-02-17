@@ -13,8 +13,6 @@ body {
 }
 
 .Home .home_body {
-  width: auto;
-  height: auto;
   position: relative;
   top: -150px;
 }
@@ -30,4 +28,7 @@ body {
   top: 170px;
   margin-left: 5%;
 }
-
+.Home .home_bottomemenu{
+  position: relative;
+  top: 10px;
+}

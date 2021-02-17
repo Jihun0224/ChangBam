@@ -181,19 +181,19 @@ class Home2 extends Component {
 
     switch (params.board_name) {
       case "free":
-        this.setState({ board_key: 0, board_name: "자유 게시판" });
+        this.setState({ board_key: 0, board_name: "자유게시판" });
         break;
       case "anonymous":
-        this.setState({ board_key: 1, board_name: "익명 게시판" });
+        this.setState({ board_key: 1, board_name: "익명게시판" });
         break;
       case "new":
-        this.setState({ board_key: 2, board_name: "새내기 게시판" });
+        this.setState({ board_key: 2, board_name: "새내기게시판" });
         break;
       case "love":
-        this.setState({ board_key: 3, board_name: "연애 상담소" });
+        this.setState({ board_key: 3, board_name: "연애게시판" });
         break;
       case "politic":
-        this.setState({ board_key: 4, board_name: "정치 게시판" });
+        this.setState({ board_key: 4, board_name: "정치게시판" });
         break;
       case "changbam":
         this.setState({ board_key: 5, board_name: "창밤 공지사항" });
@@ -202,10 +202,10 @@ class Home2 extends Component {
         this.setState({ board_key: 6, board_name: "학교 공지사항" });
         break;
       case "study":
-          this.setState({board_key:7, board_name:"스터디 그룹"});
+          this.setState({board_key:7, board_name:"스터디그룹"});
           break;
       case "old":
-        this.setState({board_key:8, board_name:"꼰대 게시판"})
+        this.setState({board_key:8, board_name:"졸업생게시판"})
         break;
       case "EmploymentReview":
         this.setState({board_key:9, board_name:"취업게시판"})

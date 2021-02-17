@@ -194,7 +194,7 @@ class Postbody extends Component {
                   </TableRow>
                 ))}
                 {emptyRows > 0 && (
-                  <TableRow style={{ height: 49.8 * emptyRows }}>
+                  <TableRow className="emptyrows" style={{ height: 49.8 * emptyRows }}>
                     <TableCell />
                   </TableRow>
                 )}

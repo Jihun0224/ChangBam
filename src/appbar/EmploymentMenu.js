@@ -93,9 +93,6 @@ class EmploymentMenu extends Component {
                 <MenuItem onClick={()=>window.location.reload()}>
                   <Link to={`/EmploymentReview/list/board=9`}>취업게시판</Link>
                   </MenuItem>
-                <MenuItem onClick={()=>window.location.reload()}>
-                  <Link to={`/old/list/board=8`}>꼰대게시판</Link>
-                </MenuItem>
               </MenuList>
             </ClickAwayListener>
           </Paper>
