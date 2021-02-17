@@ -40,13 +40,20 @@
 }
 .maincenterpostage .MuiCardHeader-root{
     padding-bottom: 0px;
-    padding-top: 10px;
+    padding-top: 0px;
 }
 .maincenterpostage .MuiButtonBase-root.MuiIconButton-root{
     position: relative;
-    top: -2px;
+    top: 5px;
+    color: #000555;
 }
 .maincenterpostage .MuiButtonBase-root.MuiIconButton-root:hover{
     background-color: unset !important;
     color: unset !important;
+}
+.maincenterpostage .posttitle{
+    color: #000555;
+    position: relative;
+    top: -7px;
+    left: 5px;
 }

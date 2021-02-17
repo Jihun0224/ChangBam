@@ -36,10 +36,6 @@ class Search extends React.Component {
                         <DirectionsIcon />
                         
                     </IconButton>*/}
-
-          <IconButton aria-label="star">
-            <StarIcon />
-          </IconButton>
         </Paper>
       </div>
     );

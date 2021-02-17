@@ -6,9 +6,13 @@ import { makeStyles } from "@material-ui/core";
 import CardHeader from "@material-ui/core/CardHeader";
 import IconButton from "@material-ui/core/IconButton";
 import AddIcon from '@material-ui/icons/Add';
-import { yellow } from "@material-ui/core/colors";
 import { Link } from "react-router-dom";
-
+import popularity from "./popularity.png";
+import anonymousboard from "./anonymousboard.png";
+import employment from "./employment.png";
+import market from "./market.png";
+import freeboard from "./freeboard.png";
+import promotion from "./promotion.png";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -87,32 +91,38 @@ class MainTopPostage extends React.Component {
       {
         id: 1,
         title: "오늘의 인기글",
-        url:"/"
+        url:"/",
+        png:popularity,
       },
       {
         id: 2,
         title: "자유게시판",
-        url:"/free/list/board=0"
+        url:"/free/list/board=0",
+        png:freeboard,
       },
       {
         id: 3,
         title: "익명게시판",
-        url:"/anonymous/list/board=1"
+        url:"/anonymous/list/board=1",
+        png:anonymousboard,
       },
       {
         id: 4,
         title: "취업게시판",
-        url:"/EmploymentReview/list/board=9"
+        url:"/EmploymentReview/list/board=9",
+        png:employment,
       },
       {
         id: 5,
         title: "창밤 마켓",
         url:"/",
+        png:market,
       },
       {
         id: 6,
         title: "자유홍보",
         url:"/",
+        png:promotion,
       },
     ];
     
@@ -126,7 +136,7 @@ class MainTopPostage extends React.Component {
                   <CardHeader
                     title={
                       <Typography align="left" variant="h4">
-                        {post.title}
+                  <img className= "post_image"alt="" src={post.png} width="40px" height="40px"/><font className ="posttitle">{post.title}</font>
                       </Typography>
                     }
                     action={
