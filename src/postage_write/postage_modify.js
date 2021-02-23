@@ -12,7 +12,7 @@ import BottomMenu from '../bottommenu/bottommenu';
 import { Typography } from "@material-ui/core";
 import swal from 'sweetalert';
 
-class Postage_modify extends Component {
+class PostageModify extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -186,7 +186,7 @@ class Postage_modify extends Component {
             <Typography variant="h3"> {this.state.board_name}</Typography>
         </div>
         <div className="write_wrap">
-          <div className="form" noValidate autoComplete="off">
+          <div className="postage_write_paper" noValidate autoComplete="off">
             <form onSubmit={onSubmit} className="form_div">
               <div className="titleinput">
                 <input
@@ -250,6 +250,7 @@ class Postage_modify extends Component {
                   ],
                 }}
               />
+              <div className="button_box">              
               <Button
                 className="commit"
                 variant="contained"
@@ -264,11 +265,11 @@ class Postage_modify extends Component {
                 variant="contained"
                 color="secondary"
                 id="cancel"
-                margin-left="20px"
                 onClick={goBack}
               >
                 취소
               </Button>
+              </div>
             </form>
             <ToastContainer />
             <div className="sunedidtor"></div>
@@ -282,4 +283,4 @@ class Postage_modify extends Component {
   }
 }
 }
-export default Postage_modify;
+export default PostageModify;

@@ -86,11 +86,11 @@ class ImformationMenu extends Component {
                 id="menu-list-grow"
                 onKeyDown={handleListKeyDown}
               >
-                <MenuItem>
-                  <Link to="market">창밤인 마켓</Link>
+                <MenuItem onClick={()=>window.location.reload()}>
+                  <Link to={`/ChangbamMarket/list/card=1`}>창밤인 마켓</Link>
                 </MenuItem>
-                <MenuItem>
-                  <Link to="room">자취방 마켓</Link>
+                <MenuItem onClick={()=>window.location.reload()}>
+                  <Link to={`/RoomMarket/list/card=2`}>자취방 마켓</Link>
                 </MenuItem>
                 <MenuItem>
                   <Link to="alba">알바창국</Link>

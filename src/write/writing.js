@@ -51,7 +51,7 @@ class Writing extends React.Component {
       });
       console.log("게시글 번호", post.postNum);
 
-      fetch("api/getmarketpost", {
+      fetch("http://localhost:3001/api/getmarketpost", {
         method: "post",
         headers: {
           "content-type": "application/json",
@@ -104,7 +104,7 @@ class Writing extends React.Component {
           content: this.state.content,
           nickname: this.state.nickname,
         };
-        fetch("api/market", {
+        fetch("http://localhost:3001/api/market", {
           method: "post",
           headers: {
             "content-type": "application/json",
@@ -131,7 +131,7 @@ class Writing extends React.Component {
           content: this.state.content,
           postNum: this.state.postNum,
         };
-        fetch("api/marketupdate", {
+        fetch("http://localhost:3001/api/marketupdate", {
           method: "post",
           headers: {
             "content-type": "application/json",

@@ -97,7 +97,7 @@ class dongari_Writing extends React.Component {
       this.setState({
         postNum: post.postNum,
       });
-      fetch("api/getclubpost", {
+      fetch("http://localhost:3001/api/getclubpost", {
         method: "post",
         headers: {
           "content-type": "application/json",
@@ -148,7 +148,7 @@ class dongari_Writing extends React.Component {
         nickname: this.state.nickname,
         user_id: this.state.key,
       };
-      fetch("api/club", {
+      fetch("http://localhost:3001/api/club", {
         method: "post",
         headers: {
           "content-type": "application/json",

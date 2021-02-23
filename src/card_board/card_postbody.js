@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
-import './gridcard.css';
-import ClubCard from '../club/dongalicard/clubcard';
+import './card_postbody.css';
+import ClubCard from '../card/gridcard/gridd';
 import Pagination from '@material-ui/lab/Pagination';
 
-class Griddongali extends React.Component{
+class CardPostBody extends Component{
 
     constructor(props){
         super(props);
         this.state={
             startPostNum:0,
             rows:'',
-            pagecount:0
+            pagecount:0,
+            card_UN: this.props.card_UN,
         }
         this.handleChange= this.handleChange.bind(this);
         this.getMaxPostNumGuide =this.getMaxPostNumGuide.bind(this);
         this.getSixPost = this.getSixPost.bind(this);
         this.isFull = this.isFull.bind(this);
-        this.goTop=this.goTop.bind(this);
     }
 
 
@@ -83,34 +83,29 @@ class Griddongali extends React.Component{
         this.getSixPost(page);
     };
 
-    goTop(){
-        document.documentElement.scrollTop = 130;
-    }
 
     render(){
 
         return(
-            <div>
-                <div className="gridmarket_main">   
-                    {this.isFull(this.state.rows[0])&&(<div className="gridmarket_1" ><ClubCard post={this.state.rows[0]} /></div>)}
-                    {this.isFull(this.state.rows[1])&&(<div className="gridmarket_2" ><ClubCard post={this.state.rows[1]}  /></div>)}
-                    {this.isFull(this.state.rows[2])&&(<div className="gridmarket_3"><ClubCard post={this.state.rows[2]} /></div>)}
-                    {this.isFull(this.state.rows[3])&&(<div className="gridmarket_4" ><ClubCard  post={this.state.rows[3]}/></div>)}
-                    {this.isFull(this.state.rows[4])&&(<div className="gridmarket_5"><ClubCard post={this.state.rows[4]}/></div>)}
-                    {this.isFull(this.state.rows[5])&&(<div className="gridmarket_6"><ClubCard  post={this.state.rows[5]} /></div>)}
+            <div className="card_post">
+                <div className="card_postbody">   
+                    {this.isFull(this.state.rows[0])&&(<div className="card_grid1" ><ClubCard post={this.state.rows[0]} /></div>)}
+                    {this.isFull(this.state.rows[1])&&(<div className="card_grid2" ><ClubCard post={this.state.rows[1]}  /></div>)}
+                    {this.isFull(this.state.rows[2])&&(<div className="card_grid3"><ClubCard post={this.state.rows[2]} /></div>)}
+                    {this.isFull(this.state.rows[3])&&(<div className="card_grid4" ><ClubCard  post={this.state.rows[3]}/></div>)}
+                    {this.isFull(this.state.rows[4])&&(<div className="card_grid5"><ClubCard post={this.state.rows[4]}/></div>)}
+                    {this.isFull(this.state.rows[5])&&(<div className="card_grid6"><ClubCard  post={this.state.rows[5]} /></div>)}
                 </div>
-
-                <div className="postpagecount">  
-                    <Pagination
-                    count={this.state.pagecount} color="primary"
-                    onChange={this.handleChange}
-                    onClick= {this.goTop}
-                    size="large"/>
-                   {/*게시판 번호 선택하는 부분 */}
-                </div>
+                <div className="card_postpagecount">  
+                        <Pagination
+                        count={this.state.pagecount} color="primary"
+                        onChange={this.handleChange}
+                        size="large"/>
+                    </div>
+               
             </div>
         )
     }
 }
 
-export default Griddongali;
+export default CardPostBody;

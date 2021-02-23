@@ -551,306 +551,260 @@ router.post("/post_delete", function (req, res) {
       console.log(err);
     } else {
       console.log(postage_key + "게시글 삭제");
-      res.json(rows);
     }
   });
 });
 
 //오민정
-
-{
   /*club DB*/
-}
-router.post("/club", function (req, res) {
+
+router.post('/ClubPostageWrite',function(req,res){
   var clubTitle = req.body.clubTitle;
   var clubSubtitle = req.body.clubSubtitle;
-  var clubShowbody = req.body.clubShowbody;
+  var clubShowbody =req.body.clubShowbody;
   var clubBody = req.body.clubBody;
-  ``;
   var nickname = req.body.nickname;
 
-  connection.query(
-    "INSERT INTO card_table (card_UN,card_nickname,card_body,card_showbody,card_subtitle,card_title) VALUES(2,?,?,?,?,?)",
-    [nickname, clubBody, clubShowbody, clubSubtitle, clubTitle],
-    function (err, rows, fields) {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log(rows.insertId);
-        let postNum = JSON.stringify(rows.insertId);
-        res.send(postNum);
+  console.log("닉 : ", nickname+"ㅇㅇㅇ"+clubTitle, clubSubtitle, clubShowbody, clubBody);
+
+  connection.query('INSERT INTO card_table (card_UN,card_nickname,card_body,card_showbody,card_subtitle,card_title, user_key) VALUES(2,?,?,?,?,?,(SELECT user_key FROM user_table WHERE user_nickname = ?))',
+  [nickname,clubBody,clubShowbody,clubSubtitle,clubTitle,nickname],function(err,rows,fields){
+      if(err){
+          console.log(err);
+      }else{
+          console.log(rows.insertId);
+          let postNum = JSON.stringify(rows.insertId);
+          res.send(postNum);
       }
-    }
-  );
-});
-router.post("/clubupdate", function (req, res) {
+        
+  })
+})
+router.post('/clubupdate',function(req,res){
   var clubTitle = req.body.clubTitle;
   var clubSubtitle = req.body.clubSubtitle;
-  var clubShowbody = req.body.clubShowbody;
+  var clubShowbody =req.body.clubShowbody;
   var clubBody = req.body.clubBody;
-  var postNum = req.body.postNum;
+  var postNum= req.body.postNum;
 
-  connection.query(
-    "UPDATE card_table SET card_title=?,card_subtitle=?,card_showbody=?,card_body=? WHERE card_key=? AND card_UN=2 LIMIT 1",
-    [clubTitle, clubSubtitle, clubShowbody, clubBody, postNum],
-    function (err, rows, fields) {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log(rows.insertId);
-        let postNum = JSON.stringify(rows.insertId);
-        res.send(postNum);
+  console.log("변경할 postNum : ",postNum);
+
+  connection.query('UPDATE card_table SET card_title=?,card_subtitle=?,card_showbody=?,card_body=? WHERE card_key=? AND card_UN=2 LIMIT 1' ,
+  [clubTitle,clubSubtitle,clubShowbody,clubBody,postNum],function(err,rows,fields){
+      if(err){
+          console.log(err);
+      }else{
+          console.log(rows.insertId);
+          let postNum = JSON.stringify(rows.insertId);
+          res.send(postNum);
       }
-    }
-  );
-});
+        
+  })
+})
 
-router.post("/getsixpostclubtable", function (req, res) {
+
+router.post('/getsixpostclubtable',function(req,res){
   var startPostNum = req.body.startPostNum;
-  connection.query(
-    "SELECT card_key, card_showbody, card_subtitle,card_title from card_table where card_UN=2 order by card_key desc limit ?,6;",
-    [startPostNum],
-    function (err, rows) {
+  connection.query('SELECT card_key, card_showbody, card_subtitle,card_title from card_table where card_UN=2 order by card_key desc limit ?,6;',[startPostNum],function(err,rows){
+      console.log("getSixpost 쇼바디: ",rows.card_showbody);
+  
       res.send(rows);
-    }
-  );
-});
+  })
+})
 
-router.post("/getclubpost", function (req, res) {
+router.post('/getclubpost',function(req,res){
   var card_key = req.body.postNum;
-  connection.query(
-    "SELECT card_nickname, card_title,card_showbody, card_body, card_subtitle from card_table where card_UN=2 and card_key=?;",
-    [card_key],
-    function (err, rows) {
+  connection.query('SELECT card_nickname, card_title,card_showbody, card_body, card_subtitle from card_table where card_UN=2 and card_key=?;',[card_key],function(err,rows){
+      console.log("getPost: ",rows[0].card_body);
+  
       res.send(rows);
-    }
-  );
-});
+  })
+})
 
-{
-  /*market DB*/
-}
+{/*market DB*/}
 
-router.post("/getsixpostmarkettable", function (req, res) {
+router.post('/getsixpostmarkettable',function(req,res){
   var startPostNum = req.body.startPostNum;
-  connection.query(
-    'SELECT card_key,card_title,card_price,CASE WHEN TIMESTAMPDIFF(MINUTE ,card_date , NOW()) < 60 THEN CONCAT(TIMESTAMPDIFF(MINUTE ,card_date , NOW()),"분 전") WHEN TIMESTAMPDIFF(MINUTE ,card_date , NOW()) BETWEEN 60 AND 1440 THEN CONCAT(TIMESTAMPDIFF(HOUR ,card_date , NOW()),"시간 전") ELSE DATE_FORMAT(card_date,"%y.%m.%d") END AS card_date, card_body,card_likes, card_location, card_sale_check from card_table where card_UN=0 order by card_key desc limit ?,6;',
-    [startPostNum],
-    function (err, rows) {
+  connection.query('SELECT card_key,card_title,card_price,CASE WHEN TIMESTAMPDIFF(MINUTE ,card_date , NOW()) < 60 THEN CONCAT(TIMESTAMPDIFF(MINUTE ,card_date , NOW()),"분 전") WHEN TIMESTAMPDIFF(MINUTE ,card_date , NOW()) BETWEEN 60 AND 1440 THEN CONCAT(TIMESTAMPDIFF(HOUR ,card_date , NOW()),"시간 전") ELSE CONCAT(TIMESTAMPDIFF(DAY ,card_date , NOW()),"일 전") END AS card_date, card_body,card_likes, card_location, card_sale_check from card_table where card_UN=0 order by card_key desc limit ?,6;',[startPostNum],function(err,rows){
+      console.log("0번째",rows[0].card_title);
+  
       res.send(rows);
-    }
-  );
-});
-router.post("/getmarketpost", function (req, res) {
+  })
+})
+router.post('/getmarketpost',function(req,res){
   var card_key = req.body.postNum;
-
-  connection.query(
-    "SELECT card_nickname,card_title,card_price, card_body, card_location, card_sale_check from card_table where card_UN=0 and card_key=?;",
-    [card_key],
-    function (err, rows) {
+  
+  connection.query('SELECT card_nickname,card_title,card_price, card_body, card_location, card_sale_check from card_table where card_UN=0 and card_key=?;',[card_key],function(err,rows){
+      console.log("getmarketpost 0번째",rows[0].card_title);
+  
       res.send(rows);
-    }
-  );
-});
-router.post("/market", function (req, res) {
+  })
+})
+router.post('/market',function(req,res){
   var title = req.body.productName;
   var price = req.body.price;
-  var location = req.body.location;
+  var location =req.body.location;
   var body = req.body.content;
-  var nickname = req.body.nickname;
+  var nickname =req.body.nickname;
 
-  connection.query(
-    "INSERT INTO card_table (card_UN,card_likes,card_nickname,card_title,card_price,card_body,card_location,card_sale_check) VALUES(0,0,?,?,?,?,?,0)",
-    [nickname, title, price, body, location],
-    function (err, rows, fields) {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log(rows.insertId);
-        let postNum = JSON.stringify(rows.insertId);
-        res.send(postNum);
+  console.log("요소", title, price, location,body);
+
+  connection.query('INSERT INTO card_table (card_UN,card_likes,card_nickname,card_title,card_price,card_body,card_location,card_sale_check) VALUES(0,0,?,?,?,?,?,0)',
+  [nickname,title,price,body,location],function(err,rows,fields){
+      if(err){
+          console.log(err);
+      }else{
+          console.log(rows.insertId);
+          let postNum = JSON.stringify(rows.insertId);
+          res.send(postNum);
       }
-    }
-  );
-});
+        
+  })
+})
 
-router.post("/marketupdate", function (req, res) {
+router.post('/marketupdate',function(req,res){
   var title = req.body.productName;
   var price = req.body.price;
-  var location = req.body.location;
+  var location =req.body.location;
   var body = req.body.content;
   var postNum = req.body.postNum;
 
-  connection.query(
-    "UPDATE card_table SET card_title=?,card_price=?,card_location=?,card_body=? WHERE card_key=? AND card_UN=0 LIMIT 1",
-    [title, price, location, body, postNum],
-    function (err, rows, fields) {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log(rows.insertId);
-        let postNum = JSON.stringify(rows.insertId);
-        res.send(postNum);
+  console.log("변경할 postNum : ",postNum);
+
+  connection.query('UPDATE card_table SET card_title=?,card_price=?,card_location=?,card_body=? WHERE card_key=? AND card_UN=0 LIMIT 1' ,
+  [title,price,location,body,postNum],function(err,rows,fields){
+      if(err){
+          console.log(err);
+      }else{
+          console.log(rows.insertId);
+          let postNum = JSON.stringify(rows.insertId);
+          res.send(postNum);
       }
-    }
-  );
-});
+        
+  })
+})
 
-{
-  /*room DB*/
-}
 
-router.post("/totalpostnum", function (req, res) {
+{/*room DB*/}
+
+router.post('/totalpostnum',function(req,res){
   var card_UN = req.body.card_UN;
-  connection.query(
-    "select count(*) count from card_table where card_UN=?;",
-    [card_UN],
-    function (err, rows) {
-      console.log("카드 개수:", rows);
-
+  connection.query('select count(*) count from card_table where card_UN=?;',[card_UN],function(err,rows){
+      console.log("카드 개수:",rows);
+  
       res.send(rows);
-    }
-  );
-});
+  })
+})
 
-router.post("/getsixpostroom", function (req, res) {
+router.post('/getsixpostroom',function(req,res){
   var startPostNum = req.body.startPostNum;
-  connection.query(
-    'SELECT card_key,card_subtitle,card_price,card_body,card_location,card_options, CASE WHEN TIMESTAMPDIFF(MINUTE ,card_date , NOW()) < 60 THEN CONCAT(TIMESTAMPDIFF(MINUTE ,card_date , NOW()),"분 전") WHEN TIMESTAMPDIFF(MINUTE ,card_date , NOW()) BETWEEN 60 AND 1440 THEN CONCAT(TIMESTAMPDIFF(HOUR ,card_date , NOW()),"시간 전") ELSE DATE_FORMAT(card_date,"%y.%m.%d") END AS card_date, card_likes,card_sale_check from card_table where card_UN=1 order by card_key desc limit ?,6;',
-    [startPostNum],
-    function (err, rows) {
+  connection.query('SELECT card_key,card_subtitle,card_price,card_body,card_location,card_options, CASE WHEN TIMESTAMPDIFF(MINUTE ,card_date , NOW()) < 60 THEN CONCAT(TIMESTAMPDIFF(MINUTE ,card_date , NOW()),"분 전") WHEN TIMESTAMPDIFF(MINUTE ,card_date , NOW()) BETWEEN 60 AND 1440 THEN CONCAT(TIMESTAMPDIFF(HOUR ,card_date , NOW()),"시간 전") ELSE CONCAT(TIMESTAMPDIFF(DAY ,card_date , NOW()),"일 전") END AS card_date, card_likes,card_sale_check from card_table where card_UN=1 order by card_key desc limit ?,6;',[startPostNum],function(err,rows){
+      console.log("0번째",rows[0].card_subtitle);
+  
       res.send(rows);
-    }
-  );
-});
-router.post("/getroompost", function (req, res) {
+  })
+})
+router.post('/getroompost',function(req,res){
   var card_key = req.body.postNum;
-  connection.query(
-    "SELECT card_subtitle,card_price,card_body,card_location,card_options,card_nickname,card_sale_check from card_table where card_UN=1 and card_key=?;",
-    [card_key],
-    function (err, rows) {
+  console.log("card_key: ",card_key);
+  console.log("room!!");
+  connection.query('SELECT card_subtitle,card_price,card_body,card_location,card_options,card_nickname,card_sale_check from card_table where card_UN=1 and card_key=?;',[card_key],function(err,rows){
       console.log(rows[0]);
+      console.log("getmarketpost 0번째",rows[0].card_subtitle);
+  
       res.send(rows);
-    }
-  );
-});
-router.post("/room", function (req, res) {
-  var mode = req.body.mode;
-  var options = req.body.option;
-  var price = req.body.price;
-  var location = req.body.location;
-  var content = req.body.content;
-  var nickname = req.body.nickname;
-
+  })
+})
+router.post('/room',function(req,res){
+  var mode=req.body.mode;
+  var options=req.body.option;
+  var price=req.body.price;  
+  var location=req.body.location; 
+  var content=req.body.content;  
+  var nickname=req.body.nickname;
+ 
   console.log("room new value insert");
-  connection.query(
-    "INSERT INTO card_table (card_UN,card_subtitle,card_nickname,card_price,card_body,card_location,card_options) VALUES(1,?,?,?,?,?,?)",
-    [mode, nickname, price, content, location, options],
-    function (err, rows, fields) {
-      if (err) {
-        console.log(err);
+  connection.query('INSERT INTO card_table (card_UN,card_subtitle,card_nickname,card_price,card_body,card_location,card_options) VALUES(1,?,?,?,?,?,?)',
+  [mode,nickname,price,content,location,options],function(err,rows,fields){
+      if(err){
+          console.log(err);
       }
-    }
-  );
-});
+  })
+})
 
-router.post("/roomupdate", function (req, res) {
-  var mode = req.body.mode;
-  var options = req.body.option;
-  var price = req.body.price;
-  var location = req.body.location;
-  var content = req.body.content;
+router.post('/roomupdate',function(req,res){
+  console.log("변경된 값: ",req.body);
+  var mode=req.body.mode;
+  var options=req.body.option;
+  var price=req.body.price;  
+  var location=req.body.location; 
+  var content=req.body.content;  
   var postNum = req.body.postNum;
 
+  console.log("변경할 postNum : ",postNum);
   console.log("room update");
-  connection.query(
-    "UPDATE card_table SET card_subtitle=?,card_price=?,card_body=?,card_location=?,card_options=? WHERE card_key=? AND card_UN=1 LIMIT 1",
-    [mode, price, content, location, options, postNum],
-    function (err, rows, fields) {
-      if (err) {
-        console.log(err);
+  connection.query('UPDATE card_table SET card_subtitle=?,card_price=?,card_body=?,card_location=?,card_options=? WHERE card_key=? AND card_UN=1 LIMIT 1' ,
+  [mode,price, content,location,options,postNum],function(err,rows,fields){
+      if(err){
+          console.log(err);
       }
-    }
-  );
-});
+  })
+})
 
-router.post("/deletecardpost", function (req, res) {
+router.post('/deletecardpost',function(req,res){
   var card_UN = req.body.card_UN;
   var postNum = req.body.postNum;
 
-  connection.query(
-    "DELETE FROM card_table WHERE card_UN=? AND card_key=?",
-    [card_UN, postNum],
-    function (err, rows, fields) {
+  connection.query('DELETE FROM card_table WHERE card_UN=? AND card_key=?',[card_UN,postNum],function(err,rows,fields){
       res.send(rows);
-    }
-  );
-});
-router.post("/soldoutcard", function (req, res) {
-  var card_key = req.body.card_key;
+  })
+})
+router.post('/soldoutcard',function(req,res){
+  var card_key= req.body.card_key;
 
-  connection.query(
-    "update card_table set card_sale_check=1 where card_key=?",
-    [card_key],
-    function (err, rows) {
+  connection.query('update card_table set card_sale_check=1 where card_key=?',[card_key],function(err,rows){
       console.log("판매 완료!");
-    }
-  );
-});
-router.post("/likecheck", function (req, res) {
+  })
+})
+router.post('/likecheck',function(req,res){
+  console.log(req.body);
   var nickname = req.body.nickname;
   var card_key = req.body.card_key;
 
-  connection.query(
-    "SELECT nickname from cardlike_table where nickname = ? and card_key=?",
-    [nickname, card_key],
-    function (err, rows, fields) {
-      console.log(rows);
-      if (rows[0] === undefined) {
-        res.send(false);
-      } else {
-        res.send(true);
+  connection.query('SELECT nickname from cardlike_table where nickname = ? and card_key=?',[nickname,card_key],function(err,rows,fields){
+      if(rows[0] === undefined){
+          res.send(false);
+      }else{
+          res.send(true);
       }
-    }
-  );
-});
+  })
+})
 
-router.post("/likechange", function (req, res) {
+router.post('/likechange',function(req,res){
+  console.log(req.body);
   var body = req.body;
-  var nickname = req.body.nickname; //req.body.post.nickname;
+  var nickname= req.body.nickname//req.body.post.nickname;
+  
+  if(body.like===false){
+      connection.query('INSERT INTO cardlike_table (card_key,nickname) VALUES(?,?);',[body.card_key,nickname],function(err,rows,fields){
+          console.log("like insert");
+      })
+      connection.query('update card_table set card_likes=card_likes+1 where card_key=?;', [body.card_key], function(err,rows){
+          console.log(body.card_key,"번 카드 좋아요 +1");
+      });
 
-  if (body.like === false) {
-    connection.query(
-      "INSERT INTO cardlike_table (card_key,nickname) VALUES(?,?);",
-      [body.card_key, nickname],
-      function (err, rows, fields) {
-        console.log("like insert");
-      }
-    );
-    connection.query(
-      "update card_table set card_likes=card_likes+1 where card_key=?;",
-      [body.card_key],
-      function (err, rows) {
-        console.log(body.card_key, "번 카드 좋아요 +1");
-      }
-    );
-  } else if (body.like === true) {
-    connection.query(
-      "DELETE FROM cardlike_table where nickname = ? and card_key=?",
-      [nickname, body.card_key],
-      function (err, rows, fields) {
-        console.log("like delete");
-      }
-    );
-    connection.query(
-      "update card_table set card_likes=card_likes-1 where card_key=?;",
-      [body.card_key],
-      function (err, rows) {
-        console.log(body.card_key, "번 카드 좋아요 -1");
-      }
-    );
+  }else if(body.like===true){
+      
+      connection.query('DELETE FROM cardlike_table where nickname = ? and card_key=?',[nickname,body.card_key],function(err,rows,fields){
+          console.log("like delete");
+         
+      })
+      connection.query('update card_table set card_likes=card_likes-1 where card_key=?;', [body.card_key] ,function(err,rows){
+          console.log(body.card_key,"번 카드 좋아요 -1");
+      });
+
   }
-});
+
+})
 //Home 화면 TOP6 게시글
 router.post("/TodayTop6Postage", function (req, res) {
 

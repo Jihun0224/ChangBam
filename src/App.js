@@ -1,43 +1,49 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Route,Switch } from "react-router-dom";
 import Home from "./Home";
 import Alba from "./alba";
 import Meeting_home from "./meeting/meeting_home";
 import Postage_write from "./postage_write/postage_write";
 import Postage_modify from "./postage_write/postage_modify";
-import View_Post from "./post/view_post";
+import View_Post from "./postage/view_post";
 import ScrollToTop from "./ScrollToTop";
 import Board from "./board/board";
-import Market from "./card/market/market";
-import Room from "./card/room/room";
-import Club from "./card/club/club";
+import NoneExist from './NoneExist/noneexist';
+import Appbar from "./appbar/appbar";
+//손봐야할거
 import Home3 from "./card/market/home3";
 import Home4 from "./card/club/home4";
-import Home7 from "./card/market/home7";
+import ChangbamMarketWrite from "./card/market/ChangbamMarketWrite";
 import Home8 from "./card/club/home8";
-import Home9 from "./card/room/home9";
+import Roomview from "./card/room/roomview";
 import RoomWrite from "./card/room/roomwrite/roomwritemain";
 import RoomBody from "./card/room/roombody";
-import NoneExist from './NoneExist/noneexist';
-
-function App() {
+//고치는 중인거
+import CardBoard from "./card_board/card_board";
+import Club_write from "./card_board/clubwrite/club_write";
+function App() {  
   return (
     <div>
+      <Switch>
       <ScrollToTop>
+        {/* <Route component = {Appbar}/> */}
         <Route exact path="/" component={Home} />
-        <Route exact path="/2" component={Home3} />
+        <Route exact path="/ChangbamMarket/view" component={Home3} />  
         <Route exact path="/3" component={Home4} />
-        <Route exact path="/market" component={Market} />
-        <Route exact path="/room" component={Room} />
         <Route exact path="/alba" component={Alba} />
-        <Route exact path="/club" component={Club} />
-        <Route exact path="/6" component={Home7} />
+        <Route exact path="/ChangbamMarket/postage_write" component={ChangbamMarketWrite} />
         <Route exact path="/7" component={Home8} />
         <Route exact path="/meeting" component={Meeting_home} />
-        <Route exact path="/9" component={Home9} />
+        <Route exact path="/Room" component={Roomview} />
         <Route exact path="/roomwrite" component={RoomWrite} />
         <Route exact path="/roombody" component={RoomBody} />
         <Route exact path="/NoneExist" component={NoneExist} />
+        <Route
+          exact
+          path={`/:board_name/list/card=:card_UN`}
+          component={CardBoard}
+        />
+        <Route exact path="/club/card_write" component={Club_write} />        
         <Route
           exact
           path={`/:board_name/list/board=:board_key`}
@@ -59,6 +65,7 @@ function App() {
           component={Postage_modify}
         />
       </ScrollToTop>
+      </Switch>
     </div>
   );
 }

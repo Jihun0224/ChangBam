@@ -3,8 +3,8 @@ import Top_AppBar from '../../appbar/appbar';
 import '../../home2.css';
 import Search from '../../SearchBar/searchbar';
 import NestedList from '../../menulist/Board_list';
-import Marketbody from './marketmain/marketmain';
-class Home3 extends React.Component{
+import Roombody from './roombody';
+class Roomview extends React.Component{
     render(){
         return(
             <div>
@@ -16,7 +16,7 @@ class Home3 extends React.Component{
                     <Search/>
                 </div>
                 <div className="market_main">
-                    <Marketbody/>
+                    <Roombody/>
                 </div>
                 <div className="menubarbar">
                 <NestedList/>
@@ -26,4 +26,4 @@ class Home3 extends React.Component{
     }
 }
 
-export default Home3;
+export default Roomview;

@@ -1,25 +1,25 @@
 
-.titlea{
+.login_form .titlea{
    
     width: 400px;
     height: 40px;
     text-align: center;
     background-color: #cff1ef;
 }
-.titlea p{
+.login_form .titlea p{
     margin-top: 0px;
     font-family: 'Gamja Flower', cursive;
     font-size: 35px;
     
 }
 
-.form{
+.login_form{
     margin-left: 0px;
     width: 500px;
     height: 577.600;
     background-color:  white;
 }
-.idinput{
+.login_form .idinput{
     
     width: 380px;
     height: 30px;
@@ -28,11 +28,11 @@
     margin-bottom: 0PX;
     
 }
-.idinput input{
+.login_form .idinput input{
     background-color: white;
     margin-left: 0px;
 }
-.idinput p{
+.login_form .idinput p{
     margin-left: 10px;
     margin-bottom: 0px;
     margin-top: 0px;
@@ -41,7 +41,7 @@
 }
 
 
-.idinput button{
+.login_form .idinput button{
     margin-top: 3px;
     margin-left: 15px;
     height: 34px;
@@ -50,7 +50,7 @@
     padding-top: 1px;
     padding-bottom: 0px;
 }
-.nickinput{
+.login_form .nickinput{
    
     width: 380px;
     height: 50px;
@@ -59,21 +59,21 @@
     margin-bottom: 0PX;
     
 }
-.nickinput input{
+.login_form .nickinput input{
     background-color: white;
     margin-left: 0px;
 }
-.nickinput p{
+.login_form .nickinput p{
     margin-left: 10px;
     margin-bottom: 0px;
     width: 500px;
     color: #000000;
 }
-.nickinput label{
+.login_form .nickinput label{
     font-size: 15px;
     font-weight: bold;
 }
-.nickinput button{
+.login_form .nickinput button{
     margin-top: 3px;
     margin-left: 15px;
     height: 34px;
@@ -83,7 +83,7 @@
     padding-bottom: 1px;
 }
 
-.pwinput{
+.login_form .pwinput{
    
     width: 300px;
     height: 50px;
@@ -92,33 +92,33 @@
     margin-bottom: 10px;
     
 }
-.pwinput p{
+.login_form .pwinput p{
     margin-left: 10px;
     margin-bottom: 10px;
     width: 500px;
     color: #000000;
 }
-.pw2input p{
+.login_form .pw2input p{
     margin-left:10px;
     margin-bottom: 8px;
     margin-top: 1px;
     width: 550px;
     color: #000000;
 }
-.pwinput label{
+.login_form .pwinput label{
     font-weight: bold;
 }
-.pw2input label{
+.login_form .pw2input label{
     font-weight: bold;
 }
-.pwinput input{
+.login_form .pwinput input{
     left: 40px;
     margin-left: 10px;
     height: 20px;
     width: 160px;
     background-color: white;
 }
-.pw2input{
+.login_form .pw2input{
    
     width: 380px;
     height: 50px;
@@ -126,12 +126,12 @@
     margin-left: 20PX;
     margin-bottom: 10PX;
 }
-.pw2input input{
+.login_form .pw2input input{
     margin-left: 20px;
     background-color: white;
 
 }
-.pw2input button{
+.login_form .pw2input button{
     margin-left: 20px;
     margin-top: 5px;
     padding-left: 5px;
@@ -140,7 +140,7 @@
     padding-bottom: 1px;
 }
 
-.emailinput{
+.login_form .emailinput{
     
     width: 380px;
     height: 50px;
@@ -148,23 +148,23 @@
     margin-left: 20PX;
     margin-bottom: 10PX;
 }
-.emailinput p{
+.login_form .emailinput p{
     margin-left: 10px;
     margin-bottom: 10px;
     margin-top: 0px;
     width: 550px;
     color: #000000;
 }
-.emailinput input{
+.login_form .emailinput input{
     width: 98px;
     margin-left: 6px;
     background-color: white;
     margin-left: 0px;
 }
-.emailinput label{
+.login_form .emailinput label{
     font-weight: bold;
 }
-.emailinput button{
+.login_form .emailinput button{
     margin-left: 10px;
     margin-top: 3px;
     padding-left: 5px;
@@ -173,18 +173,18 @@
     padding-bottom: 1px;
 }
 
-.emailsearch{
+.login_form .emailsearch{
     margin-top: 10px;
     
 }
-.emailsearch Button{
+.login_form .emailsearch Button{
     margin-left: 20px;
     padding-left: 5px;
     padding-right: 5px;
     padding-top: 1px;
     padding-bottom: 1px;
 }
-.changwonackr{
+.login_form .changwonackr{
     margin-left: 13px;
     width: 125px;
     height: 20px;
@@ -192,7 +192,7 @@
     margin-left: 10px;
 }
  
-#submit{
+.login_form #submit{
     margin-top: 30px;
     margin-left: 430px;
     margin-bottom: 10px;
@@ -203,7 +203,7 @@
     width: 70px;
     height: 40px;
 }
-#pwdiv{
+.login_form #pwdiv{
     
     width: 350px;
     margin-left: 0px;
@@ -211,11 +211,11 @@
     margin-top: 10px;
     margin-bottom: 10PX;
 }
-#pwdiv p{
+.login_form #pwdiv p{
     margin-top: 3px;
     margin-left: 10px;
     font-size: 13px;
 }
-.toast {
+.login_form .toast {
     text-align: center;
 }

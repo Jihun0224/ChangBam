@@ -87,7 +87,7 @@ export default function NestedList() {
             <Button className="nested_btn" href="/study/list/board=7">
               스터디그룹
             </Button>
-            <Button className="nested_btn" href="/club">
+            <Button className="nested_btn" href="/club/list/card=0">
               동아리홍보
             </Button>
             <Button className="nested_btn" href="/meeting">
@@ -99,10 +99,10 @@ export default function NestedList() {
             <ListItem button>
               <ListItemText primary="생활정보" />
             </ListItem>
-            <Button className="nested_btn" href="/market">
+            <Button className="nested_btn" href="/ChangbamMarket/list/card=1">
               중고마켓
             </Button>
-            <Button className="nested_btn" href="/room">
+            <Button className="nested_btn" href="/RoomMarket/list/card=2">
               자취방 마켓
             </Button>
             <Button className="nested_btn" href="/alba">
@@ -138,31 +138,6 @@ export default function NestedList() {
         </Collapse>
       </List>
 
-      <ListItem button onClick={handleClick2}>
-        <ListItemText primary="즐겨찾기" />
-        {open2 ? <ExpandLess /> : <ExpandMore />}
-      </ListItem>
-
-      <Collapse in={open2} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-          <ListItem button className={classes.nested}>
-            <ListItemText primary="내용2" />
-          </ListItem>
-        </List>
-      </Collapse>
-
-      <ListItem button onClick={handleClick3}>
-        <ListItemText primary="history" />
-        {open3 ? <ExpandLess /> : <ExpandMore />}
-      </ListItem>
-
-      <Collapse in={open3} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-          <ListItem button className={classes.nested}>
-            <ListItemText primary="내용3" />
-          </ListItem>
-        </List>
-      </Collapse>
     </div>
   );
 }

@@ -1,12 +1,14 @@
-.board .postbody{
+.cardboard .postbody{
     position: relative;
     width: 900px;
-    height: 940px;
-    left: 200px;
-    top: -185px;
+    height: 770px;
+    background-color: white;
+    border-radius: 12px;
+    left: 405px;
+    top: -370px;
     margin-bottom: 20px;
 }
-.board .board_title{
+.cardboard .board_title{
     position: relative;
     width: 400px;
     height: 100px;
@@ -14,29 +16,26 @@
     top: 100px;
     text-align: center;
 }
-
-.board .searchbar{
+.cardboard .searchbar{
     position: relative;
     left: 390px;
     top: 100px;
     width: 900px;
     height: 50px;
 }
-.board .menubarbar{
+.cardboard .menubarbar{
     position: relative;
     left: 100px;
     top: 130px;
     width: 200px;
     height: 500px;
-
 }
-.board .postage_write_button{
+.cardboard .postage_write_button{
     position: relative;
-    top: -365px;
+    top: -375px;
     margin-left: 1218px;
 }
-
-.postage_write_button #write{
+.cardboard .postage_write_button #write{
     padding-left: 5px;
     width: 80px;
     padding-right: 5px;
@@ -44,11 +43,11 @@
     padding-top: 1px;
     height: 40px;
 }
-.board .boardBottomMenu{
+.cardboard .cardboardBottomMenu{
     position: relative;
-    margin-top: -330px;
+    margin-top: -220px;
 }
-.board{
+.cardboard{
     width: 100%;
     height: 100%;
 }

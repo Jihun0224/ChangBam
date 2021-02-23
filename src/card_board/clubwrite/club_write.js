@@ -1,18 +1,21 @@
 import React from 'react';
+import TopAppbar from "../../appbar/appbar";
 import IconButton from '@material-ui/core/IconButton';
 import PhotoCamera from '@material-ui/icons/AddAPhoto';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
-import './dongali_write.css';
-import Mac from './mac1.jpg';
+import './club_write.css';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
 import Button from '@material-ui/core/Button';
+import { Typography } from "@material-ui/core";
+import BottomMenu from '../../bottommenu/bottommenu';
+import NestedList from "../../menulist/Board_list";
+import ImageUploader from 'react-images-upload';
 
 
-
-class dongari_Writing extends React.Component{
+class Club_write extends React.Component{
     constructor(props){
         super(props);
         this.state={
@@ -20,25 +23,18 @@ class dongari_Writing extends React.Component{
             clubSubtitle:"",
             clubShowbody:"",
             clubBody:"",
-            nickname:"",
             postNum:0,
+            pictures: []
         }
         this.onSubmit = this.onSubmit.bind(this);
         this.onChange = this.onChange.bind(this);
         this.goBack = this.goBack.bind(this);
+        this.onDrop = this.onDrop.bind(this);
+
     }
 
     componentWillMount(){
-        
-        this.setState({
-            nickname:JSON.parse(localStorage.getItem("user")).nickname,
-        })
 
-
-        if(isNaN(Number(window.location.href.slice(window.location.href.indexOf('?') + 1)))){
-            console.log("수정하는 링크가 아님");
-        }else{
-            
             const post ={
                 postNum: Number(window.location.href.slice(window.location.href.indexOf('?') + 1))
             }
@@ -54,7 +50,6 @@ class dongari_Writing extends React.Component{
             })
             .then(res => res.json())
             .then(json =>{
-                console.log("게시글 내용 : ", json[0]);
                 this.setState({
                     clubTitle:json[0].card_title,
                     clubSubtitle:json[0].card_subtitle,
@@ -63,14 +58,20 @@ class dongari_Writing extends React.Component{
                 })
             })
         }
-    }
-
+    
+    onDrop(pictureFiles, pictureDataURLs) {
+            this.setState({
+                pictures: pictureFiles
+            });
+        }
     onChange(e){
         this.setState({
             [e.target.name]: e.target.value,
         });
     }
-
+    goBack() {
+        this.props.history.goBack();
+      }
     onSubmit(e){
         e.preventDefault();
 
@@ -124,70 +125,126 @@ class dongari_Writing extends React.Component{
                 }).then(document.location.href="/club")
             }
         }
-    }
-
-    goBack(){         
-        if(this.state.postNum===0){
-            document.location.href="/club";
-        }else{
-            document.location.href='/3?'+this.state.postNum; 
-        }
-    }       
-    
+    }    
 
     render() {
-        return(
-            
-        <Paper id="paper">
-            
-            <div className="background">
-                <form onSubmit={this.onSubmit}>
-                    <div className="picture">    {/*동아리홍보 사진받는 부분*/}
-                        <input accept="image/*" id="icon-button-file" type="file" />
 
-                        <label htmlFor="icon-button-file">   {/*카메라 아이콘*/}
+        if(JSON.parse(localStorage.getItem("user")) == null){
+            return(
+              <>
+              </>
+            )
+        }
+        else{
+        return(
+            <div className="club_write_div">
+                <TopAppbar />
+                <div className="board_title">
+                    <Typography variant="h3">동아리홍보</Typography>
+                </div>
+                <div className="menubarbar">
+                <NestedList />
+                </div>
+            <div className="card_write_paper">
+              <div className="card_write_content">
+                <form onSubmit={this.onSubmit}>
+                    <div className="club_picture_insert">  
+                    <ImageUploader
+                    withIcon={true}
+                    buttonText='이미지를 선택하세요.'
+                    onChange={this.onDrop}
+                    imgExtension={['.jpg', '.gif', '.png', '.gif']}
+                    maxFileSize={5242880}
+                    withPreview={true}
+                    />
+                        {/* <input accept="image/*" id="icon-button-file" type="file" />
+                        <label htmlFor="icon-button-file">   카메라 아이콘
                             <IconButton id="Icon" color="primary" aria-label="upload picture" component="span">
                                 <PhotoCamera />
                             </IconButton>
                         </label>
                         
-                        <IconButton id="Icon"> {/* 왼쪽 "<"" 아이콘*/}
+                        <IconButton id="Icon">
                             <KeyboardArrowLeftIcon/>
                         </IconButton>
                         
-                        <img src={Mac} />    {/*사진*/}
-
-                        <IconButton id="Icon"> {/* 오른쪽 ">"" 아이콘*/}
+                        <IconButton id="Icon">
                             <KeyboardArrowRightIcon/>
-                        </IconButton>
+                        </IconButton> */}
                     </div>
+
                     <div className="clubTitle">
-                     
-                        <TextField id="clubTitle" label="동아리명"  type="text" name="clubTitle"  value={this.state.clubTitle} onChange={this.onChange}></TextField>
+                        <TextField 
+                            id="clubTitle" 
+                            label="동아리명"  
+                            type="text" 
+                            name="clubTitle"  
+                            value={this.state.clubTitle} 
+                            onChange={this.onChange}/>
                     </div>
                     <br/>
-
-                    <div className="clubSubtitle">
-                        <TextField id="clubSubtitle" label="카테고리 ex: 음악동아리, 치어리딩동아리"  type="text" name="clubSubtitle"  value={this.state.clubSubtitle} onChange={this.onChange} ></TextField>
+                    <div className="clubCategory">
+                        <TextField 
+                            id="clubCategory" 
+                            label="카테고리 ex) 음악동아리, 치어리딩동아리"  
+                            type="text" 
+                            name="clubSubtitle"  
+                            value={this.state.clubCategory} 
+                            onChange={this.onChange} />
                     </div>
                     <br/>
-
                     <div className="clubShowbody">
-                        <TextField id="clubShowbody" rowsMax={7}  type="text" multiline label="슬로건을 적어주세요.(짧은 홍보글. 게시판 메인에 보일 글입니다)" name="clubShowbody"  value={this.state.clubShowbody} onChange={this.onChange}/>
+                        <TextField 
+                            id="clubShowbody" 
+                            rowsMax={2}  
+                            type="text" 
+                            multiline 
+                            label="슬로건을 적어주세요.(짧은 홍보글. 게시판 메인에서 보일 글입니다.)" 
+                            name="clubShowbody"
+                            value={this.state.clubShowbody} 
+                            onChange={this.onChange}/>
                     </div>
                     <br/>
                     <div className="clubBody">
-                         <TextField id="clubBody" rowsMax={10}  type="text" multiline label="세부 홍보글" name="clubBody"  value={this.state.clubBody} onChange={this.onChange}/>
+                         <TextField
+                            className="clubbody"
+                            id="clubBody" 
+                            rows={7}
+                            multiline 
+                            label="세부 홍보글" 
+                            name="clubBody"  
+                            variant="outlined"
+                            value={this.state.clubBody} 
+                            onChange={this.onChange}/>
                     </div>
-                    
-                    <Button id="cancel" variant="contained" color="secondary" id="cancel" margin-left="20px" onClick={this.goBack}>취소</Button>
-                    <br/>
-                    <Button id="writing_button" type="submit" variant="contained" color="primary">글쓰기</Button>
+                    <div className="card_write_button_box">
+                        <Button 
+                            className="commit"
+                            id="submit" 
+                            type="submit" 
+                            variant="contained" 
+                            color="primary">
+                            등록
+                        </Button>
+                        <Button 
+                            className="cancel"
+                            id="cancel" 
+                            variant="contained" 
+                            color="secondary" 
+                            onClick={this.goBack}>
+                            취소
+                        </Button>
+                   
+                    </div>
                 </form>
             </div>
-        </Paper>
-        
+        </div>
+        <div className="club_write_bottommenu">
+          <BottomMenu/>
+          </div>
+        </div>
         );
     }
 }
-export default dongari_Writing;
+}
+export default Club_write;

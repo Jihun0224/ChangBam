@@ -15,7 +15,7 @@
     min-height: 650px;
     background-color: white;
 }
-.postage_write_page .write_wrap .form{
+.postage_write_page .write_wrap .postage_write_paper{
     width:1020px;
     height: auto;
 }
@@ -34,23 +34,22 @@
 .write_wrap .titleinput{
     margin-bottom: 20px;
 }
-
-.form #cancel.MuiButtonBase-root.MuiButton-root.MuiButton-contained.cancel{
-    margin-left: 858px;
-    padding-left: 5px;
-    width: 70px;
-    padding-right: 5px;
-    padding-bottom: 1px;
-    padding-top: 1px;
-    height: 40px;
+.postage_write_paper .button_box{
     position: relative;
+    margin-left:830px;
+    margin-top: 25px;
+}
+.postage_write_paper #cancel.MuiButtonBase-root.MuiButton-root.MuiButton-contained.cancel{
+    width: 70px;
+    height: 45px;
+    margin-left: 50px;
     
 }
-.form #submit.MuiButtonBase-root.MuiButton-root.MuiButton-contained.commit{
-    margin-left: 20px;
-    position: relative;
-    bottom: 10px;
-    left: 800px;
+.postage_write_paper #submit.MuiButtonBase-root.MuiButton-root.MuiButton-contained.commit{
+
+    width: 70px;
+    height: 45px;
+
 }
 .postage_write_page .postage_write_bottommenu{
     position: relative;
@@ -64,4 +63,7 @@
     left: 640px;
     top: 110px;
     text-align: center;
+}
+.MuiInputBase-input.MuiOutlinedInput-input.MuiInputBase-inputMultiline.MuiOutlinedInput-inputMultiline{
+    margin-top: 0px;
 }

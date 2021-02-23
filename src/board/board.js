@@ -1,6 +1,6 @@
 import React from "react";
 import TopAppBar from "../appbar/appbar";
-import Postbody from "../post/post";
+import Postbody from "../postage/postbody";
 import "./board.css";
 import Search from "../SearchBar/searchbar";
 import NestedList from "../menulist/Board_list";
@@ -44,19 +44,19 @@ class Board extends React.Component {
         this.setState({ board_name: "학교 공지사항", board_key: 6 });
         break;
       case "study":
-          this.setState({board_name: "스터디그룹", board_key:7});
-          break;
-          case "old":
-            this.setState({board_name:"졸업생게시판", board_key:8})
-            break;
-          case "EmploymentReview":
-            this.setState({board_name:"취업게시판", board_key:9})
-            break;
-          case "EmploymentAnnouncement":
-              this.setState({board_name:"채용공고", board_key:10})
-            break;
-          default:
-            break;
+        this.setState({board_name: "스터디그룹", board_key:7});
+        break;
+      case "old":
+        this.setState({board_name:"졸업생게시판", board_key:8})
+        break;
+      case "EmploymentReview":
+        this.setState({board_name:"취업게시판", board_key:9})
+        break;
+      case "EmploymentAnnouncement":
+        this.setState({board_name:"채용공고", board_key:10})
+        break;
+      default:
+        break;
     }
   }
   render() {
@@ -66,7 +66,7 @@ class Board extends React.Component {
         <div className="board_title">
           <Typography variant="h3"> {this.state.board_name}</Typography>
         </div>
-        <div className="midmid">
+        <div className="searchbar">
           <Search />
         </div>
         <div className="menubarbar">

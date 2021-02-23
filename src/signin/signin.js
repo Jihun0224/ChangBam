@@ -356,7 +356,7 @@ class Longin extends React.Component {
     const { id, nickname, pw, pw2, email, number } = this.state;
     const { onChange, onSubmit } = this;
     return (
-      <div className="form" noValidate autoComplete="off">
+      <div className="login_form" noValidate autoComplete="off">
         <form onSubmit={onSubmit}>
           <div className="idinput">
             <p>

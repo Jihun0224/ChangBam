@@ -3,8 +3,8 @@ import Top_AppBar from '../../appbar/appbar';
 import '../../home2.css';
 import Search from '../../SearchBar/searchbar';
 import NestedList from '../../menulist/Board_list';
-import Marketbody from './marketmain/marketmain';
-class Home3 extends React.Component{
+import Writing from './marketwrite/writing';
+class Home7 extends React.Component{
     render(){
         return(
             <div>
@@ -15,9 +15,10 @@ class Home3 extends React.Component{
                 <div className="midmid">
                     <Search/>
                 </div>
-                <div className="market_main">
-                    <Marketbody/>
+                <div className="bmbm">
+                   <Writing/>
                 </div>
+
                 <div className="menubarbar">
                 <NestedList/>
                 </div>
@@ -26,4 +27,4 @@ class Home3 extends React.Component{
     }
 }
 
-export default Home3;
+export default Home7;

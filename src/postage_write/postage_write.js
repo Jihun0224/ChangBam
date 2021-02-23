@@ -59,7 +59,7 @@ function resize_image(image) {
   const dataUrl = canvas.toDataURL("image/jpeg");
   return dataUrl;
 }
-class Home2 extends Component {
+class PostageWrite extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -235,7 +235,7 @@ class Home2 extends Component {
             <Typography variant="h3"> {this.state.board_name}</Typography>
         </div>
         <div className="write_wrap">
-          <div className="form" noValidate autoComplete="off">
+          <div className="postage_write_paper" noValidate autoComplete="off">
             <form onSubmit={onSubmit}>
               <div className="titleinput">
                 <input
@@ -288,7 +288,6 @@ class Home2 extends Component {
                       [
                         "link",
                         "image",
-                        "video",
                         "fullScreen",
                         "showBlocks",
                         "codeView",
@@ -313,7 +312,6 @@ class Home2 extends Component {
                   variant="contained"
                   color="secondary"
                   id="cancel"
-                  margin-left="20px"
                   onClick={goBack}
                 >
                   취소
@@ -332,4 +330,4 @@ class Home2 extends Component {
   }
 }
 }
-export default Home2;
+export default PostageWrite;

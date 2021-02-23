@@ -3,7 +3,6 @@ import TopAppBar from "./appbar/appbar";
 import "./home2.css";
 import Search from "./SearchBar/searchbar";
 import NestedList from "./menulist/Board_list";
-import Griddongali from "./gridmarket/gridd";
 class Alba extends React.Component {
   render() {
     return (
@@ -17,9 +16,7 @@ class Alba extends React.Component {
         <div className="midmid">
           <Search />
         </div>
-        <div className="bmbm">
-          <Griddongali />
-        </div>
+   
         <div className="cdcd"></div>
         <div className="menubarbar">
           <NestedList />

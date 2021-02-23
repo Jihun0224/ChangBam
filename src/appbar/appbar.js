@@ -29,13 +29,11 @@ class TopAppBar extends Component {
       window.$(".header").css({ left: 0 - window.$(this).scrollLeft() });
     });
     const user = localStorage.getItem("admin");
-    console.log(user);
     if (user === "true") {
       this.setState({
         checklogin: true,
         auth: true,
       });
-      console.log(this.state.open);
     } else {
       this.setState({
         checklogin: false,

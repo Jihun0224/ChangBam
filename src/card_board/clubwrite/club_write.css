@@ -1,0 +1,88 @@
+.club_write_div{
+    width: 100%;
+    height: auto;
+}
+.club_write_div .menubarbar{
+    position: absolute;
+    left: 100px;
+    top: 200px;
+    width: 200px;
+    height: 500px;
+}
+.card_write_paper{
+    position: relative;
+    top: 100px;
+    left: 380px;
+    width: 880px;
+    height: auto;
+    border: 2px solid #d5d5d5;
+    background-color: white;
+    
+}
+.card_write_paper .card_write_content {
+    position: relative;
+    top: 40px;
+    margin-left: 140px;
+    
+}
+.club_write_div .board_title{
+    position: relative;
+    width: 350px;
+    height: 100px;
+    left: 640px;
+    top: 110px;
+    text-align: center;
+}
+.card_write_paper .card_write_content .club_picture_insert{
+    position: relative;
+    height: auto;
+    width: 600px;
+}
+/* .card_write_paper .club_picture_insert input{
+    display: none;
+    position: center;
+} */
+.card_write_paper .clubCategory #clubCategory{
+    width:350px;
+    height:40px;
+    margin-top: 2px;
+    margin-bottom:-10px;
+    
+}
+.card_write_paper .card_write_content .clubTitle{
+    position: relative;
+    top: 10px;
+}
+
+.card_write_paper .clubTitle #clubTitle{
+    width:350px;
+    height:40px;
+    margin-top: 2px;
+    margin-bottom:-10px;
+}
+.card_write_paper .clubShowbody #clubShowbody {
+    width:625px;
+}
+
+.card_write_paper .clubBody{
+    width: 600px;
+    margin-bottom: 80px;
+}
+.card_write_paper .card_write_button_box{
+    position: relative;
+    top: -55px;
+    margin-left: 438px;
+}
+.club_write_div #cancel.MuiButtonBase-root.MuiButton-root.MuiButton-contained.cancel{
+    width: 70px;
+    height: 45px;
+    margin-left: 50px;
+}
+.club_write_div #submit.MuiButtonBase-root.MuiButton-root.MuiButton-contained.commit{
+    width: 70px;
+    height: 45px;
+}
+.club_write_div .club_write_bottommenu{
+    position: relative;
+    top: 270px;
+}

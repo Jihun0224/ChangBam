@@ -24,15 +24,15 @@ class BottomMenu extends Component {
             <font className="BottomMenu_title">캠퍼스</font>
             <ul>
               <li onClick={()=>window.location.reload()}><Link to={`/study/list/board=7`}><font className="BottomMenu_content">스터디그룹</font></Link></li>
-              <li onClick={()=>window.location.reload()}><Link to="/club"><font className="BottomMenu_content">동아리홍보</font></Link></li>
+              <li onClick={()=>window.location.reload()}><Link to={`/club/list/card=0`}><font className="BottomMenu_content">동아리홍보</font></Link></li>
               <li onClick={()=>window.location.reload()}><Link to="/meeting"><font className="BottomMenu_content">과팅</font></Link></li>
             </ul>
           </Paper>
           <Paper className="BottomMenu_imformation" elevation={0}>
             <font className="BottomMenu_title">생활정보</font>
             <ul>
-              <li onClick={()=>window.location.reload()}><Link to="market"><font className="BottomMenu_content">창밤인 마켓</font></Link></li>
-              <li onClick={()=>window.location.reload()}><Link to="room"><font className="BottomMenu_content">자취방 마켓</font></Link></li>
+              <li onClick={()=>window.location.reload()}><Link to={`/ChangbamMarket/list/card=1`}><font className="BottomMenu_content">창밤인 마켓</font></Link></li>
+              <li onClick={()=>window.location.reload()}><Link to={`/RoomMarket/list/card=2`}><font className="BottomMenu_content">자취방 마켓</font></Link></li>
               <li onClick={()=>window.location.reload()}><Link to="alba"><font className="BottomMenu_content">알바창국</font></Link></li>
             </ul>
           </Paper>
