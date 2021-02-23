@@ -88,12 +88,6 @@ class PostageWrite extends Component {
   }
   onSubmit(e) {
     e.preventDefault();
-    const post = {
-      title: this.state.title,
-      contents: this.state.contents,
-      nickname: JSON.parse(localStorage.getItem("user")).nickname,
-      board_key: this.state.board_key,
-    };
     if (this.state.title === "") {
       toast.error(
         <div>
@@ -113,6 +107,12 @@ class PostageWrite extends Component {
         </div>
       );
     } else {
+      const post = {
+        title: this.state.title,
+        contents: this.state.contents,
+        nickname: JSON.parse(localStorage.getItem("user")).nickname,
+        board_key: this.state.board_key,
+      };
       //post전송
       fetch("http://localhost:3001/api/postage_write", {
         method: "post",

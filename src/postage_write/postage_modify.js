@@ -46,12 +46,6 @@ class PostageModify extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    const post = {
-      title: this.state.title,
-      contents: this.state.contents,
-      postage_key: this.state.postage_key,
-    };
-
     if (this.state.title === "") {
       toast.error(
         <div>
@@ -72,7 +66,11 @@ class PostageModify extends Component {
       );
     } else {
       //post전송
-
+      const post = {
+        title: this.state.title,
+        contents: this.state.contents,
+        postage_key: this.state.postage_key,
+      };
       fetch("http://localhost:3001/api/postage_modify", {
         method: "post",
         headers: {

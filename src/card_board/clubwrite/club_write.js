@@ -1,10 +1,9 @@
 import React from 'react';
 import TopAppbar from "../../appbar/appbar";
-import IconButton from '@material-ui/core/IconButton';
-import PhotoCamera from '@material-ui/icons/AddAPhoto';
-import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
 import './club_write.css';
+import IconButton from '@material-ui/core/IconButton';
+import PhotoCamera from '@material-ui/icons/AddAPhoto';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
@@ -13,7 +12,11 @@ import { Typography } from "@material-ui/core";
 import BottomMenu from '../../bottommenu/bottommenu';
 import NestedList from "../../menulist/Board_list";
 import ImageUploader from 'react-images-upload';
-
+import swal from 'sweetalert';
+import { ToastContainer, toast } from "react-toastify";
+import Error from "@material-ui/icons/Error";
+import Check from "@material-ui/icons/Check";
+import "react-toastify/dist/ReactToastify.css";
 
 class Club_write extends React.Component{
     constructor(props){
@@ -23,7 +26,6 @@ class Club_write extends React.Component{
             clubSubtitle:"",
             clubShowbody:"",
             clubBody:"",
-            postNum:0,
             pictures: []
         }
         this.onSubmit = this.onSubmit.bind(this);
@@ -32,100 +34,72 @@ class Club_write extends React.Component{
         this.onDrop = this.onDrop.bind(this);
 
     }
-
-    componentWillMount(){
-
-            const post ={
-                postNum: Number(window.location.href.slice(window.location.href.indexOf('?') + 1))
-            }
-            this.setState({
-                postNum:post.postNum
-            })
-            fetch('http://localhost:3001/api/getclubpost',{
-            method: "post",
-            headers : {
-                'content-type':'application/json'
-            },
-            body:JSON.stringify(post)
-            })
-            .then(res => res.json())
-            .then(json =>{
-                this.setState({
-                    clubTitle:json[0].card_title,
-                    clubSubtitle:json[0].card_subtitle,
-                    clubShowbody:json[0].card_showbody,
-                    clubBody:json[0].card_body,
-                })
-            })
-        }
-    
     onDrop(pictureFiles, pictureDataURLs) {
-            this.setState({
-                pictures: pictureFiles
-            });
-        }
-    onChange(e){
         this.setState({
-            [e.target.name]: e.target.value,
+            pictures: pictureFiles
         });
     }
-    goBack() {
-        this.props.history.goBack();
-      }
-    onSubmit(e){
-        e.preventDefault();
-
-        if(this.state.clubTitle==''|| this.state.clubSubtitle==''|| this.state.clubShowbody=='' ||this.state.clubBody=='')
-            alert("내용을 입력하세요");
-            
-        else{
-            
-            if(this.state.postNum===0){
-                const post ={
-                    clubTitle:this.state.clubTitle,
-                    clubSubtitle:this.state.clubSubtitle,
-                    clubShowbody:this.state.clubShowbody,
-                    clubBody:this.state.clubBody,
-                    nickname:JSON.parse(localStorage.getItem('user')).nickname,
-                }
-                fetch('http://localhost:3001/api/ClubPostageWrite',{
-                    method: "post",
-                    headers : {
-                        'content-type':'application/json'
-                    },
-                    body:JSON.stringify(post)
-                })
-                .then(res => res.json())
-                .then(document.location.href="/club")
-            }else{
-                const post ={
-                    clubTitle:this.state.clubTitle,
-                    clubSubtitle:this.state.clubSubtitle,
-                    clubShowbody:this.state.clubShowbody,
-                    clubBody:this.state.clubBody,
-                    postNum:this.state.postNum
-                }
-                fetch('http://localhost:3001/api/clubupdate',{
-                    method: "post",
-                    headers : {
-                        'content-type':'application/json'
-                    },
-                    body:JSON.stringify(post)
-                })
-                .then(res => res.json())
-                .then(json =>{
-                    this.setState({
-                        clubTitle:'',
-                        clubSubtitle:'',
-                        clubShowbody:'',
-                        clubBody:'',
-                        nickname:'',
-                        postNum:0
-                    })
-                }).then(document.location.href="/club")
+onChange(e){
+    this.setState({
+        [e.target.name]: e.target.value,
+    });
+}
+goBack() {
+    this.props.history.goBack();
+  }
+onSubmit(e){
+    e.preventDefault();
+    console.log("ddd");
+    if(this.state.clubTitle==""|| this.state.clubSubtitle==""|| this.state.clubShowbody=="" ||this.state.clubBody==""){
+    toast.error(
+        <div>
+          <Error />
+          <div className="toast">
+            <p>내용을 입력하세요!</p>
+          </div>
+        </div>
+      );
+    }
+    else{
+        
+            const post ={
+                clubTitle:this.state.clubTitle,
+                clubSubtitle:this.state.clubSubtitle,
+                clubShowbody:this.state.clubShowbody,
+                clubBody:this.state.clubBody,
+                nickname:JSON.parse(localStorage.getItem('user')).nickname,
             }
-        }
-    }    
+            //게시글 저장하는 함수 넣을 자리
+            fetch('http://localhost:3001/api/',{
+                method: "post",
+                headers : {
+                    'content-type':'application/json'
+                },
+                body:JSON.stringify(post)
+            })
+            .then(
+                toast.success(
+                  <div>
+                    <Check />
+                    <div className="toast">
+                      <p>게시글이 등록되었습니다.</p>
+                    </div>
+                  </div>
+                )
+              )
+            .then(window.history.back());
+        
+    }
+}    
+    componentWillMount(){
+        if(JSON.parse(localStorage.getItem("user")) == null){
+            swal({
+              title: "로그인해 주세요!",
+              icon: "warning",
+            })
+            this.props.history.goBack();        
+          }
+    }
 
     render() {
 
@@ -237,6 +211,7 @@ class Club_write extends React.Component{
                    
                     </div>
                 </form>
+                <ToastContainer />
             </div>
         </div>
         <div className="club_write_bottommenu">
