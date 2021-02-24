@@ -20,7 +20,7 @@ class ClubCard extends React.Component {
     }
 
     moveHref(card_key){ /*카드 누르면 게시물 내용 보는 페이지로 들어가짐*/
-        this.props.history.push('/card=0');
+        document.location.href='/club/view/id=2&card=0'; 
     }
     render() {
         return (

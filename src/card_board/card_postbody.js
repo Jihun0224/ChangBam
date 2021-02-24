@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './card_postbody.css';
-import ClubCard from '../card/gridcard/gridd';
+import ClubCard from './clubcard';
 import Pagination from '@material-ui/lab/Pagination';
 
 class CardPostBody extends Component{
@@ -27,7 +27,7 @@ class CardPostBody extends Component{
 
     getMaxPostNumGuide(){ /*게시물 가이드 숫자 정하기*/
         const post={
-            card_UN:2  //동아리
+            card_UN:0  //동아리
         }
         fetch('http://localhost:3001/api/totalpostnum',{
           method: "post",
@@ -81,6 +81,7 @@ class CardPostBody extends Component{
         const page=(value-1)*6;
         console.log("page연산결과:",page );
         this.getSixPost(page);
+        document.documentElement.scrollTop = 130;
     };
 
 
@@ -96,12 +97,16 @@ class CardPostBody extends Component{
                     {this.isFull(this.state.rows[4])&&(<div className="card_grid5"><ClubCard post={this.state.rows[4]}/></div>)}
                     {this.isFull(this.state.rows[5])&&(<div className="card_grid6"><ClubCard  post={this.state.rows[5]} /></div>)}
                 </div>
-                <div className="card_postpagecount">  
+                {
+                    this.state.pagecount === 0 
+                    ? <></>  
+                    : <div className="card_postpagecount" >  
                         <Pagination
-                        count={this.state.pagecount} color="primary"
+                        count={this.state.pagecount} 
+                        color="primary"
                         onChange={this.handleChange}
                         size="large"/>
-                    </div>
+                    </div>}
                
             </div>
         )

@@ -202,7 +202,7 @@ class ViewPost extends Component {
         <div className="menubarbar">
           <NestedList />
         </div>
-          <Paper className="view_post_paper">
+          <Paper className="view_post_paper" elevation={0}>
             <div className="postage_title">
               <Typography variant="h5">{data.postage_title}</Typography>
 
@@ -232,8 +232,6 @@ class ViewPost extends Component {
             <div className="love_button">
               <Lovebutton
                 love_state={love_state}
-                board_key={this.props.match.params.board_key}
-                postage_key={this.props.match.params.postage_key}
                 onClick={onClick}
               />
             </div>
@@ -248,7 +246,7 @@ class ViewPost extends Component {
           </div>
 
           <div className="comment_window_d">
-            <Paper className="comment_window">
+            <Paper className="comment_window" elevation={0}>
               <Typography variant="h1"> 댓글~</Typography>
               <PreandNextPost
                 postage_key={this.props.match.params.postage_key}

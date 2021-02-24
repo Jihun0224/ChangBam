@@ -31,8 +31,6 @@ class Lovebutton extends Component {
       <LoveButtonCheck
         onClick={this.props.onClick}
         love_state={this.props.love_state}
-        board_key={this.props.board_key}
-        postage_key={this.props.postage_key}
       />
     );
   }

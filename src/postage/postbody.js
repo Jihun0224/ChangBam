@@ -47,6 +47,9 @@ class Postbody extends Component {
       .then((res) => res.json())
       .then((res) => {
         this.setState({ rows: res });
+      })
+      .then(()=>{   
+          document.documentElement.scrollTop = 130;
       });
   }
   componentWillMount() {
@@ -201,13 +204,16 @@ class Postbody extends Component {
               </TableBody>
             </Table>
           </TableContainer>
-          <div className="pagination">
+          {
+              count === 1 
+            ? <></>            
+            : <div className="pagination">
             <Pagination
               count={count}
               color="primary"
               onChange={handleChangePage}
             />
-          </div>
+          </div>}
         </div>
        
       </div>

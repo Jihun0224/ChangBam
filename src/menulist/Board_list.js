@@ -46,7 +46,7 @@ export default function NestedList() {
   };
 
   return (
-    <div className="aaas">
+    <div className="sidemenubar">
       <List
         component="nav"
         aria-label="main mailbox folders"

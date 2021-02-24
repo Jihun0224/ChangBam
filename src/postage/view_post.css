@@ -3,6 +3,7 @@
     width: 1020px;
     height: auto;
     min-height: 600px;
+    border: 2px solid #d5d5d5;
 }
 .view_post{
     width: 100%;
@@ -51,7 +52,7 @@
     width: 70px;
     height: 70px;
 }
-.MuiPaper-root.view_post_paper.MuiPaper-elevation1.MuiPaper-rounded .love_button{
+.view_post_paper.MuiPaper-root.view_post_paper.MuiPaper-elevation0.MuiPaper-rounded .love_button{
 
     position: relative;
     bottom: 0%;
@@ -86,6 +87,9 @@
     margin-bottom: 100px;
     margin-left: 350px;
 }
+.view_post .view_post_paper_d .comment_window_d .comment_window{
+    border: 2px solid #d5d5d5;
+}
 .view_post_paper_d .pagination_d{
     position: relative;
     top:100px;
@@ -100,7 +104,7 @@
 .postage_info.figure{
     padding-bottom: 0px;
 }
-figure{
+.view_post figure{
     margin: 0;
 }
 .view_post .viewpost_bottommenu{

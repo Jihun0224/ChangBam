@@ -1,10 +1,11 @@
-.aaas {
+.sidemenubar {
   background-color: white;
   width: 200px;
   bottom: auto;
   height: auto;
   font-size: 3px;
   box-shadow: 1px 1px 4px rgb(207, 207, 207);
+  border: 2px solid #d5d5d5;
 }
 .MuiTypography-root.MuiListItemText-primary.MuiTypography-body1.MuiTypography-displayBlock {
   font-size: 12px;
@@ -14,8 +15,6 @@
   font-weight: bold;
 }
 
-.nested {
-}
 .nested .MuiButton-label {
   width: 100%;
   align-items: inherit;

@@ -124,7 +124,7 @@ onSubmit(e){
                 <form onSubmit={this.onSubmit}>
                     <div className="club_picture_insert">  
                     <ImageUploader
-                    withIcon={true}
+                    withIcon={false}
                     buttonText='이미지를 선택하세요.'
                     onChange={this.onDrop}
                     imgExtension={['.jpg', '.gif', '.png', '.gif']}

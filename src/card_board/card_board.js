@@ -13,7 +13,6 @@ class CardBoard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      card_UN: "",
       board_name: "",
     };
   }
@@ -23,15 +22,16 @@ class CardBoard extends React.Component {
 
     switch (params.board_name) {
       case "club":
-        this.setState({ board_name: "동아리홍보", card_UN: 0 });
+        this.setState({ board_name: "동아리홍보"});
         break;
       case "ChangbamMarket":
-        this.setState({ board_name: "창밤인 마켓", card_UN: 1 });
+        this.setState({ board_name: "창밤인 마켓"});
         break;
       case "RoomMarket":
-        this.setState({ board_name: "자취방 마켓", card_UN: 2 });
+        this.setState({ board_name: "자취방 마켓"});
         break;
       default:
+        this.props.history.replace('/NoneExist');
         break;
     }
   }
@@ -49,7 +49,7 @@ class CardBoard extends React.Component {
           <NestedList />
         </div>
         <div className="postbody">
-          <CardPostBody card_UN={this.state.card_UN} />
+          <CardPostBody card_UN={this.props.match.params.card_UN} />
         </div>
 
       

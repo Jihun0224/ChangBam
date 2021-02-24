@@ -20,7 +20,8 @@ import RoomWrite from "./card/room/roomwrite/roomwritemain";
 import RoomBody from "./card/room/roombody";
 //고치는 중인거
 import CardBoard from "./card_board/card_board";
-import Club_write from "./card_board/clubwrite/club_write";
+import Club_write from "./card_board/club_write/club_write";
+import Card_View from "./card_board/cardpost_view";
 function App() {  
   return (
     <div>
@@ -44,6 +45,11 @@ function App() {
           component={CardBoard}
         />
         <Route exact path="/club/card_write" component={Club_write} />        
+        <Route
+          exact
+          path={`/:board_name/view/id=:card_key&card=:card_UN`}
+          component={Card_View}
+        />
         <Route
           exact
           path={`/:board_name/list/board=:board_key`}

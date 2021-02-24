@@ -34,8 +34,12 @@
 }
 .card_write_paper .card_write_content .club_picture_insert{
     position: relative;
+    left: 130px;
     height: auto;
-    width: 600px;
+    width: 350px;
+}
+.card_write_paper .card_write_content .club_picture_insert p{
+    display: none;
 }
 /* .card_write_paper .club_picture_insert input{
     display: none;
@@ -83,5 +87,5 @@
 }
 .club_write_div .club_write_bottommenu{
     position: relative;
-    top: 270px;
+    top: 400px;
 }
