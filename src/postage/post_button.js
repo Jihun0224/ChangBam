@@ -11,8 +11,8 @@ import "./post_button.css";
 function PostButtonCheck(props) {
   if (props.own_post_state === true) {
     return (
-      <div>
-        <Button variant="contained" type="submit" id="post_modify">
+      <div className= "modify_delete_buttonbox">
+        <Button variant="contained" type="submit" id="post_modify" >
           <Link
             to={{
               pathname: `/${props.board_name}/view/id=${props.postage_key}&board=${props.board_key}/postage_modify`,
@@ -140,7 +140,8 @@ class Post_button extends Component {
   }
   render() {
     return (
-      <div>
+      <div className = "post_button">
+        <span>
         <Button
           variant="contained"
           color="primary"
@@ -149,7 +150,8 @@ class Post_button extends Component {
         >
           전체글
         </Button>
-        <div className="post_delete_modify_button">
+        </span>
+        <span className="post_delete_modify_button">
           <PostButtonCheck
             own_post_state={this.props.own_post_state}
             board_name={this.state.board_name}
@@ -160,7 +162,7 @@ class Post_button extends Component {
             open={this.state.open}
             onClick_delete_postage={this.onClick_delete_postage}
           />
-        </div>
+        </span>
       </div>
     );
   }

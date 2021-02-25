@@ -135,7 +135,7 @@ class Postbody extends Component {
     return (
       <div className="post">
         <div className="postbody">
-          <TableContainer component={Paper}>
+          <TableContainer component={Paper} elevation={0}>
             <Table>
               <TableHead className="head_row">
                 <TableRow>

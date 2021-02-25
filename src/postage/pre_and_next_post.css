@@ -1,25 +1,28 @@
 
-.MuiSvgIcon-root{
+.pre_and_next_post .MuiSvgIcon-root{
     position: relative;
     top: 5px;
     padding-right: 5px;
 }
-.MuiSvgIcon-root.MuiSvgIcon-colorSecondary{
+.pre_and_next_post .MuiSvgIcon-root.MuiSvgIcon-colorSecondary{
     position: relative;
     top: 5px;
     padding-right: 5px;
 }
 
-.MuiTableCell-root.MuiTableCell-body.next_y {
+.pre_and_next_post .MuiTableCell-root.MuiTableCell-body.next_y {
     border-top: 1px solid rgba(224, 224, 224, 1);
 }
-.MuiTableCell-root.MuiTableCell-body.next_y1.MuiTableCell-alignCenter{
+.pre_and_next_post .MuiTableCell-root.MuiTableCell-body.next_y1.MuiTableCell-alignCenter{
     padding-top: 8PX;
     border-top: 1px solid rgba(224, 224, 224, 1);
 
 }
-.MuiTableCell-root.MuiTableCell-body.next_y2.MuiTableCell-alignCenter{
+.pre_and_next_post .MuiTableCell-root.MuiTableCell-body.next_y2.MuiTableCell-alignCenter{
     padding-top: 8PX;
     border-top: 1px solid rgba(224, 224, 224, 1);
 
+}
+.MuiPaper-root.MuiTableContainer-root.MuiPaper-elevation1.MuiPaper-rounded{
+    width: 900px;
 }

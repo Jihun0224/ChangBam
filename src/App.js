@@ -22,6 +22,8 @@ import RoomBody from "./card/room/roombody";
 import CardBoard from "./card_board/card_board";
 import Club_write from "./card_board/club_write/club_write";
 import Card_View from "./card_board/cardpost_view";
+import Club_modify from "./card_board/club_write/club_modify";
+
 function App() {  
   return (
     <div>
@@ -39,6 +41,8 @@ function App() {
         <Route exact path="/roomwrite" component={RoomWrite} />
         <Route exact path="/roombody" component={RoomBody} />
         <Route exact path="/NoneExist" component={NoneExist} />
+        <Route exact path="/test" component={Club_modify} />
+
         <Route
           exact
           path={`/:board_name/list/card=:card_UN`}

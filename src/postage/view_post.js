@@ -9,6 +9,8 @@ import Postbutton from "./post_button";
 import PreandNextPost from "./pre_next_post";
 import BottomMenu from '../bottommenu/bottommenu';
 import swal from 'sweetalert';
+import Search from "../SearchBar/searchbar";
+
 class ViewPost extends Component {
   editorRef = React.createRef();
 
@@ -197,16 +199,18 @@ class ViewPost extends Component {
         <div className="board_title">
           <Typography variant="h3"> {board_name}</Typography>
         </div>
+        <div className="searchbar">
+          <Search />
+        </div>
 
         <div className="view_post_paper_d">
         <div className="menubarbar">
           <NestedList />
         </div>
           <Paper className="view_post_paper" elevation={0}>
-            <div className="postage_title">
+            <div className="view_post_info">
               <Typography variant="h5">{data.postage_title}</Typography>
-
-              <span className="view_post_info">
+              <span>
                 <Typography className="view_post_nickname" variant="body1">
                 {this.props.match.params.board_key === "1"
                 ?<font>익명</font>
@@ -247,7 +251,7 @@ class ViewPost extends Component {
 
           <div className="comment_window_d">
             <Paper className="comment_window" elevation={0}>
-              <Typography variant="h1"> 댓글~</Typography>
+              <Typography variant="h1"> 댓글자리</Typography>
               <PreandNextPost
                 postage_key={this.props.match.params.postage_key}
                 board_key={this.props.match.params.board_key}
@@ -255,7 +259,7 @@ class ViewPost extends Component {
               />
             </Paper>
           </div>
-          <div className="viewpost_bottommenu">
+          <div className="view_post_bottommenu">
           <BottomMenu/>
           </div>
         </div>

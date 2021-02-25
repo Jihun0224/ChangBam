@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './card_postbody.css';
-import ClubCard from './clubcard';
+import ClubCard from './cardpost_card';
 import Pagination from '@material-ui/lab/Pagination';
 
 class CardPostBody extends Component{

@@ -101,6 +101,20 @@ class CardPost_View extends Component {
   render() {
     const { data, board_name, love_state } = this.state;
     const { onClick } = this;
+
+    //동아리 마켓에 따라서 추가적으로 필요한 내용들 경우에 따라 넣는 부분
+    let card_post_contents;
+    if(this.state.card_UN == 0){
+
+    }
+    else if(this.state.card_UN==1){
+
+    }
+    else{
+
+    }
+
+
     if(JSON.parse(localStorage.getItem("user")) == null){
       return(
         <>
@@ -123,7 +137,7 @@ class CardPost_View extends Component {
             </div>
           <Paper className="cardpost_view_paper" elevation={0}>
             <div className="cardpost_view_info">
-              <Typography variant="h5">{data.card_title}동아리명</Typography>      
+              <Typography variant="h5">{data.card_title}동아리명(카테고리)</Typography>      
               <span>
                 <Typography className="cardpost_view_nickname" variant="body1">
                 <font>{data.user_nickname}작성자</font> 
@@ -145,8 +159,8 @@ class CardPost_View extends Component {
                     <PhotoSlide/>
                 </div>
                 <div className="cardpost_content">
-                    <Typography>카테고리</Typography>
-                    <Typography>세부홍보</Typography>
+                    <Typography>{data.clubBody}본문</Typography>
+                    <Typography>{card_post_contents}</Typography>
                 </div>
             </div>
 

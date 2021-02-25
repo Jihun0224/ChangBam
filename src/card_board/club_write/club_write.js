@@ -2,11 +2,6 @@ import React from 'react';
 import TopAppbar from "../../appbar/appbar";
 import TextField from '@material-ui/core/TextField';
 import './club_write.css';
-import IconButton from '@material-ui/core/IconButton';
-import PhotoCamera from '@material-ui/icons/AddAPhoto';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
-import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
 import Button from '@material-ui/core/Button';
 import { Typography } from "@material-ui/core";
 import BottomMenu from '../../bottommenu/bottommenu';
@@ -17,7 +12,7 @@ import { ToastContainer, toast } from "react-toastify";
 import Error from "@material-ui/icons/Error";
 import Check from "@material-ui/icons/Check";
 import "react-toastify/dist/ReactToastify.css";
-
+import Search from "../../SearchBar/searchbar";
 class Club_write extends React.Component{
     constructor(props){
         super(props);
@@ -36,8 +31,9 @@ class Club_write extends React.Component{
     }
     onDrop(pictureFiles, pictureDataURLs) {
         this.setState({
-            pictures: pictureFiles
+            pictures: pictureDataURLs
         });
+        
     }
 onChange(e){
     this.setState({
@@ -49,7 +45,6 @@ goBack() {
   }
 onSubmit(e){
     e.preventDefault();
-    console.log("ddd");
     if(this.state.clubTitle==""|| this.state.clubSubtitle==""|| this.state.clubShowbody=="" ||this.state.clubBody==""){
     toast.error(
         <div>
@@ -116,6 +111,9 @@ onSubmit(e){
                 <div className="board_title">
                     <Typography variant="h3">동아리홍보</Typography>
                 </div>
+                <div className="searchbar">
+                <Search />
+                </div>
                 <div className="menubarbar">
                 <NestedList />
                 </div>
@@ -131,20 +129,6 @@ onSubmit(e){
                     maxFileSize={5242880}
                     withPreview={true}
                     />
-                        {/* <input accept="image/*" id="icon-button-file" type="file" />
-                        <label htmlFor="icon-button-file">   카메라 아이콘
-                            <IconButton id="Icon" color="primary" aria-label="upload picture" component="span">
-                                <PhotoCamera />
-                            </IconButton>
-                        </label>
-                        
-                        <IconButton id="Icon">
-                            <KeyboardArrowLeftIcon/>
-                        </IconButton>
-                        
-                        <IconButton id="Icon">
-                            <KeyboardArrowRightIcon/>
-                        </IconButton> */}
                     </div>
 
                     <div className="clubTitle">

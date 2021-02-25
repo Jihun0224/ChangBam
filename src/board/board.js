@@ -74,7 +74,6 @@ class Board extends React.Component {
         </div>
         <div className="postbody">
           <Postbody board_key={this.state.board_key} />
-
         </div>
 
       

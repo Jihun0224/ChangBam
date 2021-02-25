@@ -1,36 +1,45 @@
-.view_post .view_post_paper{
+ .view_post .view_post_paper{
 
-    width: 1020px;
+    width: 900px;;
     height: auto;
     min-height: 600px;
-    border: 2px solid #d5d5d5;
+    border-radius: 12px;
+    border: 3px solid #d5d5d5;
+    left: 405px;
+    top: -370px;
+    margin-bottom: 20px;
 }
 .view_post{
     width: 100%;
     height: auto;
 }
-
+.view_post .searchbar{
+    position: relative;
+    left: 390px;
+    top: 100px;
+    width: 900px;
+    height: 50px;
+}
+.view_post .menubarbar{
+    position: relative;
+    left: 100px;
+    top: 130px;
+    width: 200px;
+    height: 500px;
+}
 .view_post .board_title{
     position: relative;
-    left: 640px;
-    top: 80px;
     width: 400px;
     height: 100px;
+    left: 640px;
+    top: 100px;
     text-align: center;
-    margin-top: 2%;
 }
 
-.view_post_paper .postage_title{
-    width: 1020px;
-    height: 40px;
-    padding: 0 2px;
-    margin-bottom: 9px;
-    margin: 16px 0 29px;
-    padding-bottom: 17px;
-    border-bottom: 1px solid #eee;
-
+.view_post_paper.MuiPaper-root.view_post_paper.MuiPaper-elevation0.MuiPaper-rounded{
+    margin-left: 0px;
 }
-.view_post_paper .postage_title .MuiTypography-root.MuiTypography-h5{
+.view_post_paper .view_post_info .MuiTypography-root.MuiTypography-h5{
     padding-left: 10px;
 }
 .view_post_paper .MuiTypography-root.view_post_nickname{
@@ -38,14 +47,22 @@
 }
 .view_post_paper .MuiTypography-root.view_post_etc{
     position: relative;
-    margin-left:820px;
+    margin-left:700px;
     top:-24px;
 }
 .view_post_paper .postage_info{
     padding-left: 10px;
     height: auto;
     padding-bottom: 100px;
-    min-height: 410px;
+    min-height: 300px;
+}
+.view_post_paper .postage_info .cardpost_photoslide{
+    position: relative;
+    left: 200px;
+}
+.view_post_paper .postage_info .cardpost_content{
+    position: relative;
+    top: 30px;
 }
 .view_post_paper .MuiSvgIcon-root{
 
@@ -53,7 +70,6 @@
     height: 70px;
 }
 .view_post_paper.MuiPaper-root.view_post_paper.MuiPaper-elevation0.MuiPaper-rounded .love_button{
-
     position: relative;
     bottom: 0%;
     left: 463px;
@@ -68,10 +84,8 @@
 }
 .view_post .view_post_paper_d{
     position: relative;
-    top: 70px;
     height: auto;
     width: 100%;
-    margin-bottom: 100px;
 }
 .view_post .view_post_paper_d .view_post_paper{
     position: relative;
@@ -81,41 +95,47 @@
     position: relative;
     margin-left: 350px;
 }
-.view_post .view_post_paper_d .comment_window_d{
-    position: relative;
-    top:80px;
-    margin-bottom: 100px;
-    margin-left: 350px;
-}
-.view_post .view_post_paper_d .comment_window_d .comment_window{
-    border: 2px solid #d5d5d5;
-}
-.view_post_paper_d .pagination_d{
-    position: relative;
-    top:100px;
-   
-}
 
+
+.view_post .MuiButtonBase-root.MuiIconButton-root.MuiIconButton-colorSecondary{
+    position: relative;
+    right: 50px;
+}
 .view_post_paper_d .view_post_button{
     position: relative;
     top: 30px;
 }
 
-.postage_info.figure{
-    padding-bottom: 0px;
-}
-.view_post figure{
-    margin: 0;
-}
-.view_post .viewpost_bottommenu{
-    position: relative;
-    top: 100px;
+.view_post .view_post_bottommenu{
+    margin-top: -210px;
 
 }
-.view_post .menubarbar{
-    position: absolute;
-    left: 100px;
-    top: 0px;
-    width: 200px;
-    height: 500px;
+.view_post_button .MuiButtonBase-root.MuiButton-root.MuiButton-contained.MuiButton-containedPrimary{
+    position: relative;
+    top: -385px;
+    margin-left: 54px;
+    width: auto;
+    height: 40px;
+}
+.view_post .view_post_paper_d .comment_window_d{
+    border: 3px solid #d5d5d5;
+    border-radius: 12px;
+    position: relative;
+    top:-320px;
+    left: 405px;
+    width: 900px;
+    height: auto;
+}
+.view_post_paper .view_post_info{
+    width: 898px;
+    height: 40px;
+    padding: 0 2px;
+    margin-bottom: 9px;
+    margin: 5px 0 29px;
+    padding-bottom: 17px;
+    border-bottom: 2px solid #d5d5d5;
+
+}
+.comment_window_d .MuiPaper-root.comment_window.MuiPaper-elevation0.MuiPaper-rounded{
+    width: 900px;
 }
