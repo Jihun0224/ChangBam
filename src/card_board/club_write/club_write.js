@@ -144,7 +144,8 @@ onSubmit(e){
                     <div className="clubCategory">
                         <TextField 
                             id="clubCategory" 
-                            label="카테고리 ex) 음악동아리, 치어리딩동아리"  
+                            label="카테고리"
+                            placeholder="ex) 음악동아리, 치어리딩동아리"  
                             type="text" 
                             name="cardSubtitle"  
                             value={this.state.cardCategory} 
@@ -162,7 +163,7 @@ onSubmit(e){
                             value={this.state.cardShowbody} 
                             onChange={this.onChange}/>
                     </div>
-                    <br/>
+                    <br/><br/>
                     <div className="clubBody">
                          <TextField
                             className="clubbody"

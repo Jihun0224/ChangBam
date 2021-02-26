@@ -6,8 +6,6 @@ import TextField from '@material-ui/core/TextField';
 import Checkbox from '@material-ui/core/Checkbox';
 import Input from '@material-ui/core/input';
 import InputLabel from '@material-ui/core/InputLabel';
-import './roomwrite.css';
-import Mac from './mac.jpg';
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
 import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
 import Button from '@material-ui/core/Button';
@@ -213,8 +211,7 @@ class RoomWrite extends React.Component{
                     <IconButton id="Icon">
                         <KeyboardArrowLeftIcon/>
                     </IconButton>
-                            <img src={Mac} />
-                            <img src={Mac} />
+
                     <IconButton id="Icon">
                         <KeyboardArrowRightIcon/>
                     </IconButton>

@@ -98,7 +98,7 @@ class CardPostBody extends Component{
                     {this.isFull(this.state.rows[5])&&(<div className="card_grid6"><ClubCard  post={this.state.rows[5]} /></div>)}
                 </div>
                 {
-                    this.state.pagecount === 0 
+                    this.state.pagecount == 0 
                     ? <></>  
                     : <div className="card_postpagecount" >  
                         <Pagination

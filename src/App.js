@@ -24,6 +24,7 @@ import Card_View from "./card_board/cardpost_view";
 import Club_write from "./card_board/club_write/club_write";
 import Club_modify from "./card_board/club_write/club_modify";
 import Roommarket_write from "./card_board/roommarket_write/roommarket_write";
+import ChangbamMarket_write from "./card_board/changbammarket_write/changbammarket_write";
 
 function App() {  
   return (
@@ -38,14 +39,13 @@ function App() {
         <Route exact path="/7" component={Home8} />
         <Route exact path="/meeting" component={Meeting_home} />
         <Route exact path="/Room" component={Roomview} />
-        <Route exact path="/roomwrite" component={RoomWrite} />
         <Route exact path="/roombody" component={RoomBody} />
         <Route exact path="/NoneExist" component={NoneExist} />
-        <Route exact path="/test" component={Club_modify} />
-
+        
 
         <Route exact path="/club/card_write" component={Club_write} />        
         <Route exact path="/roomMarket/card_write" component={Roommarket_write} />        
+        <Route exact path="/changbamMarket/card_write" component={ChangbamMarket_write} />        
         <Route
           exact
           path={`/:board_name/list/card=:card_UN`}
