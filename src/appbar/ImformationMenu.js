@@ -87,10 +87,10 @@ class ImformationMenu extends Component {
                 onKeyDown={handleListKeyDown}
               >
                 <MenuItem onClick={()=>window.location.reload()}>
-                  <Link to={`/ChangbamMarket/list/card=1`}>창밤인 마켓</Link>
+                  <Link to={`/changbamMarket/list/card=1`}>창밤인 마켓</Link>
                 </MenuItem>
                 <MenuItem onClick={()=>window.location.reload()}>
-                  <Link to={`/RoomMarket/list/card=2`}>자취방 마켓</Link>
+                  <Link to={`/roomMarket/list/card=2`}>자취방 마켓</Link>
                 </MenuItem>
                 <MenuItem>
                   <Link to="alba">알바창국</Link>

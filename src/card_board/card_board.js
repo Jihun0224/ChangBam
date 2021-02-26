@@ -24,10 +24,10 @@ class CardBoard extends React.Component {
       case "club":
         this.setState({ board_name: "동아리홍보"});
         break;
-      case "ChangbamMarket":
+      case "changbamMarket":
         this.setState({ board_name: "창밤인 마켓"});
         break;
-      case "RoomMarket":
+      case "roomMarket":
         this.setState({ board_name: "자취방 마켓"});
         break;
       default:

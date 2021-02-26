@@ -13,21 +13,6 @@ import employment from "./employment.png";
 import market from "./market.png";
 import freeboard from "./freeboard.png";
 import promotion from "./promotion.png";
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    paddingLeft: 400,
-    paddingRight: 400,
-  },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: "center",
-    color: theme.palette.text.secondary,
-    height: "auto",
-    width: "auto",
-  },
-}));
-
 
 class MainTopPostage extends React.Component {
     
@@ -127,12 +112,12 @@ class MainTopPostage extends React.Component {
     ];
     
     return (
-      <div className={useStyles.root}>
+      <div className="maincenterpostage_div">
         <Grid container spacing={3} justify="center">
           {posts.map((post) => (
             <Grid key={post.id}>
               <div className="maincenterpostage">
-                <Card className="maincentercard">
+                <Card className="maincentercard" elevation={0}>
                   <CardHeader
                     title={
                       <Typography align="left" variant="h4">

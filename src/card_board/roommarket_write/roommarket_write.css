@@ -1,0 +1,78 @@
+.roommarket_write_div{
+    width: 100%;
+}
+.roommarket_write_div .searchbar{
+    position: relative;
+    left: 390px;
+    top: 100px;
+    width: 900px;
+    height: 50px;
+}
+.roommarket_write_div .menubarbar{
+    position: relative;
+    left: 100px;
+    top: 130px;
+    width: 200px;
+    height: 500px;
+}
+.card_write_paper{
+    position: relative;
+    left: 405px;
+    top: -370px;
+    width: 880px;
+    height: auto;
+    border: 3px solid #d5d5d5;
+    border-radius: 12px;
+    background-color: white;
+    
+}
+.card_write_paper .card_write_content {
+    position: relative;
+    top: 40px;
+    margin-left: 130px;
+    
+}
+.roommarket_write_div .board_title{
+    position: relative;
+    width: 400px;
+    height: 100px;
+    left: 640px;
+    top: 100px;
+    text-align: center;
+}
+.card_write_paper .card_write_content .club_picture_insert{
+    position: relative;
+    left: 130px;
+    height: auto;
+    width: 350px;
+}
+.card_write_paper .card_write_content .club_picture_insert p{
+    display: none;
+}
+
+.roommarket_write_div .MuiTypography-body1#room_title{
+    font-weight: bolder;
+}
+
+.card_write_paper .cardBody{
+    width: 650px;
+    margin-bottom: 50px;
+}
+.card_write_paper .room_write_button_box{
+    position: relative;
+    top: -85px;
+    margin-left: 457px;
+}
+.roommarket_write_div #cancel.MuiButtonBase-root.MuiButton-root.MuiButton-contained.cancel{
+    width: 70px;
+    height: 45px;
+    margin-left: 50px;
+}
+.roommarket_write_div #submit.MuiButtonBase-root.MuiButton-root.MuiButton-contained.commit{
+    width: 70px;
+    height: 45px;
+}
+.roommarket_write_div .roommarket_write_bottommenu{
+    position: relative;
+    margin-top: -240px;
+}

@@ -20,13 +20,13 @@ import RoomWrite from "./card/room/roomwrite/roomwritemain";
 import RoomBody from "./card/room/roombody";
 //고치는 중인거
 import CardBoard from "./card_board/card_board";
-import Club_write from "./card_board/club_write/club_write";
 import Card_View from "./card_board/cardpost_view";
+import Club_write from "./card_board/club_write/club_write";
 import Club_modify from "./card_board/club_write/club_modify";
+import Roommarket_write from "./card_board/roommarket_write/roommarket_write";
 
 function App() {  
   return (
-    <div>
       <Switch>
       <ScrollToTop>
         {/* <Route component = {Appbar}/> */}
@@ -43,12 +43,14 @@ function App() {
         <Route exact path="/NoneExist" component={NoneExist} />
         <Route exact path="/test" component={Club_modify} />
 
+
+        <Route exact path="/club/card_write" component={Club_write} />        
+        <Route exact path="/roomMarket/card_write" component={Roommarket_write} />        
         <Route
           exact
           path={`/:board_name/list/card=:card_UN`}
           component={CardBoard}
         />
-        <Route exact path="/club/card_write" component={Club_write} />        
         <Route
           exact
           path={`/:board_name/view/id=:card_key&card=:card_UN`}
@@ -60,8 +62,7 @@ function App() {
           component={Board}
         />
         <Route
-          exact
-          path={`/:board_name/postage_write`}
+          exact path={`/:board_name/write`}
           component={Postage_write}
         />
         <Route
@@ -76,7 +77,6 @@ function App() {
         />
       </ScrollToTop>
       </Switch>
-    </div>
   );
 }
 

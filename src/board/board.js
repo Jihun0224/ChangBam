@@ -79,7 +79,7 @@ class Board extends React.Component {
       
         <div className="postage_write_button">
           <Button id="write" variant="contained" color="primary">
-            <Link to={`/${this.props.match.params.board_name}/postage_write`}>
+            <Link to={`/${this.props.match.params.board_name}/write`}>
               <font color="white">글쓰기</font>
             </Link>
           </Button>

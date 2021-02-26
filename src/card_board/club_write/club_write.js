@@ -17,10 +17,10 @@ class Club_write extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            clubTitle:"",
-            clubSubtitle:"",
-            clubShowbody:"",
-            clubBody:"",
+            cardTitle:"",
+            cardSubtitle:"",
+            cardShowbody:"",
+            cardBody:"",
             pictures: []
         }
         this.onSubmit = this.onSubmit.bind(this);
@@ -45,7 +45,7 @@ goBack() {
   }
 onSubmit(e){
     e.preventDefault();
-    if(this.state.clubTitle==""|| this.state.clubSubtitle==""|| this.state.clubShowbody=="" ||this.state.clubBody==""){
+    if(this.state.cardTitle==""|| this.state.cardSubtitle==""|| this.state.cardShowbody=="" ||this.state.cardBody==""){
     toast.error(
         <div>
           <Error />
@@ -58,10 +58,10 @@ onSubmit(e){
     else{
         
             const post ={
-                clubTitle:this.state.clubTitle,
-                clubSubtitle:this.state.clubSubtitle,
-                clubShowbody:this.state.clubShowbody,
-                clubBody:this.state.clubBody,
+                cardTitle:this.state.cardTitle,
+                cardSubtitle:this.state.cardSubtitle,
+                cardShowbody:this.state.cardShowbody,
+                cardBody:this.state.cardBody,
                 nickname:JSON.parse(localStorage.getItem('user')).nickname,
             }
             //게시글 저장하는 함수 넣을 자리
@@ -136,8 +136,8 @@ onSubmit(e){
                             id="clubTitle" 
                             label="동아리명"  
                             type="text" 
-                            name="clubTitle"  
-                            value={this.state.clubTitle} 
+                            name="cardTitle"  
+                            value={this.state.cardTitle} 
                             onChange={this.onChange}/>
                     </div>
                     <br/>
@@ -146,8 +146,8 @@ onSubmit(e){
                             id="clubCategory" 
                             label="카테고리 ex) 음악동아리, 치어리딩동아리"  
                             type="text" 
-                            name="clubSubtitle"  
-                            value={this.state.clubCategory} 
+                            name="cardSubtitle"  
+                            value={this.state.cardCategory} 
                             onChange={this.onChange} />
                     </div>
                     <br/>
@@ -158,8 +158,8 @@ onSubmit(e){
                             type="text" 
                             multiline 
                             label="슬로건을 적어주세요.(짧은 홍보글. 게시판 메인에서 보일 글입니다.)" 
-                            name="clubShowbody"
-                            value={this.state.clubShowbody} 
+                            name="cardShowbody"
+                            value={this.state.cardShowbody} 
                             onChange={this.onChange}/>
                     </div>
                     <br/>
@@ -170,9 +170,9 @@ onSubmit(e){
                             rows={7}
                             multiline 
                             label="세부 홍보글" 
-                            name="clubBody"  
+                            name="cardBody"  
                             variant="outlined"
-                            value={this.state.clubBody} 
+                            value={this.state.cardBody} 
                             onChange={this.onChange}/>
                     </div>
                     <div className="card_write_button_box">

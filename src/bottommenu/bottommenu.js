@@ -31,8 +31,8 @@ class BottomMenu extends Component {
           <Paper className="BottomMenu_imformation" elevation={0}>
             <font className="BottomMenu_title">생활정보</font>
             <ul>
-              <li onClick={()=>window.location.reload()}><Link to={`/ChangbamMarket/list/card=1`}><font className="BottomMenu_content">창밤인 마켓</font></Link></li>
-              <li onClick={()=>window.location.reload()}><Link to={`/RoomMarket/list/card=2`}><font className="BottomMenu_content">자취방 마켓</font></Link></li>
+              <li onClick={()=>window.location.reload()}><Link to={`/changbamMarket/list/card=1`}><font className="BottomMenu_content">창밤인 마켓</font></Link></li>
+              <li onClick={()=>window.location.reload()}><Link to={`/roomMarket/list/card=2`}><font className="BottomMenu_content">자취방 마켓</font></Link></li>
               <li onClick={()=>window.location.reload()}><Link to="alba"><font className="BottomMenu_content">알바창국</font></Link></li>
             </ul>
           </Paper>

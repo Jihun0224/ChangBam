@@ -24,25 +24,10 @@ const useStyles = makeStyles((theme) => ({
 export default function NestedList() {
   const classes = useStyles();
   const [open1, setOpen1] = React.useState(true);
-  const [open2, setOpen2] = React.useState(false);
-  const [open3, setOpen3] = React.useState(false);
 
   const handleClick1 = () => {
     setOpen1(!open1);
-    setOpen2(false);
-    setOpen3(false);
-  };
 
-  const handleClick2 = () => {
-    setOpen1(false);
-    setOpen2(!open2);
-    setOpen3(false);
-  };
-
-  const handleClick3 = () => {
-    setOpen1(false);
-    setOpen2(false);
-    setOpen3(!open3);
   };
 
   return (
@@ -99,10 +84,10 @@ export default function NestedList() {
             <ListItem button>
               <ListItemText primary="생활정보" />
             </ListItem>
-            <Button className="nested_btn" href="/ChangbamMarket/list/card=1">
-              중고마켓
+            <Button className="nested_btn" href="/changbamMarket/list/card=1">
+              창밤인 마켓
             </Button>
-            <Button className="nested_btn" href="/RoomMarket/list/card=2">
+            <Button className="nested_btn" href="/roomMarket/list/card=2">
               자취방 마켓
             </Button>
             <Button className="nested_btn" href="/alba">

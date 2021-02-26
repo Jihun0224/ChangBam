@@ -80,7 +80,6 @@ class CampusMenu extends Component {
             horizontal: "center",
           }}
         >
-          {" "}
           <div className="menu_paper">
             <Paper>
               <ClickAwayListener onClickAway={handleClose}>

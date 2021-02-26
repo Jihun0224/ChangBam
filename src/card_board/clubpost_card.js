@@ -1,5 +1,5 @@
 import React from 'react';
-import './cardpost_card.css';
+import './clubpost_card.css';
 import TestImage from './TestImage.jpg'
 
 class ClubCard extends React.Component {
@@ -25,7 +25,7 @@ class ClubCard extends React.Component {
                     <h2>동아리명 </h2>
                         <span>카테고리</span>
                     <p>슬로건</p>
-                    <a href="/club/view/id=2&card=0" width={250} height={320}>View more</a>
+                    <a href="/club/view/id=2&card=0" width={250} height={320}/>
                 </figcaption>			
             </figure>
         
