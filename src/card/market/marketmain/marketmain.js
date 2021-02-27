@@ -6,8 +6,6 @@ import Jgo from './jgo.jpg';
 import Userimg from './username.png';
 import Sold from './sold-out.png';
 import Love from './lovelike.png';
-import Comments from './comment';
-import './marketmain.css';
 import Button from '@material-ui/core/Button';
 
 class Marketbody extends Component{
@@ -198,9 +196,7 @@ class Marketbody extends Component{
                         </p>
                        
                     </div>
-                    <Comments/>
-                    <Comments/>
-                    <Comments/>
+
                     <div className="recomment_input"><label>댓글 쓰기</label><input type="text" placeholder="댓글을 입력하세요"/></div>
                 </div>
             </div>

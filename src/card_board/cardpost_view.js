@@ -82,12 +82,12 @@ class CardPost_View extends Component {
             break;
           case "1":
             this.setState({
-              board_name: "창밤인마켓",
+              board_name: "창밤인 마켓",
             });
             break;
           case "2":
             this.setState({
-              board_name: "스터디그룹",
+              board_name: "자취방 마켓",
               });
               break;        
           default:
@@ -101,19 +101,6 @@ class CardPost_View extends Component {
   render() {
     const { data, board_name, love_state } = this.state;
     const { onClick } = this;
-
-    //동아리 마켓에 따라서 추가적으로 필요한 내용들 경우에 따라 넣는 부분
-    let card_post_contents;
-    if(this.state.card_UN == 0){
-
-    }
-    else if(this.state.card_UN==1){
-
-    }
-    else{
-
-    }
-
 
     if(JSON.parse(localStorage.getItem("user")) == null){
       return(
@@ -137,7 +124,7 @@ class CardPost_View extends Component {
             </div>
           <Paper className="cardpost_view_paper" elevation={0}>
             <div className="cardpost_view_info">
-              <Typography variant="h5">{data.card_title}동아리명(카테고리)</Typography>      
+              <Typography variant="h5">{data.card_title}제목 동아리: 동아리명(카테고리) 마켓은 제목 따로 받아서 동아리도 받던지 ㅇㅇ</Typography>      
               <span>
                 <Typography className="cardpost_view_nickname" variant="body1">
                 <font>{data.user_nickname}작성자</font> 
@@ -159,8 +146,51 @@ class CardPost_View extends Component {
                     <PhotoSlide/>
                 </div>
                 <div className="cardpost_content">
-                    <Typography>{data.clubBody}본문</Typography>
-                    <Typography>{card_post_contents}</Typography>
+                  
+                  {this.props.match.params.card_UN == 1&&(
+                   
+                    <div className="market_content">
+                      <font className ="goods_state">판매상태</font>
+                    <div className="market_content_info">
+                    <span>
+                        <br/>
+                        <p/><font>-상품: ㅇㅇㅇ </font> 
+                        <br/><br/>
+                        <font>-가격: 30{this.state.price} </font>원
+                        <br/>
+                        <br/>
+                        <font>-위치</font>: {this.state.location}
+                        <br/>
+                        <br/>
+                      </span>
+                </div>
+                </div>
+                
+                  )}
+                  {this.props.match.params.card_UN == 2&&(
+                   
+                   <div className="market_content">
+                   <div className="market_content_info">
+                   <span>
+                       <br/>
+                       <p/><font>-보증금: 300{this.state.deposit} </font> 만원
+                       <br/><br/>
+                       <font>-월세: 30{this.state.monthlyrent} </font>만원
+                       <br/><br/>
+                       <font>-구조</font>: {this.state.mode}
+                       <br/>
+                       <br/>
+                       <font>-옵션</font>: {this.state.option}
+                       <br/>
+                       <br/>
+                       <font>-위치</font>: {this.state.location}
+                       <br/><br/>
+                     </span>
+               </div>
+               </div>
+               
+                 )}
+                    <Typography className="cardBody">{data.clubBody}본문</Typography>
                 </div>
             </div>
 

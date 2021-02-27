@@ -15,7 +15,7 @@
     width: 200px;
     height: 500px;
 }
-.card_write_paper{
+.market_write_div .card_write_paper{
     position: relative;
     left: 405px;
     top: -370px;
@@ -26,7 +26,7 @@
     background-color: white;
     
 }
-.card_write_paper .card_write_content {
+.market_write_div .card_write_paper .card_write_content {
     position: relative;
     top: 40px;
     margin-left: 130px;
@@ -40,44 +40,51 @@
     top: 100px;
     text-align: center;
 }
-.card_write_paper .card_write_content .card_picture_insert{
+.market_write_div .card_write_paper .card_write_content .card_picture_insert{
     position: relative;
     left: 130px;
     height: auto;
     width: 350px;
 }
-.card_write_paper .card_write_content .card_picture_insert p{
+.market_write_div .card_write_paper .card_write_content .card_picture_insert p{
     display: none;
 }
-.card_write_paper .marketTitle #marketTitle{
+.market_write_div .card_write_paper .marketTitle #marketTitle{
     width:350px;
     height:40px;
     margin-top: 2px;
     margin-bottom:-10px;
 }
-.card_write_paper .marketLocation #marketLocation{
+.market_write_div .card_write_paper .marketLocation #marketLocation{
     width:350px;
     height:40px;
     margin-top: 2px;
     margin-bottom:-10px;
     
 }
-.card_write_paper .marketPrice #marketPrice{
+.market_write_div .card_write_paper .marketPrice #marketPrice{
     width:200px;
     height:40px;
     margin-top: 2px;
     margin-bottom:-10px;
     
 }
-.card_write_paper .card_write_button_box{
+.market_write_div .card_write_paper .card_write_button_box{
     position: relative;
-    top: -55px;
+    top: -85px;
     margin-left: 438px;
 }
 .market_write_div #cancel.MuiButtonBase-root.MuiButton-root.MuiButton-contained.cancel{
     width: 70px;
     height: 45px;
     margin-left: 50px;
+}
+.market_write_div .card_write_paper .MuiFormControl-root.MuiTextField-root.cardbody{
+    margin-bottom: 50px;
+
+}
+.market_write_div .card_write_paper .cardBody #cardBody{
+    width: 600px;
 }
 .market_write_div #submit.MuiButtonBase-root.MuiButton-root.MuiButton-contained.commit{
     width: 70px;

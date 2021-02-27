@@ -7,11 +7,11 @@
   box-shadow: 1px 1px 4px rgb(207, 207, 207);
   border: 2px solid #d5d5d5;
 }
-.MuiTypography-root.MuiListItemText-primary.MuiTypography-body1.MuiTypography-displayBlock {
+.sidemenubar .MuiTypography-root.MuiListItemText-primary.MuiTypography-body1.MuiTypography-displayBlock {
   font-size: 12px;
   font-weight: bold;
 }
-._body {
+.sidemenubar ._body {
   font-weight: bold;
 }
 

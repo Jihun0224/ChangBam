@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './gridcard.css';
 import MarcketCard from '../market/marketcard/marcketcard';
 import Pagination from '@material-ui/lab/Pagination';
 

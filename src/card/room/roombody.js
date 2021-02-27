@@ -5,8 +5,6 @@ import IconButton from '@material-ui/core/IconButton';
 import Jgo from '../market/marketmain/jgo.jpg';
 import Userimg from '../market/marketmain/username.png';
 import Love from '../market/marketmain/lovelike.png';
-import Comments from '../market/marketmain/comment';
-import './roombody.css';
 import Button from '@material-ui/core/Button';
 
 class Roombody extends Component{
@@ -224,9 +222,7 @@ class Roombody extends Component{
                         </p>
                        
                     </div>
-                    <Comments/>
-                    <Comments/>
-                    <Comments/>
+
                     <div className="recomment_input"><label>댓글 쓰기</label><input type="text" placeholder="댓글을 입력하세요"/></div>
                 </div>
             </div>

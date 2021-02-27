@@ -7,7 +7,6 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Input from '@material-ui/core/input';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
-import './writing.css';
 import Mac from './mac.jpg';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';

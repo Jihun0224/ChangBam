@@ -1,6 +1,7 @@
 import React from 'react';
-import './clubpost_card.css';
+import './cardpost_card.css';
 import TestImage from './TestImage.jpg'
+import { Link } from "react-router-dom";
 
 class ClubCard extends React.Component {
     constructor(props){
@@ -12,9 +13,6 @@ class ClubCard extends React.Component {
         }
     }
 
-    moveHref(card_key){ /*카드 누르면 게시물 내용 보는 페이지로 들어가짐*/
-        document.location.href='/club/view/id=2&card=0'; 
-    }
     render() {
         return (
             <div class="cardpost_card">
@@ -25,11 +23,9 @@ class ClubCard extends React.Component {
                     <h2>동아리명 </h2>
                         <span>카테고리</span>
                     <p>슬로건</p>
-                    <a href="/club/view/id=2&card=0" width={250} height={320}/>
+                    <Link to={`/club/view/id=0&card=0`}/>
                 </figcaption>			
             </figure>
-        
-            
         </div>
 
         )

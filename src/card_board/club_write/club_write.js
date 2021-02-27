@@ -164,10 +164,10 @@ onSubmit(e){
                             onChange={this.onChange}/>
                     </div>
                     <br/><br/>
-                    <div className="clubBody">
+                    <div className="cardBody">
                          <TextField
-                            className="clubbody"
-                            id="clubBody" 
+                            className="cardbody"
+                            id="cardBody" 
                             rows={7}
                             multiline 
                             label="세부 홍보글" 

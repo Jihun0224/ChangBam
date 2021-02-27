@@ -9,7 +9,9 @@
     top: 5px;
     padding-right: 5px;
 }
-
+.pre_and_next_post .MuiTableCell-root.MuiTableCell-body.pre_y.MuiTableCell-alignCenter{
+    padding: 0;
+}
 .pre_and_next_post .MuiTableCell-root.MuiTableCell-body.next_y {
     border-top: 1px solid rgba(224, 224, 224, 1);
 }

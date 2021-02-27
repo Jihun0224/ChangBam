@@ -45,10 +45,11 @@ class Pre_and_next_post extends React.Component {
 
     return (
       <div className="pre_and_next_post">
-        <TableContainer component={Paper}>
+        <Paper elevation = {0}>
+        <TableContainer>
           <Table>
             <TableBody>
-              {pre_post === undefined && (
+              {pre_post == undefined && (
                 <TableRow className="pre_row_n">
                   <TableCell className="pre_n" width="150px" height="29.6px">
                     이전글이 없습니다
@@ -151,6 +152,7 @@ class Pre_and_next_post extends React.Component {
             </TableBody>
           </Table>
         </TableContainer>
+        </Paper>
       </div>
     );
   }

@@ -1,5 +1,4 @@
 import React from 'react';
-import './clubcard.css';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 

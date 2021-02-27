@@ -3,7 +3,6 @@ import IconButton from '@material-ui/core/IconButton';
 import PhotoCamera from '@material-ui/icons/AddAPhoto';
 import Paper from '@material-ui/core/Paper';
 import TextField from '@material-ui/core/TextField';
-import './dongali_write.css';
 import Mac from './mac1.jpg';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';

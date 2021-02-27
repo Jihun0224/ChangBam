@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Img from './dongali.png';
-import Comments from '../../market/marketmain/comment';
 import Userimg from '../../market/marketmain/doctor.png';
-import './dongali.css';
 import Button from '@material-ui/core/Button';
 
 class Dongali extends Component{
@@ -137,9 +135,7 @@ class Dongali extends Component{
                         </p>
                        
                     </div>
-                    <Comments/>
-                    <Comments/>
-                    <Comments/>
+
                     <div className="recomment_input"><label>댓글 쓰기</label><input type="text" placeholder="댓글을 입력하세요"/></div>
                 </div>
             </div>

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import IconButton from '@material-ui/core/IconButton';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import './marcketcard.css';
 
 function Border_Love_Button(props) {
     return (

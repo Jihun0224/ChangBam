@@ -1,6 +1,5 @@
 import React from 'react';
 import Top_AppBar from '../../appbar/appbar';
-import './club.css';
 import Search from '../../SearchBar/searchbar';
 import NestedList from '../../menulist/Board_list';
 import Griddongali from '../gridcard/gridd';

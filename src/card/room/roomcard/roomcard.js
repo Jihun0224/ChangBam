@@ -1,5 +1,4 @@
 import React from 'react';
-import './roomcard.css';
 import Ramian from './ramian.jpg';
 import Paper from '@material-ui/core/Paper';
 import Card from '@material-ui/core/Card';

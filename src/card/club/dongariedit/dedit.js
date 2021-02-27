@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './dedit.css';
 import '@toast-ui/editor/dist/toastui-editor.css';
 import 'tui-color-picker/dist/tui-color-picker.css';
 

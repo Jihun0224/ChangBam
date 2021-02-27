@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './gridcard.css';
 import RoomCard from '../room/roomcard/roomcard';
 import Pagination from '@material-ui/lab/Pagination';
 
