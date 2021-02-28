@@ -6,8 +6,8 @@ const nodemailer = require("nodemailer");
 var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "dja1wkd2",
-  database: "changwonnightdiagram",
+  password: "",
+  database: "",
 });
 connection.connect(); //mysql 연결
 

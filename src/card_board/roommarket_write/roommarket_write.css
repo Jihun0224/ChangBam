@@ -15,6 +15,12 @@
     width: 200px;
     height: 500px;
 }
+.roommarket_write_div .cardTitle .MuiInputBase-input.MuiInput-input{
+    width: 450px;
+}   
+.roommarket_write_div .location .MuiInputBase-input.MuiInput-input{
+    width: 350px;
+}  
 .card_write_paper{
     position: relative;
     left: 405px;
@@ -60,7 +66,7 @@
 }
 .card_write_paper .room_write_button_box{
     position: relative;
-    top: -85px;
+    top: -70px;
     margin-left: 457px;
 }
 .roommarket_write_div #cancel.MuiButtonBase-root.MuiButton-root.MuiButton-contained.cancel{

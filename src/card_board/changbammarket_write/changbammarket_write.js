@@ -72,16 +72,7 @@ onSubmit(e){
                 },
                 body:JSON.stringify(post)
             })
-            .then(
-                toast.success(
-                  <div>
-                    <Check />
-                    <div className="toast">
-                      <p>게시글이 등록되었습니다.</p>
-                    </div>
-                  </div>
-                )
-              )
+
             .then(window.history.back());
         
     }
@@ -130,15 +121,33 @@ onSubmit(e){
                     withPreview={true}
                     />
                     </div>
-
-                    <div className="marketTitle">
+                    <div className="cardTitle">
+                        <TextField 
+                            id="cardTitle" 
+                            label="제목"  
+                            type="text" 
+                            value={this.state.cardTitle} 
+                            onChange={this.onChange}/>
+                    </div>
+                    <br/>
+                    <div className="marketSubTitle">
                         <TextField 
                             id="marketTitle" 
                             label="상품명"  
                             type="text" 
-                            name="cardTitle"  
-                            value={this.state.cardTitle} 
+                            value={this.state.cardSubTitle} 
                             onChange={this.onChange}/>
+                    </div>
+                    <br/>
+                    <div className="marketPrice">
+                    <TextField 
+                            id="marketPrice" 
+                            label="가격"  
+                            type="number" 
+                            name="price"
+                            placeholder="ex) 10000"
+                            value={this.state.price} 
+                            onChange={this.onChange} />
                     </div>
                     <br/>
                     <div className="marketLocation">
@@ -151,17 +160,6 @@ onSubmit(e){
                             value={this.state.location} 
                             onChange={this.onChange}/>
                       
-                    </div>
-                    <br/>
-                    <div className="marketPrice">
-                    <TextField 
-                            id="marketPrice" 
-                            label="가격"  
-                            type="text" 
-                            name="price"
-                            placeholder="ex) 10000"
-                            value={this.state.price} 
-                            onChange={this.onChange} />
                     </div>
                     <br/><br/>
                     <div className="cardBody">

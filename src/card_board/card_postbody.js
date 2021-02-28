@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import './card_postbody.css';
-import ClubCard from './clubpost_card';
-import RoomCard from './roompost_card';
-import MarketCard from './marketpost_card';
+import CardPost_Card from './cardpost_card';
 import Pagination from '@material-ui/lab/Pagination';
 
 class CardPostBody extends Component{
@@ -85,43 +83,19 @@ class CardPostBody extends Component{
         this.getSixPost(page);
         document.documentElement.scrollTop = 130;
     };
-
-
+    
     render(){
-
         return(
             <div className="card_post">
                 <div className="card_postbody">
-                    {this.state.card_UN == 0 &&
-                    <>
-                    {this.isFull(this.state.rows[0])&&(<div className="card_grid1" ><ClubCard post={this.state.rows[0]} /></div>)}
-                    {this.isFull(this.state.rows[1])&&(<div className="card_grid2" ><ClubCard post={this.state.rows[1]}  /></div>)}
-                    {this.isFull(this.state.rows[2])&&(<div className="card_grid3"><ClubCard post={this.state.rows[2]} /></div>)}
-                    {this.isFull(this.state.rows[3])&&(<div className="card_grid4" ><ClubCard  post={this.state.rows[3]}/></div>)}
-                    {this.isFull(this.state.rows[4])&&(<div className="card_grid5"><ClubCard post={this.state.rows[4]}/></div>)}
-                    {this.isFull(this.state.rows[5])&&(<div className="card_grid6"><ClubCard  post={this.state.rows[5]} /></div>)}
-                   </>
-                   }
-                   {this.state.card_UN == 1 &&
-                    <>
-                    {this.isFull(this.state.rows[0])&&(<div className="card_grid1" ><MarketCard post={this.state.rows[0]} /></div>)}
-                    {this.isFull(this.state.rows[1])&&(<div className="card_grid2" ><MarketCard post={this.state.rows[1]}  /></div>)}
-                    {this.isFull(this.state.rows[2])&&(<div className="card_grid3"><MarketCard post={this.state.rows[2]} /></div>)}
-                    {this.isFull(this.state.rows[3])&&(<div className="card_grid4" ><MarketCard  post={this.state.rows[3]}/></div>)}
-                    {this.isFull(this.state.rows[4])&&(<div className="card_grid5"><MarketCard post={this.state.rows[4]}/></div>)}
-                    {this.isFull(this.state.rows[5])&&(<div className="card_grid6"><MarketCard  post={this.state.rows[5]} /></div>)}
-                   </>
-                   } 
-                   {this.state.card_UN == 2 &&
-                    <>
-                    {this.isFull(this.state.rows[0])&&(<div className="card_grid1" ><RoomCard post={this.state.rows[0]} /></div>)}
-                    {this.isFull(this.state.rows[1])&&(<div className="card_grid2" ><RoomCard post={this.state.rows[1]}  /></div>)}
-                    {this.isFull(this.state.rows[2])&&(<div className="card_grid3"><RoomCard post={this.state.rows[2]} /></div>)}
-                    {this.isFull(this.state.rows[3])&&(<div className="card_grid4" ><RoomCard  post={this.state.rows[3]}/></div>)}
-                    {this.isFull(this.state.rows[4])&&(<div className="card_grid5"><RoomCard post={this.state.rows[4]}/></div>)}
-                    {this.isFull(this.state.rows[5])&&(<div className="card_grid6"><RoomCard  post={this.state.rows[5]} /></div>)}
-                   </>
-                   } 
+
+                    {this.isFull(this.state.rows[0])&&(<div className="card_grid1" ><CardPost_Card card_UN = {this.state.card_UN} post={this.state.rows[0]} /></div>)}
+                    {this.isFull(this.state.rows[1])&&(<div className="card_grid2" ><CardPost_Card card_UN = {this.state.card_UN} post={this.state.rows[1]}  /></div>)}
+                    {this.isFull(this.state.rows[2])&&(<div className="card_grid3"><CardPost_Card card_UN = {this.state.card_UN} post={this.state.rows[2]} /></div>)}
+                    {this.isFull(this.state.rows[3])&&(<div className="card_grid4" ><CardPost_Card card_UN = {this.state.card_UN}  post={this.state.rows[3]}/></div>)}
+                    {this.isFull(this.state.rows[4])&&(<div className="card_grid5"><CardPost_Card card_UN = {this.state.card_UN} post={this.state.rows[4]}/></div>)}
+                    {this.isFull(this.state.rows[5])&&(<div className="card_grid6"><CardPost_Card card_UN = {this.state.card_UN}  post={this.state.rows[5]} /></div>)}
+                  
                </div>
                 {
                     this.state.pagecount == 0 

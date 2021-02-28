@@ -51,6 +51,7 @@ onChange(e){
         [e.target.name]: e.target.value,
     });
 }
+
 handleRadioChange = (e) => {
     this.setState({
         mode: e.target.value
@@ -163,16 +164,19 @@ onSubmit(e){
                     withPreview={true}
                     />
                     </div>
-
+                    <Typography id="room_title">* 제목</Typography>
+                    <div className="cardTitle">
+                        <TextField id="cardTitle" type="text" name="cardTitle" value={this.state.cardTitle} onChange={this.onChange} placeholder="제목을 입력해 주세요"></TextField>
+                    </div>
                     <br/>
                     <Typography id="room_title">* 보증금</Typography>
                     <div className="deposit">
-                        <TextField id="deposit" type="text" name="deposit" value={this.state.deposit} onChange={this.onChange} placeholder="ex) 500"></TextField>
+                        <TextField id="deposit" type="number" name="deposit" value={this.state.deposit} onChange={this.onChange} placeholder="ex) 500"></TextField>
                     </div>
                     <br/>
                     <Typography id="room_title">* 월세</Typography>
                     <div className="monthlyrent">
-                        <TextField id="monthlyrent" type="text" name="monthlyrent" value={this.state.monthlyrent} onChange={this.onChange} placeholder="ex) 20"></TextField>
+                        <TextField id="monthlyrent" type="number" name="monthlyrent" value={this.state.monthlyrent} onChange={this.onChange} placeholder="ex) 20" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"></TextField>
                     </div>
 
                     <br/>

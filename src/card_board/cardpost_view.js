@@ -124,7 +124,7 @@ class CardPost_View extends Component {
             </div>
           <Paper className="cardpost_view_paper" elevation={0}>
             <div className="cardpost_view_info">
-              <Typography variant="h5">{data.card_title}제목 동아리: 동아리명(카테고리) 마켓은 제목 따로 받아서 동아리도 받던지 ㅇㅇ</Typography>      
+              <Typography variant="h5">{data.card_title}제목</Typography>      
               <span>
                 <Typography className="cardpost_view_nickname" variant="body1">
                 <font>{data.user_nickname}작성자</font> 

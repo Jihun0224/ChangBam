@@ -72,16 +72,7 @@ onSubmit(e){
                 },
                 body:JSON.stringify(post)
             })
-            .then(
-                toast.success(
-                  <div>
-                    <Check />
-                    <div className="toast">
-                      <p>게시글이 등록되었습니다.</p>
-                    </div>
-                  </div>
-                )
-              )
+
             .then(window.history.back());
         
     }
@@ -130,14 +121,21 @@ onSubmit(e){
                     withPreview={true}
                     />
                     </div>
-
-                    <div className="clubTitle">
+                    <div className="cardTitle">
                         <TextField 
-                            id="clubTitle" 
+                            id="cardTitle" 
+                            label="제목"  
+                            type="text" 
+                            value={this.state.cardTitle} 
+                            onChange={this.onChange}/>
+                    </div><br/>
+                    <div className="clubSubTitle">
+                        <TextField 
+                            id="clubSubTitle" 
                             label="동아리명"  
                             type="text" 
-                            name="cardTitle"  
-                            value={this.state.cardTitle} 
+                            name="clubSubTitle"  
+                            value={this.state.SubTitle} 
                             onChange={this.onChange}/>
                     </div>
                     <br/>
