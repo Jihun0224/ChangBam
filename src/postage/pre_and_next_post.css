@@ -1,30 +1,63 @@
+.pre_and_next_post_paper{
+    border-top: 1px solid rgba(224, 224, 224, 1);
+    border-bottom: 1px solid rgba(224, 224, 224, 1);
 
-.pre_and_next_post .MuiSvgIcon-root{
+}
+
+
+.pre_and_next_post .MuiTableRow-root.NextOrPreExistTR{
+    width: 900px;
+    height:60px;
+    border-top: 1px solid rgba(224, 224, 224, 1);
+
+}
+.pre_and_next_post .MuiTableCell-root.MuiTableCell-body.NextOrPreExist_nextorpre{
+    width: 80px;
+    text-align: left;
+    padding-right: 0px;
+}
+.pre_and_next_post .MuiSvgIcon-root.arrowButton{
     position: relative;
     top: 5px;
     padding-right: 5px;
+}
+.pre_and_next_post .MuiTableCell-root.MuiTableCell-body.NextOrPreExist_title{
+    width: 400px;
+    text-align: left;
+    padding-right: 0px;
+}
+.pre_and_next_post .MuiTableCell-root.MuiTableCell-body.NextOrPreExist_nickname{
+    width: 100px;
+    text-align: center;
+    padding-right: 0px;
+}
+.pre_and_next_post .MuiTableCell-root.MuiTableCell-body.NextOrPreExist_like{
+    width: 60px;
+    text-align: center;
+    padding-right: 0px;
+    padding-left: 0px;
 }
 .pre_and_next_post .MuiSvgIcon-root.MuiSvgIcon-colorSecondary{
     position: relative;
     top: 5px;
     padding-right: 5px;
 }
-.pre_and_next_post .MuiTableCell-root.MuiTableCell-body.pre_y.MuiTableCell-alignCenter{
-    padding: 0;
-}
-.pre_and_next_post .MuiTableCell-root.MuiTableCell-body.next_y {
-    border-top: 1px solid rgba(224, 224, 224, 1);
-}
-.pre_and_next_post .MuiTableCell-root.MuiTableCell-body.next_y1.MuiTableCell-alignCenter{
-    padding-top: 8PX;
-    border-top: 1px solid rgba(224, 224, 224, 1);
+.pre_and_next_post .MuiTableCell-root.MuiTableCell-body.NextOrPreExist_date{
+    width: 60px;
+    text-align: center;
+    padding-right: 0px;
+    padding-left: 0px;
 
 }
-.pre_and_next_post .MuiTableCell-root.MuiTableCell-body.next_y2.MuiTableCell-alignCenter{
-    padding-top: 8PX;
-    border-top: 1px solid rgba(224, 224, 224, 1);
-
+.pre_and_next_post .MuiSvgIcon-root.viewIcon{
+    position: relative;
+    top: 5px;
+    padding-right: 5px;
 }
-.MuiPaper-root.MuiTableContainer-root.MuiPaper-elevation1.MuiPaper-rounded{
-    width: 900px;
+.pre_and_next_post .MuiTableCell-root.MuiTableCell-body.NextOrPreExist_views{
+    width: 70px;
+    text-align: center;
+    padding-right: 0px;
+    padding-left: 0px;
+
 }

@@ -29,26 +29,26 @@
     padding-left: 0;
     padding-right: 0;
 }
-.row_main{
+.post.row_main{
     color: inherit;
     display: table-row;
     outline: 0;
     vertical-align: middle;
 }
-.row_main tr{
+.post .row_main tr{
     height: 40px;
 }
-.row_main tr:hover{
+.post .row_main tr:hover{
     background-color: #e7e1ff;
 }
-.second a{
+.post .second a{
     text-decoration: none;
     color: black;
 }
-.head_row tr{
+.post .head_row tr{
     border-bottom: 2px solid rgb(209, 208, 208);
 }
-.third.MuiTableCell-root{
+.post .third.MuiTableCell-root{
     display: table-cell;
     padding: 16px;
     font-size: 12px;
@@ -61,7 +61,7 @@
     vertical-align: inherit;
     width: 50px;
 }
-.fourth.MuiTableCell-root{
+.post .fourth.MuiTableCell-root{
     display: table-cell;
     padding: 16px;
     font-size: 12px;
@@ -74,7 +74,7 @@
     vertical-align: inherit;
     width: 40px;
 }
-.second.MuiTableCell-root{
+.post .second.MuiTableCell-root{
     display: table-cell;
     padding: 16px;
     font-size: 12px;
@@ -93,7 +93,7 @@
     top: 15px;
 }
 
-.MuiTableRow-root.emptyrows:hover{
+.post .MuiTableRow-root.emptyrows:hover{
     background-color: unset !important;
     color: unset !important;
 }
