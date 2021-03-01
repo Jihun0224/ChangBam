@@ -51,7 +51,7 @@ class Marketbody extends Component{
                 productName:json[0].card_title,
                 price:Number(json[0].card_price),
                 location:json[0].card_location,
-                nickname:json[0].card_nickname,
+                nickname:json[0].user_nickname,
                 body:json[0].card_body,
                 salecheck:Number(json[0].card_sale_check)
             })
@@ -66,7 +66,7 @@ class Marketbody extends Component{
 
     nickCheck(){
        
-        if(this.state.card_nickname===this.state.card_nickname){
+        if(this.state.user_nickname===this.state.user_nickname){
              console.log("현재 닉네임과 게시글 작성자 일치")
              return true;
          }else

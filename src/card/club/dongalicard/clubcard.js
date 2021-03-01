@@ -35,7 +35,7 @@ class ClubCard extends React.Component {
                       
                         
                         <Typography className = "marcketingMent" variant="body2" color="textSecondary" component="p" style={{whiteSpace: 'pre-line'}} >
-                        {this.props.post.card_showbody}
+                        {this.props.post.card_slogan}
                         </Typography>
                 
                 </Card>

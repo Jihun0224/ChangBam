@@ -2,7 +2,7 @@ import React from "react";
 import TopAppBar from "../appbar/appbar";
 import "./home2.css";
 import Search from "../SearchBar/searchbar";
-import NestedList from "../menulist/Board_list";
+import Sidemenu from "../sidemenu/sidemenu";
 import Meetingboardbody from "./meeting_board/meeting_board_body";
 import MeetingWrite from "./meeting_board/meeting_write";
 
@@ -36,7 +36,7 @@ class Meeting_home extends React.Component {
         </div>
 
         <div className="menubarbar">
-          <NestedList />
+          <Sidemenu />
         </div>
       </div>
     );

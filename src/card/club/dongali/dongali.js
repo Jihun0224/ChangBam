@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Img from './dongali.png';
-import Userimg from '../../market/marketmain/doctor.png';
 import Button from '@material-ui/core/Button';
 
 class Dongali extends Component{
@@ -43,9 +41,9 @@ class Dongali extends Component{
         .then(json =>{
             console.log("게시글 내용 : ", json[0]);
             this.setState({
-                nickname:json[0].card_nickname,
+                nickname:json[0].user_nickname,
                 clubTitle:json[0].card_title,
-                clubShowbody:json[0].card_showbody,
+                clubShowbody:json[0].card_slogan,
                 clubBody:json[0].card_body
             })
         })
@@ -53,7 +51,7 @@ class Dongali extends Component{
 
     nickCheck(){
        
-       if(this.state.card_nickname===this.state.card_nickname){
+       if(this.state.user_nickname===this.state.user_nickname){
             console.log("현재 닉네임과 게시글 작성자 일치")
             return true;
         }else
@@ -109,11 +107,9 @@ class Dongali extends Component{
                 
 
                 <div className="dongali_picture">
-                    <img src={Img} width="800px"/>
                 </div>
                 <div className="user_nickname">
                     <div className="user_img">
-                        <img src={Userimg} />
                     </div>
                     <div className="user_name_part">
                         <p>{this.state.nickname}</p>

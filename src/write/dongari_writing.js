@@ -3,8 +3,6 @@ import IconButton from "@material-ui/core/IconButton";
 import PhotoCamera from "@material-ui/icons/AddAPhoto";
 import Paper from "@material-ui/core/Paper";
 import TextField from "@material-ui/core/TextField";
-import "./dongari_writing.css";
-import Mac from "./mac1.jpg";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
 import KeyboardArrowLeftIcon from "@material-ui/icons/KeyboardArrowLeft";
@@ -110,7 +108,7 @@ class dongari_Writing extends React.Component {
           this.setState({
             clubTitle: json[0].card_title,
             clubSubtitle: json[0].card_subtitle,
-            clubShowbody: json[0].card_showbody,
+            clubShowbody: json[0].card_slogan,
             clubBody: json[0].card_body,
           });
         });
@@ -258,7 +256,6 @@ class dongari_Writing extends React.Component {
                 {/* 왼쪽 "<"" 아이콘*/}
                 <KeyboardArrowLeftIcon />
               </IconButton>
-              <img alt="" src={Mac} /> {/*사진*/}
               <IconButton id="Icon">
                 {" "}
                 {/* 오른쪽 ">"" 아이콘*/}

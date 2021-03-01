@@ -1,8 +1,6 @@
 import React from 'react';
-import Ramian from './ramian.jpg';
 import Paper from '@material-ui/core/Paper';
 import Card from '@material-ui/core/Card';
-import Love_button from '../../market/marketcard/love_button'
 
 
 class RoomCard extends React.Component {

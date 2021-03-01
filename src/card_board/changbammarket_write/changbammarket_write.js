@@ -5,12 +5,11 @@ import './changbammarket_write.css';
 import Button from '@material-ui/core/Button';
 import { Typography } from "@material-ui/core";
 import BottomMenu from '../../bottommenu/bottommenu';
-import NestedList from "../../menulist/Board_list";
+import Sidemenu from "../../sidemenu/sidemenu";
 import ImageUploader from 'react-images-upload';
 import swal from 'sweetalert';
 import { ToastContainer, toast } from "react-toastify";
 import Error from "@material-ui/icons/Error";
-import Check from "@material-ui/icons/Check";
 import "react-toastify/dist/ReactToastify.css";
 import Search from "../../SearchBar/searchbar";
 class ChangbamMarket extends React.Component{
@@ -18,6 +17,7 @@ class ChangbamMarket extends React.Component{
         super(props);
         this.state={
             cardTitle:"",
+            cardSubtitle:"",
             location:"",
             price:"",
             cardBody:"",
@@ -45,7 +45,7 @@ goBack() {
   }
 onSubmit(e){
     e.preventDefault();
-    if(this.state.cardTitle==""|| this.state.location==""|| this.state.price=="" ||this.state.cardBody==""){
+    if(this.state.cardTitle==""|| this.state.cardSubtitle==""|| this.state.location==""|| this.state.price=="" ||this.state.cardBody==""){
     toast.error(
         <div>
           <Error />
@@ -59,22 +59,20 @@ onSubmit(e){
         
             const post ={
                 cardTitle:this.state.cardTitle,
+                cardSubtitle:this.state.cardSubtitle,
                 location:this.state.location,
                 price:this.state.price,
                 cardBody:this.state.cardBody,
                 nickname:JSON.parse(localStorage.getItem('user')).nickname,
             }
-            //게시글 저장하는 함수 넣을 자리
-            fetch('http://localhost:3001/api/',{
+            fetch('http://localhost:3001/api/changbammarket_write',{
                 method: "post",
                 headers : {
                     'content-type':'application/json'
                 },
                 body:JSON.stringify(post)
             })
-
             .then(window.history.back());
-        
     }
 }    
     componentWillMount(){
@@ -106,7 +104,7 @@ onSubmit(e){
                 <Search />
                 </div>
                 <div className="menubarbar">
-                <NestedList />
+                <Sidemenu />
                 </div>
             <div className="card_write_paper">
               <div className="card_write_content">
@@ -126,6 +124,7 @@ onSubmit(e){
                             id="cardTitle" 
                             label="제목"  
                             type="text" 
+                            name="cardTitle"
                             value={this.state.cardTitle} 
                             onChange={this.onChange}/>
                     </div>
@@ -135,7 +134,8 @@ onSubmit(e){
                             id="marketTitle" 
                             label="상품명"  
                             type="text" 
-                            value={this.state.cardSubTitle} 
+                            name="cardSubtitle"
+                            value={this.state.cardSubtitle} 
                             onChange={this.onChange}/>
                     </div>
                     <br/>

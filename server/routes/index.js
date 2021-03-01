@@ -338,7 +338,6 @@ router.post("/meeting_rowscount", function (req, res) {
     if (err) {
       console.log(err);
     } else {
-      console.log("게시글 수 데이터 전송");
       res.json(rows);
     }
   });
@@ -356,8 +355,6 @@ router.post("/postage_modify", function (req, res) {
   connection.query(sql, params, function (err) {
     if (err) {
       console.log(err);
-    } else {
-      console.log("게시물 수정 완료");
     }
   });
 });
@@ -370,7 +367,6 @@ router.post("/postage_modify_row", function (req, res) {
     if (err) {
       console.log(err);
     } else {
-      console.log("수정할 게시물의 제목과 내용 전송");
       res.json(rows);
     }
   });
@@ -388,8 +384,6 @@ router.post("/postage_write", function (req, res) {
   connection.query(sql, params, function (err) {
     if (err) {
       console.log(err);
-    } else {
-      console.log("게시판에 게시글 등록 완료");
     }
   });
 });
@@ -413,7 +407,6 @@ router.post("/get_rows", function (req, res) {
     if (err) {
       console.log(err);
     } else {
-      console.log("페이지에 따른 데이터 전송");
       res.json(rows);
     }
   });
@@ -429,7 +422,6 @@ router.post("/rowscount", function (req, res) {
     if (err) {
       console.log(err);
     } else {
-      console.log("게시글 수 데이터 전송");
       res.json(rows);
     }
   });
@@ -461,16 +453,12 @@ router.post("/view_post", function (req, res) {
   connection.query(sql_up_see, params, function (err) {
     if (err) {
       console.log(err);
-    } else {
-      console.log("조회수 증가");
     }
   });
   connection.query(sql, params, function (err, rows) {
     if (err) {
       console.log(err);
     } else {
-      console.log("게시물 데이터 전송");
-      console.log(rows);
       res.json(rows);
     }
   });
@@ -558,54 +546,11 @@ router.post("/post_delete", function (req, res) {
 //오민정
   /*club DB*/
 
-router.post('/ClubPostageWrite',function(req,res){
-  var clubTitle = req.body.clubTitle;
-  var clubSubtitle = req.body.clubSubtitle;
-  var clubShowbody =req.body.clubShowbody;
-  var clubBody = req.body.clubBody;
-  var nickname = req.body.nickname;
-
-  console.log("닉 : ", nickname+"ㅇㅇㅇ"+clubTitle, clubSubtitle, clubShowbody, clubBody);
-
-  connection.query('INSERT INTO card_table (card_UN,card_nickname,card_body,card_showbody,card_subtitle,card_title, user_key) VALUES(2,?,?,?,?,?,(SELECT user_key FROM user_table WHERE user_nickname = ?))',
-  [nickname,clubBody,clubShowbody,clubSubtitle,clubTitle,nickname],function(err,rows,fields){
-      if(err){
-          console.log(err);
-      }else{
-          console.log(rows.insertId);
-          let postNum = JSON.stringify(rows.insertId);
-          res.send(postNum);
-      }
-        
-  })
-})
-router.post('/clubupdate',function(req,res){
-  var clubTitle = req.body.clubTitle;
-  var clubSubtitle = req.body.clubSubtitle;
-  var clubShowbody =req.body.clubShowbody;
-  var clubBody = req.body.clubBody;
-  var postNum= req.body.postNum;
-
-  console.log("변경할 postNum : ",postNum);
-
-  connection.query('UPDATE card_table SET card_title=?,card_subtitle=?,card_showbody=?,card_body=? WHERE card_key=? AND card_UN=2 LIMIT 1' ,
-  [clubTitle,clubSubtitle,clubShowbody,clubBody,postNum],function(err,rows,fields){
-      if(err){
-          console.log(err);
-      }else{
-          console.log(rows.insertId);
-          let postNum = JSON.stringify(rows.insertId);
-          res.send(postNum);
-      }
-        
-  })
-})
-
 
 router.post('/getsixpostclubtable',function(req,res){
   var startPostNum = req.body.startPostNum;
-  connection.query('SELECT card_key, card_showbody, card_subtitle,card_title from card_table where card_UN=2 order by card_key desc limit ?,6;',[startPostNum],function(err,rows){
-      console.log("getSixpost 쇼바디: ",rows.card_showbody);
+  connection.query('SELECT card_key, card_slogan, card_subtitle,card_title from card_table where card_UN=2 order by card_key desc limit ?,6;',[startPostNum],function(err,rows){
+      console.log("getSixpost 쇼바디: ",rows.card_slogan);
   
       res.send(rows);
   })
@@ -613,7 +558,7 @@ router.post('/getsixpostclubtable',function(req,res){
 
 router.post('/getclubpost',function(req,res){
   var card_key = req.body.postNum;
-  connection.query('SELECT card_nickname, card_title,card_showbody, card_body, card_subtitle from card_table where card_UN=2 and card_key=?;',[card_key],function(err,rows){
+  connection.query('SELECT user_nickname, card_title,card_slogan, card_body, card_subtitle from card_table where card_UN=2 and card_key=?;',[card_key],function(err,rows){
       console.log("getPost: ",rows[0].card_body);
   
       res.send(rows);
@@ -633,55 +578,14 @@ router.post('/getsixpostmarkettable',function(req,res){
 router.post('/getmarketpost',function(req,res){
   var card_key = req.body.postNum;
   
-  connection.query('SELECT card_nickname,card_title,card_price, card_body, card_location, card_sale_check from card_table where card_UN=0 and card_key=?;',[card_key],function(err,rows){
+  connection.query('SELECT user_nickname,card_title,card_price, card_body, card_location, card_sale_check from card_table where card_UN=0 and card_key=?;',[card_key],function(err,rows){
       console.log("getmarketpost 0번째",rows[0].card_title);
   
       res.send(rows);
   })
 })
-router.post('/market',function(req,res){
-  var title = req.body.productName;
-  var price = req.body.price;
-  var location =req.body.location;
-  var body = req.body.content;
-  var nickname =req.body.nickname;
 
-  console.log("요소", title, price, location,body);
 
-  connection.query('INSERT INTO card_table (card_UN,card_likes,card_nickname,card_title,card_price,card_body,card_location,card_sale_check) VALUES(0,0,?,?,?,?,?,0)',
-  [nickname,title,price,body,location],function(err,rows,fields){
-      if(err){
-          console.log(err);
-      }else{
-          console.log(rows.insertId);
-          let postNum = JSON.stringify(rows.insertId);
-          res.send(postNum);
-      }
-        
-  })
-})
-
-router.post('/marketupdate',function(req,res){
-  var title = req.body.productName;
-  var price = req.body.price;
-  var location =req.body.location;
-  var body = req.body.content;
-  var postNum = req.body.postNum;
-
-  console.log("변경할 postNum : ",postNum);
-
-  connection.query('UPDATE card_table SET card_title=?,card_price=?,card_location=?,card_body=? WHERE card_key=? AND card_UN=0 LIMIT 1' ,
-  [title,price,location,body,postNum],function(err,rows,fields){
-      if(err){
-          console.log(err);
-      }else{
-          console.log(rows.insertId);
-          let postNum = JSON.stringify(rows.insertId);
-          res.send(postNum);
-      }
-        
-  })
-})
 
 
 {/*room DB*/}
@@ -707,57 +611,15 @@ router.post('/getroompost',function(req,res){
   var card_key = req.body.postNum;
   console.log("card_key: ",card_key);
   console.log("room!!");
-  connection.query('SELECT card_subtitle,card_price,card_body,card_location,card_options,card_nickname,card_sale_check from card_table where card_UN=1 and card_key=?;',[card_key],function(err,rows){
+  connection.query('SELECT card_subtitle,card_price,card_body,card_location,card_options,user_nickname,card_sale_check from card_table where card_UN=1 and card_key=?;',[card_key],function(err,rows){
       console.log(rows[0]);
       console.log("getmarketpost 0번째",rows[0].card_subtitle);
   
       res.send(rows);
   })
 })
-router.post('/room',function(req,res){
-  var mode=req.body.mode;
-  var options=req.body.option;
-  var price=req.body.price;  
-  var location=req.body.location; 
-  var content=req.body.content;  
-  var nickname=req.body.nickname;
- 
-  console.log("room new value insert");
-  connection.query('INSERT INTO card_table (card_UN,card_subtitle,card_nickname,card_price,card_body,card_location,card_options) VALUES(1,?,?,?,?,?,?)',
-  [mode,nickname,price,content,location,options],function(err,rows,fields){
-      if(err){
-          console.log(err);
-      }
-  })
-})
 
-router.post('/roomupdate',function(req,res){
-  console.log("변경된 값: ",req.body);
-  var mode=req.body.mode;
-  var options=req.body.option;
-  var price=req.body.price;  
-  var location=req.body.location; 
-  var content=req.body.content;  
-  var postNum = req.body.postNum;
 
-  console.log("변경할 postNum : ",postNum);
-  console.log("room update");
-  connection.query('UPDATE card_table SET card_subtitle=?,card_price=?,card_body=?,card_location=?,card_options=? WHERE card_key=? AND card_UN=1 LIMIT 1' ,
-  [mode,price, content,location,options,postNum],function(err,rows,fields){
-      if(err){
-          console.log(err);
-      }
-  })
-})
-
-router.post('/deletecardpost',function(req,res){
-  var card_UN = req.body.card_UN;
-  var postNum = req.body.postNum;
-
-  connection.query('DELETE FROM card_table WHERE card_UN=? AND card_key=?',[card_UN,postNum],function(err,rows,fields){
-      res.send(rows);
-  })
-})
 router.post('/soldoutcard',function(req,res){
   var card_key= req.body.card_key;
 
@@ -809,7 +671,7 @@ router.post('/likechange',function(req,res){
 router.post("/TodayTop6Postage", function (req, res) {
 
   TodayTop6Postagesql =
-    "SELECT postage_key, postage_title, postage_comment, postage_love, postage_UN, CASE postage_UN WHEN '0' THEN 'free' WHEN '1' THEN 'anonymous' WHEN '2' THEN 'new' WHEN '3' THEN 'love' WHEN '4' THEN 'politic' WHEN '5' THEN 'changbam' WHEN '6' THEN 'changwon' WHEN '7' THEN 'study' WHEN '8' THEN 'old' WHEN '9' THEN 'EmploymentReview' ELSE 'EmploymentAnnouncement' END 'board_name' FROM postage_table WHERE date_format(postage_date, '%y%m%d') = date_format(now(),'%y%m%d') ORDER BY postage_love DESC, postage_comment DESC LIMIT 6";
+    "SELECT postage_key, postage_title, postage_comment, postage_love, postage_UN, CASE postage_UN WHEN '0' THEN 'free' WHEN '1' THEN 'anonymous' WHEN '2' THEN 'new' WHEN '3' THEN 'love' WHEN '4' THEN 'politic' WHEN '5' THEN 'changbam' WHEN '6' THEN 'changwon' WHEN '7' THEN 'study' WHEN '8' THEN 'old' WHEN '9' THEN 'EmploymentReview' WHEN '10' THEN 'EmploymentAnnouncement' ELSE 'alba' END 'board_name' FROM postage_table WHERE date_format(postage_date, '%y%m%d') = date_format(now(),'%y%m%d') ORDER BY postage_love DESC, postage_comment DESC LIMIT 6";
 
     connection.query(TodayTop6Postagesql,function (err,rows) {
       if(err){
@@ -880,6 +742,61 @@ var PostageChecksql =
       } else {
         res.send(true);
       }     
+    }
+  });
+});
+
+//카드 게시물 관련
+
+//게시물 작성
+router.post("/club_write", function (req, res) {
+  var cardTitle = req.body.cardTitle;
+  var cardSubtitle = req.body.cardSubtitle;
+  var cardSlogan = req.body.cardSlogan;
+  var cardCategory = req.body.cardCategory;
+  var cardBody = req.body.cardBody;
+  var nickname = req.body.nickname;
+  var sql =
+    "INSERT INTO card_table (card_UN, card_title, card_subtitle, card_slogan, card_category, card_body, user_nickname, user_key ) VALUES(0,?,?,?,?,?,?,(SELECT user_key FROM user_table WHERE user_nickname = ?))";
+  var params = [cardTitle, cardSubtitle, cardSlogan, cardCategory, cardBody, nickname, nickname];
+  connection.query(sql, params, function (err) {
+    if (err) {
+      console.log(err);
+    }
+  });
+});
+router.post("/changbammarket_write", function (req, res) {
+  var cardTitle = req.body.cardTitle;
+  var cardSubtitle = req.body.cardSubtitle;
+  var location = req.body.location;
+  var price = req.body.price;
+  var cardBody = req.body.cardBody;
+  var nickname = req.body.nickname;
+  var sql =
+    "INSERT INTO card_table (card_UN, card_title, card_subtitle, card_location, card_price, card_body, user_nickname, user_key,card_sale_check ) VALUES(?,?,?,?,?,?,?,(SELECT user_key FROM user_table WHERE user_nickname = ?),?)";
+  var params = [1,cardTitle, cardSubtitle, location, price, cardBody, nickname, nickname, 0];
+  connection.query(sql, params, function (err) {
+    if (err) {
+      console.log(err);
+    }
+  });
+});
+router.post("/roommarket_write", function (req, res) {
+  var cardTitle = req.body.cardTitle;
+  var cardSubtitle = req.body.cardSubtitle;
+  var location = req.body.location;
+  var price = req.body.price;
+  var cardBody = req.body.cardBody;
+  var nickname = req.body.nickname;
+  var cardCategory = req.body.options; 
+  var sql =
+    `INSERT INTO card_table 
+    (card_UN, card_title, card_subtitle, card_location, card_price, card_body, user_nickname, card_category,user_key ) 
+     VALUES(?,?,?,?,?,?,?,?,(SELECT user_key FROM user_table WHERE user_nickname = ?))`;
+  var params = [2,cardTitle, cardSubtitle, location, price, cardBody, nickname, cardCategory, nickname];
+  connection.query(sql, params, function (err) {
+    if (err) {
+      console.log(err);
     }
   });
 });

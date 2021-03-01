@@ -5,21 +5,21 @@ import './club_write.css';
 import Button from '@material-ui/core/Button';
 import { Typography } from "@material-ui/core";
 import BottomMenu from '../../bottommenu/bottommenu';
-import NestedList from "../../menulist/Board_list";
+import Sidemenu from "../../sidemenu/sidemenu";
 import ImageUploader from 'react-images-upload';
 import swal from 'sweetalert';
 import { ToastContainer, toast } from "react-toastify";
 import Error from "@material-ui/icons/Error";
-import Check from "@material-ui/icons/Check";
 import "react-toastify/dist/ReactToastify.css";
 import Search from "../../SearchBar/searchbar";
 class Club_write extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            cardTitle:"",
-            cardSubtitle:"",
-            cardShowbody:"",
+            cardTitle:"",       
+            cardSubtitle:"",    //동아리명
+            cardSlogan:"",    
+            cardCategory:"",    //동아리 카테고리
             cardBody:"",
             pictures: []
         }
@@ -45,7 +45,7 @@ goBack() {
   }
 onSubmit(e){
     e.preventDefault();
-    if(this.state.cardTitle==""|| this.state.cardSubtitle==""|| this.state.cardShowbody=="" ||this.state.cardBody==""){
+    if(this.state.cardTitle==""|| this.state.cardSubtitle==""|| this.state.cardSlogan=="" ||this.state.cardBody==""||this.state.cardCategory==""){
     toast.error(
         <div>
           <Error />
@@ -59,20 +59,19 @@ onSubmit(e){
         
             const post ={
                 cardTitle:this.state.cardTitle,
-                cardSubtitle:this.state.cardSubtitle,
-                cardShowbody:this.state.cardShowbody,
+                cardSubtitle:this.state.cardSubtitle, //동아리명
+                cardSlogan:this.state.cardSlogan,
+                cardCategory:this.state.cardCategory,
                 cardBody:this.state.cardBody,
                 nickname:JSON.parse(localStorage.getItem('user')).nickname,
             }
-            //게시글 저장하는 함수 넣을 자리
-            fetch('http://localhost:3001/api/',{
+            fetch('http://localhost:3001/api/club_write',{
                 method: "post",
                 headers : {
                     'content-type':'application/json'
                 },
                 body:JSON.stringify(post)
             })
-
             .then(window.history.back());
         
     }
@@ -106,7 +105,7 @@ onSubmit(e){
                 <Search />
                 </div>
                 <div className="menubarbar">
-                <NestedList />
+                <Sidemenu />
                 </div>
             <div className="card_write_paper">
               <div className="card_write_content">
@@ -126,6 +125,7 @@ onSubmit(e){
                             id="cardTitle" 
                             label="제목"  
                             type="text" 
+                            name="cardTitle"  
                             value={this.state.cardTitle} 
                             onChange={this.onChange}/>
                     </div><br/>
@@ -134,8 +134,8 @@ onSubmit(e){
                             id="clubSubTitle" 
                             label="동아리명"  
                             type="text" 
-                            name="clubSubTitle"  
-                            value={this.state.SubTitle} 
+                            name="cardSubtitle"  
+                            value={this.state.cardSubtitle} 
                             onChange={this.onChange}/>
                     </div>
                     <br/>
@@ -145,20 +145,20 @@ onSubmit(e){
                             label="카테고리"
                             placeholder="ex) 음악동아리, 치어리딩동아리"  
                             type="text" 
-                            name="cardSubtitle"  
+                            name="cardCategory"  
                             value={this.state.cardCategory} 
                             onChange={this.onChange} />
                     </div>
                     <br/>
-                    <div className="clubShowbody">
+                    <div className="cardSlogan">
                         <TextField 
-                            id="clubShowbody" 
+                            id="cardSlogan" 
                             rowsMax={2}  
                             type="text" 
                             multiline 
                             label="슬로건을 적어주세요.(짧은 홍보글. 게시판 메인에서 보일 글입니다.)" 
-                            name="cardShowbody"
-                            value={this.state.cardShowbody} 
+                            name="cardSlogan"
+                            value={this.state.cardSlogan} 
                             onChange={this.onChange}/>
                     </div>
                     <br/><br/>

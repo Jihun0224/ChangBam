@@ -100,13 +100,13 @@ class MainTopPostage extends React.Component {
       {
         id: 5,
         title: "창밤 마켓",
-        url:"/",
+        url:"/changbamMarket/list/card=1",
         png:market,
       },
       {
         id: 6,
-        title: "자유홍보",
-        url:"/",
+        title: "동아리홍보",
+        url:"/club/list/card=0",
         png:promotion,
       },
     ];

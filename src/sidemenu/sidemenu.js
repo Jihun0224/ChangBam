@@ -1,5 +1,5 @@
 import React from "react";
-import "./Board_list.css";
+import "./sidemenu.css";
 import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function NestedList() {
+export default function Sidemenu() {
   const classes = useStyles();
   const [open1, setOpen1] = React.useState(true);
 

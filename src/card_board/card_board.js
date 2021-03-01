@@ -3,7 +3,7 @@ import TopAppBar from "../appbar/appbar";
 import CardPostBody from "./card_postbody";
 import "./card_board.css";
 import Search from "../SearchBar/searchbar";
-import NestedList from "../menulist/Board_list";
+import Sidemenu from "../sidemenu/sidemenu";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import BottomMenu from '../bottommenu/bottommenu';
@@ -46,7 +46,7 @@ class CardBoard extends React.Component {
           <Search />
         </div>
         <div className="menubarbar">
-          <NestedList />
+          <Sidemenu />
         </div>
         <div className="postbody">
           <CardPostBody card_UN={this.props.match.params.card_UN} />

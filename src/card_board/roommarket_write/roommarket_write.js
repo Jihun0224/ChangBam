@@ -5,7 +5,7 @@ import './roommarket_write.css';
 import Button from '@material-ui/core/Button';
 import { Typography } from "@material-ui/core";
 import BottomMenu from '../../bottommenu/bottommenu';
-import NestedList from "../../menulist/Board_list";
+import Sidemenu from "../../sidemenu/sidemenu";
 import ImageUploader from 'react-images-upload';
 import swal from 'sweetalert';
 import { ToastContainer, toast } from "react-toastify";
@@ -23,11 +23,12 @@ class Roommarket_write extends React.Component{
     constructor(props){
         super(props);
         this.state={
+            cardTitle:"",
             cardBody:"", //본문
             location:"", //위치
-            deposit:"",  //보증금
-            monthlyrent:"",  //월세
-            mode:'', //구조
+            deposit:0,  //보증금
+            monthlyrent:0,  //월세
+            cardSubtitle:'', //전세/월세/구조
             options:{냉장고:false, 세탁기:false, 에어컨:false,
                     TV:false, 인덕션:false, 가스레인지:false, 전자레인지:false, wifi:false,
                     인터넷선:false, 침대:false, 옷장:false, 신발장:false, 
@@ -54,7 +55,7 @@ onChange(e){
 
 handleRadioChange = (e) => {
     this.setState({
-        mode: e.target.value
+        cardSubtitle: e.target.value
     });
 };
 optionChange =(e)=>{
@@ -70,7 +71,7 @@ goBack() {
   }
 onSubmit(e){
     e.preventDefault();
-    if(this.state.cardBody==""|| this.state.location==""|| this.state.deposit=="" || this.state.monthlyrent==""|| this.state.mode==""){
+    if(this.state.cardTitle==""||this.state.cardBody==""|| this.state.location==""|| this.state.deposit=="" || this.state.monthlyrent==""|| this.state.cardSubtitle==""){
     toast.error(
         <div>
           <Error />
@@ -82,24 +83,24 @@ onSubmit(e){
     }
     else{
         var options='';
-        Object.entries(this.state.option).map(([key,value])=>{
+        Object.entries(this.state.options).map(([key,value])=>{
             if(value===true){
-                if(options==='')
+                if(options ==='')
                     options=key;
                 else
-                    options=options+","+key;
+                    options=options+"/"+key;
             }
         })
             const post ={
-                mode:this.state.mode,
-                option:options,
-                price:this.state.deposit+'/'+this.state.monthlyrent,
-                location:this.state.location,  //위치
-                content:this.state.content,   //세부내용
+                cardTitle:this.state.cardTitle,
+                cardSubtitle:String(this.state.deposit)+"/"+String(this.state.monthlyrent)+"/"+this.state.cardSubtitle,
+                location:this.state.location,
+                price:String(this.state.deposit)+"/"+String(this.state.monthlyrent),
+                cardBody:this.state.cardBody,
+                options:options,
                 nickname:JSON.parse(localStorage.getItem('user')).nickname,
             }
-            //게시글 저장하는 함수 넣을 자리
-            fetch('http://localhost:3001/api/',{
+            fetch('http://localhost:3001/api/roommarket_write',{
                 method: "post",
                 headers : {
                     'content-type':'application/json'
@@ -149,7 +150,7 @@ onSubmit(e){
                 <Search />
                 </div>
                 <div className="menubarbar">
-                <NestedList />
+                <Sidemenu />
                 </div>
             <div className="card_write_paper">
               <div className="card_write_content">
@@ -171,12 +172,12 @@ onSubmit(e){
                     <br/>
                     <Typography id="room_title">* 보증금</Typography>
                     <div className="deposit">
-                        <TextField id="deposit" type="number" name="deposit" value={this.state.deposit} onChange={this.onChange} placeholder="ex) 500"></TextField>
+                        <TextField id="deposit" type="number" name="deposit" onChange={this.onChange} placeholder="ex) 500"></TextField>
                     </div>
                     <br/>
                     <Typography id="room_title">* 월세</Typography>
                     <div className="monthlyrent">
-                        <TextField id="monthlyrent" type="number" name="monthlyrent" value={this.state.monthlyrent} onChange={this.onChange} placeholder="ex) 20" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"></TextField>
+                        <TextField id="monthlyrent" type="number" name="monthlyrent"  onChange={this.onChange} placeholder="ex) 20" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"></TextField>
                     </div>
 
                     <br/>
@@ -187,7 +188,7 @@ onSubmit(e){
                 
                     <br/>
                     <Typography id="room_title">* 구조</Typography>
-                        <RadioGroup name="mode" value={this.state.mode} onChange={this.handleRadioChange} row>
+                        <RadioGroup name="cardSubtitle" value={this.state.cardSubtitle} onChange={this.handleRadioChange} row>
                             <FormControlLabel  value="투룸" control={<Radio color="primary"/>} label="투룸" />
                             <FormControlLabel value="분리형(방1,거실1)" control={<Radio color="primary"/>} label="분리형(방1,거실1)" />
                             <FormControlLabel value="오픈형(방1)" control={<Radio color="primary"/>} label="오픈형(방1)" />

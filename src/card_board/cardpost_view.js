@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import TopAppBar from "../appbar/appbar";
-import NestedList from "../menulist/Board_list";
+import Sidemenu from "../sidemenu/sidemenu";
 import Paper from "@material-ui/core/Paper";
 import { Typography } from "@material-ui/core";
 import "./cardpost_view.css";
@@ -120,7 +120,7 @@ class CardPost_View extends Component {
         </div>
         <div className="cardpost_view_paper_d">
             <div className="menubarbar">
-            <NestedList />
+            <Sidemenu />
             </div>
           <Paper className="cardpost_view_paper" elevation={0}>
             <div className="cardpost_view_info">

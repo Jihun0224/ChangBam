@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import TopAppBar from "../appbar/appbar";
-import NestedList from "../menulist/Board_list";
+import Sidemenu from "../sidemenu/sidemenu";
 import Paper from "@material-ui/core/Paper";
 import { Typography } from "@material-ui/core";
 import "./view_post.css";
@@ -121,7 +121,10 @@ class ViewPost extends Component {
     
         switch (this.props.match.params.board_key) {
           case "0":
-            this.setState({ board_name: "자유게시판", board_name_eng: "free" });
+            this.setState({ 
+              board_name: "자유게시판", 
+              board_name_eng: "free" 
+            });
             break;
           case "1":
             this.setState({
@@ -130,13 +133,22 @@ class ViewPost extends Component {
             });
             break;
           case "2":
-            this.setState({ board_name: "새내기게시판", board_name_eng: "new" });
+            this.setState({ 
+              board_name: "새내기게시판",
+              board_name_eng: "new" 
+            });
             break;
           case "3":
-            this.setState({ board_name: "연애게시판", board_name_eng: "love" });
+            this.setState({ 
+              board_name: "연애게시판", 
+              board_name_eng: "love" 
+            });
             break;
           case "4":
-            this.setState({ board_name: "정치게시판", board_name_eng: "politic" });
+            this.setState({ 
+              board_name: "정치게시판", 
+              board_name_eng: "politic" 
+            });
             break;
           case "5":
             this.setState({
@@ -211,7 +223,7 @@ class ViewPost extends Component {
 
         <div className="view_post_paper_d">
         <div className="menubarbar">
-          <NestedList />
+          <Sidemenu />
         </div>
           <Paper className="view_post_paper" elevation={0}>
             <div className="view_post_info">
