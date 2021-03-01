@@ -1,147 +1,70 @@
 
-.logbox p{
-    width: 300px;
-    margin-top: 0px;
-    margin-left: 10px;
-    margin-right:0px ;
+.logtab{
+    height:200px;
+}
+.logtab_id{
     margin-bottom: 10px;
-    font-family: 'Gamja Flower', cursive;
-    font-size: 30px;
-}
-.id{
-    margin-bottom: 10px;
-    margin-left: 30px;
-}
-.id p{
-    width: 150px;
-    margin-left: 0px;
-    margin-top: 0px;
-    margin-bottom: 10px;
-    font-size: 20px;
-    font-family: 'Jua', sans-serif;
-}
-.pw{
-    margin-left: 30px;
-}
-.pw p{
-    width: 160px;
-    margin-left: 0px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-size: 20px;
-    font-family: 'Jua', sans-serif;
-}
-.idpwbox{
-    border:1px ;
-    width: 172px;
-    height: 86px;
-    text-align: center;
-    padding-top: 15px;
-
-}
-.idpwbox input{
-    margin-top: 1px;
-    padding-left: 4px;
-    padding-top: 4px;
-    padding-right: 4px;
-    padding-bottom: 4px;
-    width: 300px;
-    height: 30px;
-}
-#userid{
-    margin-bottom: 5px;
-}
-
-.idpw{
-    border: 1px ;
-    width:300px;
-    height:150px;
-}
-.loginsubmit{
-    border: 1px;
-    transform: translate(240%,-100%);
-    width: 75px;
-    height: 38px;
-    
-}
-#sign button{
-    margin-top: 3px;
-    margin-left: 0px;
-    height: 40px;
-    width: 100px;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-top: 1px;
-    padding-bottom: 1px;
-    font-family: 'Jua', sans-serif;
-}
-.loginsubmit button{
-    margin-top: 3px;
-    margin-left: 0px;
-    height: 40px;
-    width: 100px;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-top: 1px;
-    padding-bottom: 1px;
-    font-family: 'Jua', sans-serif;
-    position: absolute;
-    left: 70px;
-    top: 106.5px;
-}
-#sign{
-    list-style: none;
-    width: 358.200px;
-    height: 100px;
-    padding-left: 0px;
-    margin-top: 40px;
-    margin-left: 40px;
-
-}
-#sign li{
-    float: left;
-    width: 50px;
-    margin-right: 60px;
-    margin-top: 30px;
-    
-}
-.pp{
-    height: 100px;
-    width: 550px;
-    float: left;
-}
-.MuiPaper-root.MuiDialog-paper.MuiDialog-paperScrollPaper.MuiDialog-paperWidthSm.MuiPaper-elevation24.MuiPaper-rounded {
-    max-width: 680px;
-}
-.pp p{
-    margin-top: 0px;
-    margin-bottom: 0px;
-    float: left;
-    margin-right: 30px;
-    margin-left: 30px;
-    font-size: 30px;
-    font-family: 'Gamja Flower', cursive;
-    font-weight: bold;
-}
-.partynight{
-    height: 100px;
-    width: 250px;
     margin-left: 150px;
-    float: left;
 }
-.pp2{
-    height: 200px;
-    width: 550px;
+.logtab_id h5{
+    margin-bottom:0px;
+    margin-top:0px;
+
 }
-#party{
-    float: left;
+.logtab_pw{
+    margin-left: 150px;
 }
-#dialog{
-    font-size: 20px;
-    font-family: 'Jua', sans-serif;
+.logtab_pw h5{
+    margin-bottom:0px;
+    margin-top:0px;
 }
-.email_idfound{
-    position: relative;
-    float: right;
-    margin-right: 160px;
+
+.logtab_button{
+    margin-left:150px;
+    margin-top: 10px;
+}
+
+.logtab_button button{
+    width:230px;
+    height:40px;
+    background-color: #000544;
+}
+
+.idtab{
+    padding-top:20px;
+    padding-left: 100px;
+    height:180px;
+}
+.idtab_email h5{
+    margin-top:0px;
+    margin-bottom:5px;
+}
+.idtab_button button{
+    margin-top: 10px;
+    width: 350px;
+    height: 45px;
+    background-color: #000544;
+}
+
+.pwtab{
+    height:200px;
+    padding-left: 150px;
+}
+.pwtab_id h5{
+    margin-top:0px;
+    margin-bottom:5px;
+}
+.pwtab_pw h5{
+    margin-top:0px;
+    margin-bottom:0px;
+}
+.pwtab_button button{
+    width:230px;
+    height:40px;
+    background-color: #000544;
+    margin-top: 10px;
+}
+
+.MuiPaper-root.MuiDialog-paper.MuiDialog-paperScrollPaper.MuiDialog-paperWidthSm.MuiPaper-elevation24.MuiPaper-rounded {
+    max-width: 700px;
 }

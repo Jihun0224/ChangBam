@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import User from "./doctor.png";
 import Next2 from "./next2.png";
-import "./marketmain";
 import Popover from "@material-ui/core/Popover";
-import "./marketmain.css";
 import Button from "@material-ui/core/Button";
+import "./commentline.css"
 
 class Recommentline extends Component {
   constructor(props) {
@@ -25,7 +24,7 @@ class Recommentline extends Component {
     const post = {
       key: this.props.keyvalue,
     };
-    fetch("api/dcomments", {
+    fetch("http://localhost:3001/api/dcomments", {
       method: "post",
       headers: {
         "content-type": "application/json",
@@ -47,7 +46,7 @@ class Recommentline extends Component {
       recomment: this.state.recomment,
       nickname: JSON.parse(localStorage.getItem("user")).nickname,
     };
-    fetch("api/dcomment", {
+    fetch("http://localhost:3001/api/dcomment", {
       method: "post",
       headers: {
         "content-type": "application/json",
@@ -77,7 +76,7 @@ class Recommentline extends Component {
     const { recomment, dcomment_row } = this.state;
     const { onChange, onSubmit } = this;
     return (
-      <div className="comments_line2">
+      <div className="recomment">
         <form onSubmit={onSubmit}>
           <div className="recomment_input">
             <label>댓글 쓰기</label>
@@ -110,13 +109,13 @@ class Recommentline extends Component {
               width="30px"
               height="30px"
             />
-            <div className="comments_body2">
+            <div className="recomments_body">
               <a href="" onClick={this.handleclick}>
                 {row.dcomment_nickname}
               </a>
-              <span id="comments_time">{row.dcomment_date}</span>
+              <span className="recomments_time">{row.dcomment_date}</span>
               <input type="button" value={`신고`} />
-              <div id="comments_text">
+              <div className="recomments_text">
                 <pre>{row.dcomment_body}</pre>
               </div>
             </div>
@@ -124,7 +123,7 @@ class Recommentline extends Component {
         ))}
         <div>
           <Popover
-            className="comments_popover"
+            className="recomments_popover"
             id={Boolean(this.state.anchorEl) ? "simple-popover" : undefined}
             open={Boolean(this.state.anchorEl)}
             anchorEl={this.state.anchorEl}

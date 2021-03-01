@@ -189,8 +189,8 @@ class Login extends React.Component {
     const { id, pw } = this.state;
     const { onChange, onSubmit, handleClose, handlesub, handleChange } = this;
     return (
-      <div id="tabcontext">
-        <TabContext value={this.state.value}>
+      <div className="tabcontext">
+        <TabContext className="logbox1" value={this.state.value}>
           <div className="logbox">
             <TabList
               value={this.state.value}
@@ -205,12 +205,13 @@ class Login extends React.Component {
               <Tab label="아이디 찾기" value="2" />
               <Tab label="비밀번호 찾기" value="3" />
             </TabList>
-            <DialogContent>
+            <DialogContent className = "logbox_dialog">
               <div>
                 <TabPanel value="0">
+                  <div className="logtab">
                   <form onSubmit={onSubmit}>
-                    <div className="id">
-                      <p>아이디 입력하세요</p>
+                    <div className="logtab_id">
+                      <h5>아이디를 입력하세요</h5>
                       <TextField
                         id="outlined-basic"
                         variant="outlined"
@@ -222,8 +223,8 @@ class Login extends React.Component {
                         onChange={onChange}
                       />
                     </div>
-                    <div className="pw">
-                      <p>패스워드 입력하세요</p>
+                    <div className="logtab_pw">
+                      <h5>패스워드를 입력하세요</h5>
                       <TextField
                         id="outlined-basic"
                         variant="outlined"
@@ -235,12 +236,13 @@ class Login extends React.Component {
                         onChange={onChange}
                       />
                     </div>
-                    <DialogActions>
-                      <Button variant="contained" color="primary" type="submit">
+                    <div className="logtab_button">
+                      <Button  variant="contained" color="primary" type="submit">
                         로그인
                       </Button>
-                    </DialogActions>
+                    </div>
                   </form>
+                  </div>
                 </TabPanel>
                 <TabPanel value="1">
                   <Signin handlesub={handlesub} />
@@ -291,9 +293,10 @@ class Login extends React.Component {
                   </Dialog>
                 </TabPanel>
                 <TabPanel value="2">
+                  <div className="idtab">
                   <form onSubmit={this.id_findonSubmit}>
-                    <div className="id">
-                      <p>E-mail 입력하세요</p>
+                    <div className="idtab_email">
+                      <h5>E-mail 입력하세요</h5>
                       <TextField
                         id="outlined-basic"
                         variant="outlined"
@@ -303,20 +306,21 @@ class Login extends React.Component {
                         name="emailfound"
                         value={this.state.emailfound}
                         onChange={onChange}
-                      />
-                      <div className="email_idfound">@changwon.ac.kr</div>
+                      />@changwon.ac.kr
                     </div>
-                    <DialogActions>
+                    <div className="idtab_button">
                       <Button variant="contained" color="primary" type="submit">
                         아이디찾기
                       </Button>
-                    </DialogActions>
+                    </div>
                   </form>
+                  </div>
                 </TabPanel>
                 <TabPanel value="3">
+                  <div className="pwtab">
                   <form onSubmit={this.pw_findonSubmit}>
-                    <div className="id">
-                      <p>E-mail 입력하세요</p>
+                    <div className="pwtab_id">
+                      <h5>E-mail 입력하세요</h5>
                       <TextField
                         id="outlined-basic"
                         variant="outlined"
@@ -328,8 +332,8 @@ class Login extends React.Component {
                         onChange={onChange}
                       />
                     </div>
-                    <div className="pw">
-                      <p>아이디 입력하세요</p>
+                    <div className="pwtab_pw">
+                      <h5>아이디 입력하세요</h5>
                       <TextField
                         id="outlined-basic"
                         variant="outlined"
@@ -341,13 +345,14 @@ class Login extends React.Component {
                         onChange={onChange}
                       />
                     </div>
-                    <DialogActions>
+                    <div className="pwtab_button">
                       <Button variant="contained" color="primary" type="submit">
                         비밀번호 찾기
                       </Button>
                       {this.state.progress}
-                    </DialogActions>
+                    </div>
                   </form>
+                  </div>
                 </TabPanel>
               </div>
             </DialogContent>

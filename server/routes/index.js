@@ -6,7 +6,7 @@ const nodemailer = require("nodemailer");
 var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
-  password: "dja1wkd2",
+  password: "dydals0905",
   database: "changwonnightdiagram",
 });
 connection.connect(); //mysql 연결
@@ -250,17 +250,23 @@ router.post("/email", function (req, res) {
 router.post("/comment", function (req, res) {
   var comment = req.body.comment;
   var nickname = req.body.nickname;
+  var postage_key = req.body.postage_key;
+  console.log(postage_key);
   connection.query(
-    "INSERT INTO comment_table (comment_nickname,comment_body) VALUES(? ,?)",
-    [nickname, comment],
-    function (err, rows, fields) {}
+    "INSERT INTO comment_table (comment_nickname,comment_body, postage_table_postage_key) VALUES(? ,?, ?)",
+    [nickname, comment, postage_key],
+    function (err, rows, fields) {
+      console.log("rows")
+    }
   );
 });
 router.post("/comments", function (req, res) {
-  var comment_row = req.body.comment_row;
+  var postage_key = req.body.postage_key;
   connection.query(
-    "SELECT comment_key,comment_nickname,comment_date,comment_body from comment_table",
+    "SELECT comment_key,comment_nickname,comment_date,comment_body from comment_table where postage_table_postage_key = ?",
+    [postage_key],
     function (err, rows, fields) {
+      console.log(rows.postage_table_postage_key)
       res.json(rows);
     }
   );
@@ -269,16 +275,18 @@ router.post("/dcomment", function (req, res) {
   var recomment = req.body.recomment;
   var nickname = req.body.nickname;
   var key = req.body.key;
+  console.log(key)
   connection.query(
-    "INSERT INTO dcomment_table (dcomment_nickname,dcomment_body,comment_table_comment_key) VALUES(? ,?,?)",
+    "INSERT INTO dcomment_table (dcommentt_nickname,dcomment_body,comment_table_comment_key) VALUES(? ,?,?)",
     [nickname, recomment, key],
-    function (err, rows, fields) {}
+    function (err, rows, fields) {
+    }
   );
 });
 router.post("/dcomments", function (req, res) {
   var key = req.body.key;
   connection.query(
-    "SELECT dcomment_nickname,dcomment_date,dcomment_body from dcomment_table where comment_table_comment_key=?",
+    "SELECT dcommentt_nickname,dcomment_date,dcomment_body from dcomment_table where comment_table_comment_key=?",
     [key],
     function (err, rows, fields) {
       res.json(rows);

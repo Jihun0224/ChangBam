@@ -115,3 +115,54 @@ figure{
     width: 200px;
     height: 500px;
 }
+.view_post .comment{
+    background-color: white;
+    width: 920px;
+    min-height: 100px;
+    border-radius: 4px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.view_post .comment_title{
+    height: 30px;
+    background-color: white;
+    border-bottom: 1px solid rgb(228, 228, 228);
+}
+
+.view_post .comment_title p{
+    margin-left: 40px;
+    font-weight: bold;
+    margin-top: 3px;
+}
+
+.view_post .comment_input{
+    border-bottom: 1px solid rgb(228, 228, 228);
+    height: 50px;
+}
+
+.view_post .comment_input label{
+    margin-left: 20px;
+    position: relative;
+    bottom: 20px;
+    font-size: 13px;
+}
+.view_post .comment_input textarea{
+    width: 680px;
+    height: 25px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    outline: none;
+    border: 1px solid white;
+    padding-left: 10px;
+    border-radius: 4px;
+    margin-top: 10px;
+    background-color: rgb(247, 243, 243);
+}
+
+.view_post .comment_input input{
+    position: relative;
+    bottom: 20px;
+    margin-left: 20px;
+    width: 100px;
+    height: 30px;
+}

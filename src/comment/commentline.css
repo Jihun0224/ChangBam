@@ -1,0 +1,96 @@
+.recomment{
+    padding-left: 60px;
+}
+
+#recomment_picture1{
+    border-radius: 100px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 40px;
+    float: left;
+}
+#recomment_picture2 {
+    border-radius: 100px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 20px;
+    float: left;
+}
+
+.recomment_main{
+    border-top: 1px solid rgb(228, 228, 228);
+}
+
+.recomment .recomment_input{
+    border-top: 1px solid rgb(228, 228, 228);
+    height: 50px
+}
+
+.recomment .recomment_input label{
+    margin-left: 20px;
+    position: relative;
+    bottom: 20px;
+    font-size: 13px;
+}
+.recomment .recomment_input textarea{
+    width: 620px;
+    height: 25px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    outline: none;
+    border: 1px solid white;
+    padding-left: 10px;
+    border-radius: 4px;
+    margin-top: 10px;
+    background-color: rgb(247, 243, 243);
+}
+
+.recomment .recomment_input input{
+    position: relative;
+    bottom: 20px;
+    margin-left: 20px;
+    width: 100px;
+    height: 30px;
+}
+
+.recomment .recomments_time{
+    margin-left: 20px;
+    font-size: 13px;
+    padding-top: 20px;
+}
+.recomment .recomments_text{
+    font-size: 17px;
+}
+
+.recomment .recomments_popover .MuiPaper-root.MuiPopover-paper.MuiPaper-elevation8.MuiPaper-rounded{
+    width: 90px;
+    height: auto;
+}
+.recomment .recomments_popover a{
+    text-decoration: none;
+    color: black;
+    padding-left: 20px;
+    padding-right: 22px;
+    font-weight: 700;
+}
+.recomment .recomments_popover a:hover{
+    background-color: cornflowerblue;
+}
+
+.recomment .recomments_body{
+    padding-top: 7px;
+    margin-left: 140px;
+    border-top: 1px solid rgb(228, 228, 228);
+}
+
+.recomment .recomments_body a{
+    text-decoration: none;
+    color: black;
+}
+
+.recomment .recomments_body input{
+    margin-left: 10px;
+    width: 45px;
+    height: 20px;
+    font-size: 10px;
+}

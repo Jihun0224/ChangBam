@@ -3,10 +3,10 @@ import Left from "./return.png";
 import Right from "./next.png";
 import IconButton from "@material-ui/core/IconButton";
 import Jgo from "./jgo.jpg";
-import Userimg from "./username.png";
+import Userimg from "../comment/username.png";
 import Sold from "./sold-out.png";
 import Love from "./lovelike.png";
-import Comments from "./comment";
+import Comments from "../comment/comment";
 import "./marketmain.css";
 
 class Marketbody extends Component {
@@ -31,7 +31,7 @@ class Marketbody extends Component {
       comment: this.state.comment,
       nickname: JSON.parse(localStorage.getItem("user")).nickname,
     };
-    fetch("api/comment", {
+    fetch("http://localhost:3001/api/comment", {
       method: "post",
       headers: {
         "content-type": "application/json",

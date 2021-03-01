@@ -4,8 +4,8 @@ import Popover from "@material-ui/core/Popover";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Recommentline from "./commentline";
-import "./marketmain";
 import Next2 from "./next2.png";
+import "./comment.css"
 
 class Comments extends Component {
   constructor(props) {
@@ -27,8 +27,10 @@ class Comments extends Component {
     this.onChange = this.onChange.bind(this);
   }
   componentWillMount() {
-    const post = {};
-    fetch("api/comments", {
+    const post = {
+      postage_key:this.props.postage_key
+    };
+    fetch("http://localhost:3001/api/comments", {
       method: "post",
       headers: {
         "content-type": "application/json",
@@ -37,10 +39,9 @@ class Comments extends Component {
     })
       .then((res) => res.json())
       .then((json) => {
-        console.log("된다아아아ㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏㅏ");
-        this.setState({
-          comment_row: json,
-        });
+            this.setState({
+              comment_row: json,
+            });
       });
   }
   onSubmit(e) {
@@ -49,7 +50,7 @@ class Comments extends Component {
       recomment: this.state.recomments,
       nickname: JSON.parse(localStorage.getItem("user")).nickname,
     };
-    fetch("api/dcomment", {
+    fetch("http://localhost:3001/api/dcomment", {
       method: "post",
       headers: {
         "content-type": "application/json",
@@ -111,7 +112,7 @@ class Comments extends Component {
   render() {
     const { comment_row } = this.state;
     return (
-      <div>
+      <div className="comments">
         {comment_row.map((row, index) => (
           <div className="comments_line">
             <img alt="" src={User} width="30px" height="30px" />
@@ -122,7 +123,7 @@ class Comments extends Component {
               >
                 {row.comment_nickname}
               </a>
-              <span id="comments_time">{row.comment_date}</span>
+              <span className="comments_time" id="comments_time">{row.comment_date}</span>
               <button
                 key={row.comment_key}
                 onClick={this.handleclick2.bind(this, row.comment_key)}
@@ -130,7 +131,7 @@ class Comments extends Component {
                 답글
               </button>
               <input type="button" value={`신고`} />
-              <div id="comments_text">
+              <div className="comments_text" id="comments_text">
                 <pre>{row.comment_body}</pre>
               </div>
             </div>
@@ -157,7 +158,7 @@ class Comments extends Component {
             <a href="">메세지</a>
             <hr />
             <a href="">프로필</a>
-            {console.log(this.state.nickname_message)}
+            
           </Popover>
         </div>
       </div>

@@ -9,6 +9,9 @@ import Postbutton from "./post_button";
 import PreandNextPost from "./pre_next_post";
 import BottomMenu from '../bottommenu/bottommenu';
 import swal from 'sweetalert';
+import Comments from "../comment/comment";
+import "../marketmain/marketmain.css"
+
 class ViewPost extends Component {
   editorRef = React.createRef();
 
@@ -20,8 +23,12 @@ class ViewPost extends Component {
       love_state: false,
       own_post_state: false,
       board_name_eng: "",
+      comment: "",
+      nickname: "",
     };
     this.onClick = this.onClick.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+    this.onChange = this.onChange.bind(this);
   }
 
   onClick() {
@@ -116,7 +123,7 @@ class ViewPost extends Component {
               this.setState({ love_state: true });
             }
           });
-    
+
         switch (this.props.match.params.board_key) {
           case "0":
             this.setState({ board_name: "자유게시판", board_name_eng: "free" });
@@ -180,9 +187,30 @@ class ViewPost extends Component {
     }
     
 }
+
+onChange(e) {
+  this.setState({
+    [e.target.name]: e.target.value,
+  });
+}
+onSubmit(e) {
+  e.preventDefault();
+  const post = {
+    comment: this.state.comment,
+    nickname: JSON.parse(localStorage.getItem("user")).nickname,
+    postage_key: this.props.match.params.postage_key,
+  };
+  fetch("http://localhost:3001/api/comment", {
+    method: "post",
+    headers: {
+      "content-type": "application/json",
+    },
+    body: JSON.stringify(post),
+  });
+}
   render() {
-    const { data, board_name, love_state } = this.state;
-    const { onClick } = this;
+    const { data, board_name, love_state, comment } = this.state;
+    const { onClick,onSubmit, onChange } = this;
     if(JSON.parse(localStorage.getItem("user")) == null){
       return(
         <>
@@ -248,8 +276,30 @@ class ViewPost extends Component {
           </div>
 
           <div className="comment_window_d">
-            <Paper className="comment_window">
-              <Typography variant="h1"> 댓글~</Typography>
+            
+              <div className="comment">
+                <div className="comment_title">
+                  <p>댓글 창</p>
+                </div>
+                <form onSubmit={onSubmit}>
+                  <div className="comment_input">
+                    <label>댓글 쓰기</label>
+                    <textarea
+                      placeholder="댓글을 입력하세요."
+                      name="comment"
+                      value={comment}
+                      onChange={onChange}
+                    />
+                    <input
+                      onClick={() => window.location.reload(false)}
+                      type="submit"
+                      value="댓글 달기"
+                    />
+                  </div>
+                </form>
+                <Comments postage_key= {this.props.match.params.postage_key} />
+              </div>
+              <Paper className="comment_window">
               <PreandNextPost
                 postage_key={this.props.match.params.postage_key}
                 board_key={this.props.match.params.board_key}

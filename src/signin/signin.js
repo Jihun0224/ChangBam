@@ -1,6 +1,6 @@
 /* eslint-disable */ //eslint경고 삭제
 import React from "react";
-import "./login_signin.css";
+import "./signin.css";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import { ToastContainer, toast } from "react-toastify";
@@ -359,13 +359,7 @@ class Longin extends React.Component {
       <div className="form" noValidate autoComplete="off">
         <form onSubmit={onSubmit}>
           <div className="idinput">
-            <p>
-              아이디
-              <Checkbox
-                checked={this.state.checking1}
-                inputProps={{ "aria-label": "primary checkbox" }}
-                color="primary"
-              />
+              <h5>아이디</h5>
               <TextField
                 id="outlined-basic"
                 variant="outlined"
@@ -376,19 +370,17 @@ class Longin extends React.Component {
                 value={id}
                 onChange={onChange}
               />
-              <Button variant="outlined" color="primary" onClick={this.checkid}>
-                중복체크
-              </Button>
-            </p>
-          </div>
-          <div className="nickinput">
-            <p>
-              닉네임
               <Checkbox
-                checked={this.state.checking2}
+                checked={this.state.checking1}
                 inputProps={{ "aria-label": "primary checkbox" }}
                 color="primary"
               />
+              <Button variant="outlined" color="primary" onClick={this.checkid}>
+                중복체크
+              </Button>
+          </div>
+          <div className="nickinput">
+              <h5>닉네임</h5>
               <TextField
                 id="outlined-basic"
                 variant="outlined"
@@ -399,6 +391,11 @@ class Longin extends React.Component {
                 value={nickname}
                 onChange={onChange}
               />
+              <Checkbox
+                checked={this.state.checking2}
+                inputProps={{ "aria-label": "primary checkbox" }}
+                color="primary"
+              />
               <Button
                 variant="outlined"
                 color="primary"
@@ -406,11 +403,10 @@ class Longin extends React.Component {
               >
                 중복체크
               </Button>
-            </p>
           </div>
           <div className="pwinput">
-            <p>
-              비밀번호 입력
+            
+              <h5>비밀번호</h5>
               <TextField
                 id="outlined-basic"
                 variant="outlined"
@@ -421,16 +417,11 @@ class Longin extends React.Component {
                 value={pw}
                 onChange={onChange}
               />
-            </p>
           </div>
           <div className="pw2input">
-            <p>
-              비밀번호 확인
-              <Checkbox
-                checked={this.state.checking3}
-                inputProps={{ "aria-label": "primary checkbox" }}
-                color="primary"
-              />
+            
+              <h5>비밀번호 확인</h5>
+              
               <TextField
                 id="outlined-basic"
                 variant="outlined"
@@ -441,14 +432,18 @@ class Longin extends React.Component {
                 value={pw2}
                 onChange={onChange}
               />
+              <Checkbox
+                checked={this.state.checking3}
+                inputProps={{ "aria-label": "primary checkbox" }}
+                color="primary"
+              />
               <Button variant="outlined" color="primary" onClick={this.checkpw}>
                 확인
               </Button>
-            </p>
+            
           </div>
           <div className="emailinput">
-            <p>
-              이메일 인증
+              <h5>이메일 인증</h5>
               <TextField
                 id="outlined-basic"
                 variant="outlined"
@@ -459,22 +454,17 @@ class Longin extends React.Component {
                 value={email}
                 onChange={onChange}
                 placeholder="e-mail"
-              />
-              <span className="changwonackr">@changwon.ac.kr</span>
+                ></TextField>
+              @changwon.ac.kr
               <Button
-                variant="outlined"
+                variant="outlined"  
                 color="primary"
                 onClick={this.checkemail}
               >
                 인증보내기
               </Button>
-            </p>
             <div className="emailsearch">
-              <Checkbox
-                checked={this.state.checking4}
-                inputProps={{ "aria-label": "primary checkbox" }}
-                color="primary"
-              />
+              
               <TextField
                 id="outlined-basic"
                 variant="outlined"
@@ -486,6 +476,11 @@ class Longin extends React.Component {
                 onChange={onChange}
                 placeholder="6자리입력"
               />
+              <Checkbox
+                checked={this.state.checking4}
+                inputProps={{ "aria-label": "primary checkbox" }}
+                color="primary"
+              />
               <Button
                 variant="outlined"
                 color="primary"
@@ -494,10 +489,12 @@ class Longin extends React.Component {
                 인증확인
               </Button>
             </div>
+            <div className="signin">
+            <Button variant="contained" color="primary" type="submit" id="submit">
+              회원가입
+            </Button>
+            </div>
           </div>
-          <Button variant="contained" color="primary" type="submit" id="submit">
-            회원가입
-          </Button>
         </form>
         <ToastContainer />
       </div>

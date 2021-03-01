@@ -1,0 +1,22 @@
+.ConfirmedCase{
+    margin-left: 1350px;
+    height: 0px;
+}
+
+.ConfirmedCase .ConfirmedCase_title{
+    margin-bottom: 0px;
+}
+.ConfirmedCase .ConfirmedCase_confirmedcase{
+    color: #ff0000;
+    margin-bottom: 5px
+}
+.ConfirmedCase .ConfirmedCase_increase{
+    margin-left: 20px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+.ConfirmedCase .ConfirmedCase_today{
+    color: grey;
+    margin-left: -20px;
+    margin-top: 0px;
+}

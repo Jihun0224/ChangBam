@@ -1,0 +1,63 @@
+.form{
+    height:500px;
+    width:500px;
+    padding-left:100px;
+}
+
+.idinput{
+    width: 500px;
+}
+
+.idinput h5{
+    margin-top:0px;
+    margin-bottom:5px;
+}
+
+.nickinput{
+    width: 380px;
+}
+.nickinput h5{
+    margin-top:0px;
+    margin-bottom:5px;
+}
+
+.pwinput{
+    width: 380px;
+    margin-top:30px;
+}
+.pwinput h5{
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+
+.pw2input{
+    width: 380px;
+}
+.pw2input h5{
+    margin-top:0px;
+    margin-bottom: 5px;
+}
+.pw2input button{
+    width:90px;
+}
+
+.emailinput{
+    margin-top:30px;
+}
+.emailinput h5{
+    margin-top: 0px;
+    margin-bottom: 5px;
+}
+
+.emailsearch{
+    margin-top: 10px;
+    
+}
+ 
+.signin button{
+    width:365px;
+    height:50px;
+    margin-top: 20px;
+    margin-left:0px;
+    background-color: #000544;
+}
