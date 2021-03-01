@@ -92,9 +92,9 @@ class ImformationMenu extends Component {
                 <MenuItem onClick={()=>window.location.reload()}>
                   <Link to={`/roomMarket/list/card=2`}>자취방 마켓</Link>
                 </MenuItem>
-                <MenuItem>
-                  <Link to="alba">알바창국</Link>
-                </MenuItem>
+                <MenuItem onClick={()=>window.location.reload()}>
+                  <Link to={`/alba/list/board=11`}>알바창국</Link>
+                  </MenuItem>
               </MenuList>
             </ClickAwayListener>
           </Paper>

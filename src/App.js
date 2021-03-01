@@ -8,9 +8,6 @@ import View_Post from "./postage/view_post";
 import ScrollToTop from "./ScrollToTop";
 import Board from "./board/board";
 import NoneExist from './NoneExist/noneexist';
-//수정 필요
-import Alba from "./alba";
-
 //수정 중
 import CardBoard from "./card_board/card_board";
 import Card_View from "./card_board/cardpost_view";
@@ -24,9 +21,7 @@ function App() {
       <Switch>
       <ScrollToTop>
         
-        <Route exact path="/alba" component={Alba} />
         <Route exact path="/meeting" component={Meeting_home} />
-
         
         <Route exact path="/" component={Home} />
         <Route exact path="/NoneExist" component={NoneExist} />

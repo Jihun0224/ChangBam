@@ -100,43 +100,9 @@ class Post_button extends Component {
     );
   }
   componentWillMount() {
-    switch (this.props.board_key) {
-      case "0":
-        this.setState({ board_name: "free" });
-        break;
-      case "1":
-        this.setState({ board_name: "anonymous" });
-        break;
-      case "2":
-        this.setState({ board_name: "new" });
-        break;
-      case "3":
-        this.setState({ board_name: "love" });
-        break;
-      case "4":
-        this.setState({ board_name: "politic" });
-        break;
-      case "5":
-        this.setState({ board_name: "night" });
-        break;
-      case "6":
-        this.setState({ board_name: "changwon" });
-        break;
-      case '7':
-          this.setState({board_name: "study"});
-          break;
-      case '8':
-          this.setState({board_name: "old"});
-          break;   
-      case '9':
-          this.setState({board_name: "EmploymentReview"});
-          break;       
-      case '10':
-          this.setState({board_name: "EmploymentAnnouncement"});
-          break;     
-      default:
-          break;
-    }
+  
+        this.setState({ board_name: this.props.board_name });
+     
   }
   render() {
     return (

@@ -90,7 +90,7 @@ export default function NestedList() {
             <Button className="nested_btn" href="/roomMarket/list/card=2">
               자취방 마켓
             </Button>
-            <Button className="nested_btn" href="/alba">
+            <Button className="nested_btn" href="/alba/list/board=11">
               알바창국
             </Button>
             <Divider />

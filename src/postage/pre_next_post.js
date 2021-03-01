@@ -37,7 +37,13 @@ class Pre_and_next_post extends React.Component {
       //1이 이전 0이 다음
       
       .then((res) => {
-        if(res[1] == undefined){
+        if(res[0] == undefined && res[1] == undefined){
+          this.setState({next_post: undefined,pre_post: undefined});
+        }
+        else if(res[1] == undefined && res[0].postage_key < this.props.postage_key ){
+          this.setState({next_post: res[0],pre_post: undefined});
+        }
+        else if (res[1] == undefined && res[0].postage_key > this.props.postage_key){
           this.setState({pre_post: res[0],next_post: undefined});
         }
         else{

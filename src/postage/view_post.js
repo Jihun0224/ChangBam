@@ -173,7 +173,13 @@ class ViewPost extends Component {
               board_name: "채용공고",
               board_name_eng:"EmploymentAnnouncement"
               });
-                  break;         
+                  break;
+          case '11':
+              this.setState({
+              board_name: "알바창국",
+              board_name_eng:"alba"
+              });
+                  break;                  
           default:
               break;
         }
@@ -246,6 +252,7 @@ class ViewPost extends Component {
               own_post_state={this.state.own_post_state}
               board_key={this.props.match.params.board_key}
               postage_key={this.props.match.params.postage_key}
+              board_name={this.props.match.params.board_name}
             />
           </div>
 

@@ -21,7 +21,7 @@ class Postbody extends Component {
       rowsPerPage: 18,
       rows_count: 0,
       board_key: this.props.board_key,
-      board_name: "",
+      board_name: this.props.board_name,
     };
     this.handleChangePage = this.handleChangePage.bind(this);
   }
@@ -80,51 +80,6 @@ class Postbody extends Component {
       .then((res) => {
         this.setState({ rows: res });
       });
-
-    switch (this.state.board_key) {
-      case 0:
-      case "0":
-        this.setState({ board_name: "free" });
-        break;
-      case 1:
-      case "1":
-        this.setState({ board_name: "anonymous" });
-        break;
-      case 2:
-      case "2":
-        this.setState({ board_name: "new" });
-        break;
-      case 3:
-      case "3":
-        this.setState({ board_name: "love" });
-        break;
-      case 4:
-      case "4":
-        this.setState({ board_name: "politic" });
-        break;
-      case 5:
-      case "5":
-        this.setState({ board_name: "changbam" });
-        break;
-      case 6:
-      case "6":
-        this.setState({ board_name: "changwon" });
-        break;
-        case 7: case '7':
-          this.setState({board_name: "study"});
-          break;
-      case 8: case '8':
-          this.setState({board_name: "old"});
-          break;   
-      case 9: case '9':
-          this.setState({board_name: "EmploymentReview"});
-          break;       
-      case 10: case '10':
-          this.setState({board_name: "EmploymentAnnouncement"});
-          break;     
-      default:
-          break;
-    }
   }
 
   render() {
@@ -205,7 +160,7 @@ class Postbody extends Component {
             </Table>
           </TableContainer>
           {
-              count === 1 
+              count === 0
             ? <></>            
             : <div className="pagination">
             <Pagination

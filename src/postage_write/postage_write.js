@@ -213,7 +213,8 @@ class PostageWrite extends Component {
       case "EmploymentAnnouncement":
           this.setState({board_key:10, board_name:"채용공고"})
         break;
-      default:
+      case "alba":
+          this.setState({board_key:11, board_name:"알바창국"})
         break;
       }
   }

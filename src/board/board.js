@@ -55,6 +55,9 @@ class Board extends React.Component {
       case "EmploymentAnnouncement":
         this.setState({board_name:"채용공고", board_key:10})
         break;
+      case "alba":
+        this.setState({board_name:"알바창국", board_key:11})
+        break;
       default:
         break;
     }
@@ -73,7 +76,9 @@ class Board extends React.Component {
           <NestedList />
         </div>
         <div className="postbody">
-          <Postbody board_key={this.state.board_key} />
+          <Postbody board_key={this.state.board_key}
+                    board_name={this.props.match.params.board_name}
+          />
         </div>
 
       
